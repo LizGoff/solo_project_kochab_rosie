@@ -16,7 +16,7 @@ import './styles/main.css';
 
 const App = () => (
   <div>
-    <Header title="Project Base" />
+    <Header title="Rosie's Resistance" />
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
