@@ -2,7 +2,7 @@
 // import Button from '@material-ui/core/Button';
 
 
-// class GalleryItem extends Component {
+// class TopicsItem extends Component {
 //     constructor() {
 //         super();
 //         this.state = {
@@ -36,7 +36,7 @@
 //                     alt={this.props.itemInfo.description} />;
 //             }
 //             return (
-//                 <div className="gallery-item">
+//                 <div className="topics-item">
 //                     <Button variant="raised" onClick= {this.clickHandleClick}>
 //                         {detailsToShow}
 //                         </Button>
@@ -48,4 +48,4 @@
 //         }
 //     }
     
-//     export default GalleryItem;
+//     export default TopicsItem;

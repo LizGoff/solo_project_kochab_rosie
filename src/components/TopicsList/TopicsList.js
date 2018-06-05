@@ -1,17 +1,19 @@
 // import React, { Component } from 'react';
-// import GalleryItem from '../GalleryItem/GalleryItem';
+// import { connect } from 'react-redux';
 
-// class GalleryList extends Component {
+// import TopicsItem from '../TopicsItem/TopicsItem';
+
+// class TopicsList extends Component {
 //     render() {
-//                 const data = this.props.galleryItems.map((item) => {
-//                 return <GalleryItem key={item.id} itemInfo={item} addLike={this.props.addLike}/>
+//                 const data = this.props.topicsItems.map((item) => {
+//                 return <TopicsItem key={item.id} itemInfo={item} addLike={this.props.addLike}/>
 //                 });
 //             return data;
 //         }
     
 // }
 
-// export default GalleryList;
+// export default TopicsList;
 
 
 
