@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
+// import TopicsPage from '../../components/TopicsPage/TopicsPage';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
+
+import Button from '@material-ui/core/Button';
+
 
 
 const mapStateToProps = state => ({
@@ -12,6 +16,7 @@ const mapStateToProps = state => ({
 });
 
 class UserPage extends Component {
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -26,6 +31,14 @@ class UserPage extends Component {
     this.props.dispatch(triggerLogout());
     // this.props.history.push('home');
   }
+
+    sendUserToPoliticsPage = () => {
+      this.props.history.push('/politics');
+  }
+
+  sendUserToWomenInHistoryPage = () => {
+    this.props.history.push('/women_in_history');
+}
 
   render() {
     let content = null;
@@ -43,6 +56,10 @@ class UserPage extends Component {
           >
             Log Out
           </button>
+          <div>
+            <Button id="mainTopicButton" variant="raised" size='large' onClick= { this.sendUserToPoliticsPage }>Politics</Button>
+            <Button id="mainTopicButton" variant="raised" size='large' onClick= { this.sendUserToWomenInHistoryPage }>Women In Our History</Button>
+          </div>
         </div>
       );
     }
@@ -51,7 +68,7 @@ class UserPage extends Component {
       <div>
         <Nav />
         {content}
-
+        {/* <PoliticsPage /> */}
       </div>
     );
   }

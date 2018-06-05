@@ -11,6 +11,9 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
+import PoliticsPage from './components/PoliticsPage/PoliticsPage'
+import WomensHistoryPage from './components/WomensHistoryPage/WomensHistoryPage'
+
 
 
 import './styles/main.css';
@@ -37,6 +40,22 @@ const App = () => (
           path="/info"
           component={InfoPage}
         />
+        {/* <Route
+          path="/topics"
+          component={TopicsPage}
+        /> */}
+        <Route
+          path="/politics"
+          component={PoliticsPage}
+        />
+        <Route
+          path="/women_in_history"
+          component={WomensHistoryPage}
+        />
+        {/* <Route
+          path="/education"
+          component={EducationPage}
+        /> */}
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />
 
@@ -46,3 +65,8 @@ const App = () => (
 );
 
 export default App;
+
+{/* <Route
+path="/"
+component={Page}
+/> */}
