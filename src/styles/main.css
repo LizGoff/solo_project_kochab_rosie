@@ -185,3 +185,65 @@ li a:hover {
     font-family: 'Times New Roman', Times, serif;
     border: 5px solid #000000;
 }
+
+#inHerstory {
+    height: 175px;
+    width: 175px;
+    margin: 20px;
+    background:  url('/images/ElizabethWarren.png');
+    background-size: 180px 180px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#inHerstory:hover {
+    height: 175px;
+    width: 175px;
+    margin: 20px;
+    background:  url('/images/ElizabethWarren.png');
+    background-size: 180px 180px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    box-shadow: 2px 2px 4px #000000;
+    color: rgb(247, 235, 69);
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#ourStory {
+    height: 175px;
+    width: 175px;
+    margin: 20px;
+    background:  url('/images/bwRosie.png');
+    background-size: 325px 175px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#ourStory:hover {
+    height: 175px;
+    width: 175px;
+    margin: 20px;
+    background:  url('/images/bwRosie.png');
+    background-size: 325px 175px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    box-shadow: 2px 2px 4px #000000;
+    color: rgb(247, 235, 69);
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}

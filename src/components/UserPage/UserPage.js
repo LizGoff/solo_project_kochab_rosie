@@ -40,6 +40,15 @@ class UserPage extends Component {
     this.props.history.push('/women_in_history');
 }
 
+sendUserToWomenLivingHerstoryPage = () => {
+  this.props.history.push('/women_in_herstory');
+}
+
+sendUserToOurStoryPage = () => {
+  this.props.history.push('/our_story');
+}
+
+
   render() {
     let content = null;
 
@@ -58,8 +67,9 @@ class UserPage extends Component {
           </button>
           <div>
             <Button id="inHistory" variant="raised" size='large' onClick= { this.sendUserToWomenInHistoryPage }>Women In Our History</Button>
+            <Button id="ourStory" variant="raised" size='large' onClick= { this.sendUserToOurStoryPage }>Our History</Button>
+            <Button id="inHerstory" variant="raised" size='large' onClick= { this.sendUserToWomenLivingHerstoryPage }>Women In Our History</Button>
             <Button id="politics" variant="raised" size='large' onClick= { this.sendUserToPoliticsPage }>Politics</Button>
-
           </div>
         </div>
       );

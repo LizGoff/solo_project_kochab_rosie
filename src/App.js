@@ -13,6 +13,9 @@ import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
 import PoliticsPage from './components/PoliticsPage/PoliticsPage'
 import WomensHistoryPage from './components/WomensHistoryPage/WomensHistoryPage'
+import WomenLivingHerstory from './components/WomenLivingHerstory/WomenLivingHerstory'
+import OurStoryPage from './components/OurStory/OurStory'
+
 
 
 
@@ -40,10 +43,6 @@ const App = () => (
           path="/info"
           component={InfoPage}
         />
-        {/* <Route
-          path="/topics"
-          component={TopicsPage}
-        /> */}
         <Route
           path="/politics"
           component={PoliticsPage}
@@ -51,6 +50,14 @@ const App = () => (
         <Route
           path="/women_in_history"
           component={WomensHistoryPage}
+        />
+        <Route
+          path="/women_in_herstory"
+          component={WomenLivingHerstory}
+        />
+        <Route
+          path="/our_story"
+          component={OurStoryPage}
         />
         {/* <Route
           path="/education"
@@ -70,3 +77,4 @@ export default App;
 path="/"
 component={Page}
 /> */
+
