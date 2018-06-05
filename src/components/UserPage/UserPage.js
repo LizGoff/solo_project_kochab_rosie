@@ -32,7 +32,7 @@ class UserPage extends Component {
     // this.props.history.push('home');
   }
 
-    sendUserToPoliticsPage = () => {
+  sendUserToPoliticsPage = () => {
       this.props.history.push('/politics');
   }
 
@@ -57,8 +57,9 @@ class UserPage extends Component {
             Log Out
           </button>
           <div>
-            <Button id="mainTopicButton" variant="raised" size='large' onClick= { this.sendUserToPoliticsPage }>Politics</Button>
-            <Button id="mainTopicButton" variant="raised" size='large' onClick= { this.sendUserToWomenInHistoryPage }>Women In Our History</Button>
+            <Button id="inHistory" variant="raised" size='large' onClick= { this.sendUserToWomenInHistoryPage }>Women In Our History</Button>
+            <Button id="politics" variant="raised" size='large' onClick= { this.sendUserToPoliticsPage }>Politics</Button>
+
           </div>
         </div>
       );

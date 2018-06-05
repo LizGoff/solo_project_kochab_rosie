@@ -66,7 +66,7 @@ const App = () => (
 
 export default App;
 
-{/* <Route
+/* <Route
 path="/"
 component={Page}
-/> */}
+/> */
