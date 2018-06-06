@@ -33,20 +33,28 @@ class UserPage extends Component {
   }
 
   sendUserToPoliticsPage = () => {
-      this.props.history.push('/politics');
+    this.props.history.push('/politics');
   }
 
   sendUserToWomenInHistoryPage = () => {
     this.props.history.push('/women_in_history');
-}
+  }
 
-sendUserToWomenLivingHerstoryPage = () => {
-  this.props.history.push('/women_in_herstory');
-}
+  sendUserToWomenLivingHerstoryPage = () => {
+    this.props.history.push('/women_in_herstory');
+  }
 
-sendUserToOurStoryPage = () => {
-  this.props.history.push('/our_story');
-}
+  sendUserToOurStoryPage = () => {
+    this.props.history.push('/our_story');
+  }
+
+  sendUserToTechPage = () => {
+    this.props.history.push('/technology');
+  }
+
+  sendUserToEducationPage = () => {
+    this.props.history.push('/education');
+  }
 
 
   render() {
@@ -66,10 +74,12 @@ sendUserToOurStoryPage = () => {
             Log Out
           </button>
           <div>
-            <Button id="inHistory" variant="raised" size='large' onClick= { this.sendUserToWomenInHistoryPage }>Women In Our History</Button>
-            <Button id="ourStory" variant="raised" size='large' onClick= { this.sendUserToOurStoryPage }>Our History</Button>
-            <Button id="inHerstory" variant="raised" size='large' onClick= { this.sendUserToWomenLivingHerstoryPage }>Women In Our History</Button>
-            <Button id="politics" variant="raised" size='large' onClick= { this.sendUserToPoliticsPage }>Politics</Button>
+            <Button id="inHistory" variant="raised" onClick={this.sendUserToWomenInHistoryPage}>Women In Our History</Button>
+            <Button id="ourStory" variant="raised" onClick={this.sendUserToOurStoryPage}>Our History</Button>
+            <Button id="inHerstory" variant="raised" onClick={this.sendUserToWomenLivingHerstoryPage}>Women Living HerStory</Button>
+            <Button id="education" variant="raised" onClick={this.sendUserToEducationPage}>Education</Button>
+            <Button id="politics" variant="raised" onClick={this.sendUserToPoliticsPage}>Politics</Button>
+            <Button id="tech" variant="raised" onClick={this.sendUserToTechPage}>Technology</Button>
           </div>
         </div>
       );
@@ -79,7 +89,6 @@ sendUserToOurStoryPage = () => {
       <div>
         <Nav />
         {content}
-        {/* <PoliticsPage /> */}
       </div>
     );
   }

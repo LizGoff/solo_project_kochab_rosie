@@ -15,6 +15,8 @@ import PoliticsPage from './components/PoliticsPage/PoliticsPage'
 import WomensHistoryPage from './components/WomensHistoryPage/WomensHistoryPage'
 import WomenLivingHerstory from './components/WomenLivingHerstory/WomenLivingHerstory'
 import OurStoryPage from './components/OurStory/OurStory'
+import TechPage from './components/Technology/Technology'
+import EducationPage from './components/Education/Education'
 
 
 
@@ -59,10 +61,14 @@ const App = () => (
           path="/our_story"
           component={OurStoryPage}
         />
-        {/* <Route
+        <Route
+          path="/technology"
+          component={TechPage}
+        />
+        <Route
           path="/education"
           component={EducationPage}
-        /> */}
+        />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />
 

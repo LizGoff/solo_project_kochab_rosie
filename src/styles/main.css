@@ -125,12 +125,12 @@ li a:hover {
 }
 
 #inHistory {
-    height: 175px;
-    width: 175px;
+    height: 200px;
+    width: 200px;
     margin: 20px;
     background:  url('/images/BillieHoliday.png');
-    background-size: 180px 180px;
-    font-size: 18px;
+    background-size: 200px 200px;
+    font-size: 21px;
     letter-spacing: 3px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
@@ -140,28 +140,19 @@ li a:hover {
 }
 
 #inHistory:hover {
-    height: 175px;
-    width: 175px;
-    margin: 20px;
-    background:  url('/images/BillieHoliday.png');
-    background-size: 180px 180px;
-    font-size: 18px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px #000000;
-    box-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
     color: rgb(247, 235, 69);
-    font-family: 'Times New Roman', Times, serif;
-    border: 5px solid #000000;
+
 }
 
 #politics {
-    height: 175px;
-    width: 175px;
+    height: 200px;
+    width: 200px;
     margin: 20px;
     background:  url('/images/congress.png');
-    background-size: 180px 180px;
-    font-size: 18px;
+    background-size: 200px 200px;
+    font-size: 21px;
     letter-spacing: 3px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
@@ -171,28 +162,18 @@ li a:hover {
 }
 
 #politics:hover {
-    height: 175px;
-    width: 175px;
-    margin: 20px;
-    background:  url('/images/congress.png');
-    background-size: 180px 180px;
-    font-size: 18px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px #000000;
-    box-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
     color: rgb(247, 235, 69);
-    font-family: 'Times New Roman', Times, serif;
-    border: 5px solid #000000;
 }
 
 #inHerstory {
-    height: 175px;
-    width: 175px;
+    height: 200px;
+    width: 200px;
     margin: 20px;
     background:  url('/images/ElizabethWarren.png');
-    background-size: 180px 180px;
-    font-size: 18px;
+    background-size: 200px 200px;
+    font-size: 21px;
     letter-spacing: 3px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
@@ -202,28 +183,18 @@ li a:hover {
 }
 
 #inHerstory:hover {
-    height: 175px;
-    width: 175px;
-    margin: 20px;
-    background:  url('/images/ElizabethWarren.png');
-    background-size: 180px 180px;
-    font-size: 18px;
-    letter-spacing: 3px;
-    font-weight: bold;
-    text-shadow: 2px 2px 4px #000000;
-    box-shadow: 2px 2px 4px #000000;
+    text-shadow: 2px 2px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
     color: rgb(247, 235, 69);
-    font-family: 'Times New Roman', Times, serif;
-    border: 5px solid #000000;
 }
 
 #ourStory {
-    height: 175px;
-    width: 175px;
+    height: 200px;
+    width: 200px;
     margin: 20px;
     background:  url('/images/bwRosie.png');
-    background-size: 325px 175px;
-    font-size: 18px;
+    background-size: 375px 200px;
+    font-size: 21px;
     letter-spacing: 3px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
@@ -233,17 +204,50 @@ li a:hover {
 }
 
 #ourStory:hover {
-    height: 175px;
-    width: 175px;
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#tech {
+    height: 200px;
+    width: 200px;
     margin: 20px;
-    background:  url('/images/bwRosie.png');
-    background-size: 325px 175px;
-    font-size: 18px;
+    background:  url('/images/Tech.jpg');
+    background-size: 250px 200px;
+    font-size: 21px;
     letter-spacing: 3px;
     font-weight: bold;
     text-shadow: 2px 2px 4px #000000;
-    box-shadow: 2px 2px 4px #000000;
-    color: rgb(247, 235, 69);
+    color: white;
     font-family: 'Times New Roman', Times, serif;
     border: 5px solid #000000;
 }
+
+#tech:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#education {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/education.JPG');
+    background-size: 250px 200px;
+    font-size: 21px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#education:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
