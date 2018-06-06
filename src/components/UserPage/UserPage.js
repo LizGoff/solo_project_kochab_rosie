@@ -31,53 +31,11 @@ class UserPage extends Component {
     // this.props.history.push('home');
   }
 
-  sendUserToPoliticsPage = () => {
-    this.props.history.push('/politics');
-  }
-
-  sendUserToWomenInHistoryPage = () => {
-    this.props.history.push('/women_in_history');
-  }
-
-  sendUserToWomenLivingHerstoryPage = () => {
-    this.props.history.push('/women_in_herstory');
-  }
-
-  sendUserToOurStoryPage = () => {
-    this.props.history.push('/our_story');
-  }
-
-  sendUserToTechPage = () => {
-    this.props.history.push('/technology');
-  }
-
-  sendUserToEducationPage = () => {
-    this.props.history.push('/education');
-  }
-
-  sendUserToHealthPage = () => {
-    this.props.history.push('/health');
-  }
-
-  sendUserToSciencePage = () => {
-    this.props.history.push('/science');
-  }
-
-  sendUserToArtsPage = () => {
-    this.props.history.push('/arts');
-  }
-
-  sendUserToLgbtqiPage = () => {
-    this.props.history.push('/lbgtqi');
-  }
-
-  sendUserToWageGapPage = () => {
-    this.props.history.push('/wage_gap');
-  }
-
-  sendUserToEndingViolencePage = () => {
-    this.props.history.push('/ending_violence');
-  }
+  sendUserToCorrespondingPage = (urlString) => {
+    return () => {
+      this.props.history.push(urlString);
+    }
+  };
 
 
   render() {
@@ -98,21 +56,21 @@ class UserPage extends Component {
           </button>
           <div>
 
-            <Button id="inHistory" variant="raised" onClick={this.sendUserToWomenInHistoryPage}>Women In Our History</Button>
-            <Button id="ourStory" variant="raised" onClick={this.sendUserToOurStoryPage}>Our History</Button>
-            <Button id="inHerstory" variant="raised" onClick={this.sendUserToWomenLivingHerstoryPage}>Women Living HerStory</Button>
+            <Button id="inHistory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_history')}>Women In Our History</Button>
+            <Button id="ourStory" variant="raised" onClick={this.sendUserToCorrespondingPage()}>Our History</Button>
+            <Button id="inHerstory" variant="raised" onClick={this.this.sendUserToCorrespondingPage()}>Women Living HerStory</Button>
 
-            <Button id="pride" variant="raised" onClick={this.sendUserToLgbtqiPage}>LBGTQI Community</Button>
-            <Button id="wage" variant="raised" onClick={this.sendUserToWageGapPage}>The Wage Gap</Button>
-            <Button id="endingViolence" variant="raised" onClick={this.sendUserToEndingViolencePage}>Ending Violence</Button>
+            <Button id="pride" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/lbgtqi')}>LBGTQI Community</Button>
+            <Button id="wage" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/wage_gap')}>The Wage Gap</Button>
+            <Button id="endingViolence" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/ending_violence')}>Ending Violence</Button>
 
-            <Button id="science" variant="raised" onClick={this.sendUserToSciencePage}>Women In Science</Button>
-            <Button id="health" variant="raised" onClick={this.sendUserToHealthPage}>Health</Button>
-            <Button id="art" variant="raised" onClick={this.sendUserToArtsPage}>Women In The Arts</Button>
+            <Button id="science" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/science')}>Women In Science</Button>
+            <Button id="health" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/health')}>Health</Button>
+            <Button id="art" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/arts')}>Women In The Arts</Button>
 
-            <Button id="education" variant="raised" onClick={this.sendUserToEducationPage}>Education</Button>
-            <Button id="politics" variant="raised" onClick={this.sendUserToPoliticsPage}>Politics</Button>
-            <Button id="tech" variant="raised" onClick={this.sendUserToTechPage}>Technology</Button>
+            <Button id="education" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/education')}>Education</Button>
+            <Button id="politics" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/politics')}>Politics</Button>
+            <Button id="tech" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/technology')}>Technology</Button>
 
 
           </div>
