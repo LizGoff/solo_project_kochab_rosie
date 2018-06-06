@@ -21,6 +21,7 @@ if (process.env.NODE_ENV === 'development') {
   middlewares.push(logger);
 }
 
+
 const store = createStore(
   reducer,
   preloadedState,
@@ -29,9 +30,4 @@ const store = createStore(
 
 sagaMiddleware.run(rootSaga);
 
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('react-root'),
-);
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('react-root'), );

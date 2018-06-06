@@ -1,63 +1,88 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
 
-const mapStateToProps = state => ({
-  user: state.user,
-});
+const mapReduxStateToProps = (reduxState) => (
+  { reduxState }
+);
 
-class Form extends Component {
+// const mapStateToProps = state => ({
+//   user: state.user,
+// });
+
+class Form extends Component { 
+
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     results: []
+  //   }
+  // }
 
   constructor(props) {
     super(props);
     this.state = {
-        results: []
+        subtopics: { subtopic: '', user_id: '', topic_id: '' }
     }
 }
 
-componentDidMount() {
-  console.log('component did mount');
-  this.fetchData();
-}
+  componentDidMount() {
+    console.log('component did mount');
+    this.fetchData();
+  }
 
-fetchData() {
-  axios.get('/api/subtopics').then((response) => {
-      console.log(response.data[0]);
-      this.setState({
-          results: response.data
-      })
-  }).catch((error) => {
-      alert('error with GET');
-  })
-}
+  // fetchData() {
+  //   axios.get('/api/subtopics').then((response) => {
+  //     console.log(response.data[0]);
+  //     this.setState({
+  //       results: response.data
+  //     })
+  //   }).catch((error) => {
+  //     alert('error with GET');
+  //   })
+  // }
 
-sendData = () => {
-  axios.post('/api/subtopics', this.props.reduxState.firstReducer).then((response) => {
-      console.log('success');
-  }).catch((error) => {
-      alert('POST error');
-      console.log(error);
-  });
-}
+  // sendData = () => {
+  //   axios.post('/api/subtopics', this.props.reduxState.firstReducer).then((response) => {
+  //     console.log('success');
+  //   }).catch((error) => {
+  //     alert('POST error');
+  //     console.log(error);
+  //   });
+  // }
 
-sendData = id => {
-  const deletion = `/api/subtopics/${id}`
-  axios.delete(deletion).then((response) => {
-      this.fetchData();
-      console.log('success!');
-      const action = { type: 'DELETE' }
-      this.props.dispatch(action);
-  }).catch((error) => {
-      alert('There was a problem with axios POST delete')
-  })
-}
+  // sendData = id => {
+  //   const deletion = `/api/subtopics/${id}`
+  //   axios.delete(deletion).then((response) => {
+  //     this.fetchData();
+  //     console.log('success!');
+  //     const action = { type: 'DELETE' }
+  //     this.props.dispatch(action);
+  //   }).catch((error) => {
+  //     alert('There was a problem with axios POST delete')
+  //   })
+  // }
 
-  sendUserToCorrespondingPage = (urlString) => {
-    return () => {
-      this.props.history.push(urlString);
-    }
-  };
+  // sendUserToCorrespondingPage = (urlString) => {
+  //   return () => {
+  //     this.props.history.push(urlString);
+  //   }
+  // };
+
+  // As we change the input, update local state
+  handleUserChange = (event) => {
+    this.setState({
+      customer: { ...this.state.subtopics, [event.target.subtopic]: event.target.value }
+    })
+  }
+
+  sendUserToRedux = () => {
+    console.log('button clicked');
+    const action = { type: 'ADD_SUBTOPIC', payload: this.state.subtopics };
+    this.props.dispatch(action);
+  }
 
 
   render() {
@@ -67,9 +92,9 @@ sendData = id => {
       content = (
         <div>
           {this.props.data}
-        <div>
+          <div>
 
-            <Button id="inHistory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_history')}>Women In Our History</Button>
+            {/* <Button id="inHistory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_history')}>Women In Our History</Button>
             <Button id="ourStory" variant="raised" onClick={this.sendUserToCorrespondingPage()}>Our History</Button>
             <Button id="inHerstory" variant="raised" onClick={this.this.sendUserToCorrespondingPage()}>Women Living HerStory</Button>
 
@@ -83,8 +108,17 @@ sendData = id => {
 
             <Button id="education" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/education')}>Education</Button>
             <Button id="politics" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/politics')}>Politics</Button>
-            <Button id="tech" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/technology')}>Technology</Button>
+            <Button id="tech" variant="raised" onClick={this.this.sendUserToCorrespondingPage('/technology')}>Technology</Button> */}
 
+
+            <TextField
+              id="addSubtopic"
+              onChange={this.handleUserChange}
+              name="name"
+              label="Add Subtopic"
+              placeholder="Subtopic"
+              margin="normal" />
+            <Button id="button" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Comment</Button>
 
           </div>
         </div>
