@@ -17,6 +17,8 @@ import WomenLivingHerstory from './components/WomenLivingHerstory/WomenLivingHer
 import OurStoryPage from './components/OurStory/OurStory'
 import TechPage from './components/Technology/Technology'
 import EducationPage from './components/Education/Education'
+import HealthPage from './components/WomensHealth/WomensHealth'
+import SciencePage from './components/Science/Science'
 
 
 
@@ -68,6 +70,14 @@ const App = () => (
         <Route
           path="/education"
           component={EducationPage}
+        />
+        <Route
+          path="/health"
+          component={HealthPage}
+        />
+        <Route
+          path="/science"
+          component={SciencePage}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />

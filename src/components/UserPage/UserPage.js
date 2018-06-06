@@ -56,6 +56,14 @@ class UserPage extends Component {
     this.props.history.push('/education');
   }
 
+  sendUserToHealthPage = () => {
+    this.props.history.push('/health');
+  }
+
+  sendUserToSciencePage = () => {
+    this.props.history.push('/health');
+  }
+
 
   render() {
     let content = null;
@@ -80,6 +88,10 @@ class UserPage extends Component {
             <Button id="education" variant="raised" onClick={this.sendUserToEducationPage}>Education</Button>
             <Button id="politics" variant="raised" onClick={this.sendUserToPoliticsPage}>Politics</Button>
             <Button id="tech" variant="raised" onClick={this.sendUserToTechPage}>Technology</Button>
+            <Button id="science" variant="raised" onClick={this.sendUserToSciencePage}>Science</Button>
+            <Button id="health" variant="raised" onClick={this.sendUserToHealthPage}>Health</Button>
+
+
           </div>
         </div>
       );

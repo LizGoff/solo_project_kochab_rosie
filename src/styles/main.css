@@ -28,7 +28,7 @@ body {
 }
 
 form {
-    background-color: #F5F5F5;
+    background-color: rgb(243, 222, 152);
     border: 8px solid #303030;
     width: 175px;
     height: 175px;
@@ -41,7 +41,8 @@ form {
 
 input {
     margin: 15px;
-    margin-bottom: -25px;
+    margin-bottom: -30px;
+    height: 20px;
 }
 
 input[type="submit"] {
@@ -251,3 +252,44 @@ li a:hover {
     color: rgb(247, 235, 69);
 }
 
+#health {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/food.png');
+    background-size: 250px 200px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#health:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#science {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/RachelCarson.png');
+    background-size: 250px 200px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#science:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
