@@ -1,7 +1,15 @@
 // import { combineReducers } from 'redux';
 
-const firstReducer = (state = {}, action) => {
+const newState = {
+    id: '',
+    subtopic: '',
+    user_id: '',
+    topic_id: ''
+};
+
+const firstReducer = (state = newState, action) => {
     console.log('I am the firstReducer!');
+
     if (action.type === 'ADD_SUBTOPIC') {
       state = { ...state, subtopic: action.payload };
       return state;
@@ -9,8 +17,9 @@ const firstReducer = (state = {}, action) => {
       //     console.log('userReducer replacing user',action);
       //     return action.payload;
       // } else if(action.type === "CLEAR_INPUT") {
-    }
+    } else {
     return state;
+    }
   }
 
   export default firstReducer;

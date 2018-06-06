@@ -17,7 +17,7 @@ class EducationPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtopics: [{ subtopic: 'Flying monkeys?' }, { subtopic: 'Flying monkeys are super weird?' }]
+      subtopics: [{ subtopic: '' }]
     }
   }
 
@@ -40,6 +40,7 @@ class EducationPage extends Component {
   sendData = () => {
     axios.post('/api/education', this.props.reduxState.firstReducer).then((response) => {
       console.log('success');
+
     }).catch((error) => {
       alert('POST error in education file');
       console.log(error);
@@ -66,7 +67,7 @@ class EducationPage extends Component {
 
   handleSubtopicChange = (event) => {
     this.setState({
-      customer: { ...this.state.subtopics, [event.target.subtopic]: event.target.value }
+      subtopics: { ...this.state.subtopics, [event.target.subtopic]: event.target.value }
     })
   }
 
@@ -78,24 +79,28 @@ class EducationPage extends Component {
 
 
   render() {
-    let content = null;
-
+    let content = null
+    // let contentDisplay = this.state.subtopics.map((list, i) => {
+    //   return (this.props.subtopics)
+  // });
     if (this.props) {
       content = (
         <div>
           {this.props.data}
           <div>
 
-            <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>Education</Button>
+            <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>education</Button>
 
-{JSON.stringify(this.state.subtopics)};
+            {JSON.stringify(this.state.subtopics)};
+
             <TextField
               id="addSubtopic"
               onChange={this.handleSubtopicChange}
-              name="name"
+              subtopic={this.state.subtopics}
               label="Add Subtopic"
               placeholder="Subtopic"
               margin="normal" />
+
             <Button id="button" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Comment</Button>
 
           </div>
