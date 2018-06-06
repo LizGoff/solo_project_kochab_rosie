@@ -19,8 +19,10 @@ import TechPage from './components/Technology/Technology'
 import EducationPage from './components/Education/Education'
 import HealthPage from './components/WomensHealth/WomensHealth'
 import SciencePage from './components/Science/Science'
-
-
+import ArtsPage from './components/WomenInArts/WomenInArts'
+import LgbtqiPage from './components/LBGTQAI_Community/LBGTQAI_Community'
+import EndingViolencePage from './components/EndingViolence/EndingViolence'
+import WageGapPage from './components/WageGap/WageGap'
 
 
 import './styles/main.css';
@@ -78,6 +80,22 @@ const App = () => (
         <Route
           path="/science"
           component={SciencePage}
+        />
+        <Route
+          path="/arts"
+          component={ArtsPage}
+        />
+        <Route
+          path="/lbgtqi"
+          component={LgbtqiPage}
+        />
+          <Route
+          path="/wage_gap"
+          component={WageGapPage}
+        />
+          <Route
+          path="/ending_violence"
+          component={EndingViolencePage}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />

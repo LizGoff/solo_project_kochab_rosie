@@ -67,7 +67,7 @@ class LoginPage extends Component {
         <form onSubmit={this.login}>
           <h1 id='login'>Login</h1>
           <div>
-            <label htmlFor="username">
+            <label id="username" htmlFor="username">
               Username:
               <input
                 type="text"
@@ -78,7 +78,7 @@ class LoginPage extends Component {
             </label>
           </div>
           <div>
-            <label htmlFor="password">
+            <label id="password" htmlFor="password">
               Password:
               <input
                 type="password"

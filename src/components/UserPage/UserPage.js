@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+
 import Nav from '../../components/Nav/Nav';
-// import TopicsPage from '../../components/TopicsPage/TopicsPage';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import Button from '@material-ui/core/Button';
-
 
 
 const mapStateToProps = state => ({
@@ -61,7 +60,23 @@ class UserPage extends Component {
   }
 
   sendUserToSciencePage = () => {
-    this.props.history.push('/health');
+    this.props.history.push('/science');
+  }
+
+  sendUserToArtsPage = () => {
+    this.props.history.push('/arts');
+  }
+
+  sendUserToLgbtqiPage = () => {
+    this.props.history.push('/lbgtqi');
+  }
+
+  sendUserToWageGapPage = () => {
+    this.props.history.push('/wage_gap');
+  }
+
+  sendUserToEndingViolencePage = () => {
+    this.props.history.push('/ending_violence');
   }
 
 
@@ -74,7 +89,7 @@ class UserPage extends Component {
           <h1
             id="welcome"
           >
-            Welcome, {this.props.user.userName}!
+            Welcome, {this.props.user.userName}
           </h1>
           <button id="logout"
             onClick={this.logout}
@@ -82,14 +97,22 @@ class UserPage extends Component {
             Log Out
           </button>
           <div>
+
             <Button id="inHistory" variant="raised" onClick={this.sendUserToWomenInHistoryPage}>Women In Our History</Button>
             <Button id="ourStory" variant="raised" onClick={this.sendUserToOurStoryPage}>Our History</Button>
             <Button id="inHerstory" variant="raised" onClick={this.sendUserToWomenLivingHerstoryPage}>Women Living HerStory</Button>
+
+            <Button id="pride" variant="raised" onClick={this.sendUserToLgbtqiPage}>LBGTQI Community</Button>
+            <Button id="wage" variant="raised" onClick={this.sendUserToWageGapPage}>The Wage Gap</Button>
+            <Button id="endingViolence" variant="raised" onClick={this.sendUserToEndingViolencePage}>Ending Violence</Button>
+
+            <Button id="science" variant="raised" onClick={this.sendUserToSciencePage}>Women In Science</Button>
+            <Button id="health" variant="raised" onClick={this.sendUserToHealthPage}>Health</Button>
+            <Button id="art" variant="raised" onClick={this.sendUserToArtsPage}>Women In The Arts</Button>
+
             <Button id="education" variant="raised" onClick={this.sendUserToEducationPage}>Education</Button>
             <Button id="politics" variant="raised" onClick={this.sendUserToPoliticsPage}>Politics</Button>
             <Button id="tech" variant="raised" onClick={this.sendUserToTechPage}>Technology</Button>
-            <Button id="science" variant="raised" onClick={this.sendUserToSciencePage}>Science</Button>
-            <Button id="health" variant="raised" onClick={this.sendUserToHealthPage}>Health</Button>
 
 
           </div>

@@ -28,7 +28,7 @@ body {
 }
 
 form {
-    background-color: rgb(243, 222, 152);
+    background-color: rgb(241, 215, 129);
     border: 8px solid #303030;
     width: 175px;
     height: 175px;
@@ -38,6 +38,12 @@ form {
     border-radius: 2px;
     margin-right: 150px;
 }
+
+/* #username {
+}
+
+#password {
+} */
 
 input {
     margin: 15px;
@@ -289,6 +295,90 @@ li a:hover {
 }
 
 #science:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#art {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/JennierMally.png');
+    background-size: 210px 210px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#art:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#pride {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/ChelseaManning.png');
+    background-size: 210px 210px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#pride:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#wage {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/money.png');
+    background-size: 210px 210px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#wage:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+#endingViolence {
+    height: 200px;
+    width: 200px;
+    margin: 20px;
+    background:  url('/images/EndingViolence.png');
+    background-size: 210px 210px;
+    font-size: 24px;
+    letter-spacing: 3px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px #000000;
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    border: 5px solid #000000;
+}
+
+#endingViolence:hover {
     text-shadow: 3px 3px 6px #000000;
     box-shadow: 2px 2px 6px #000000;
     color: rgb(247, 235, 69);

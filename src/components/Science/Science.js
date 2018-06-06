@@ -13,7 +13,7 @@ const mapStateToProps = state => ({
       let content = null;
       return (
           <div>
-          <p>Science</p>
+          <p>Women In Science</p>
           <Nav />
           { content }
         </div>
