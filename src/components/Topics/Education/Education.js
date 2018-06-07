@@ -24,7 +24,6 @@ class EducationPage extends Component {
   }
 
   componentDidMount() {
-    // console.log('component did mount');
     this.fetchData();
   }
 
@@ -39,8 +38,9 @@ class EducationPage extends Component {
     })
   }
 
-  sendData = () => {
-    axios.post('/api/education', this.props.reduxState.firstReducer).then((response) => {
+  sendUserToRedux = () => {
+    console.log('button clicked');
+    axios.post('/api/education', this.state).then((response) => {
       console.log('success');
 
     }).catch((error) => {
@@ -48,19 +48,6 @@ class EducationPage extends Component {
       console.log(error);
     });
   }
-
-  sendUserToRedux = () => {
-    console.log('button clicked');
-    const action = { type: 'ADD_SUBTOPIC', payload: this.state };
-    this.props.dispatch(action);
-  }
-
-  // onButtonClick = () => {
-  //   this.sendUserToRedux();
-  //   this.sendData(); {
-  //   return this.state;
-  //   }
-  // }
 
   sendDataToDelete = id => {
     const deletion = `/api/education/${id}`
@@ -91,13 +78,13 @@ class EducationPage extends Component {
     // let contentDisplay = this.state.subtopics.map((list, i) => {
     //   return (this.props.subtopics)
     // });
-    
+
     if (this.props) {
       content = (
         <div>
           {this.props.data}
           <div>
-          {/* {this.state.subtopics.map((subtopic, i) => (
+            {/* {this.state.subtopics.map((subtopic, i) => (
                                 <div key={i}>{this.props.subtopics.subtopic}<Button onClick={this.sendUserToCorrespondingPage('/education')} variant="outlined" size="small" color="primary">topics</Button>
                                 </div>
                             ))} */}
@@ -106,7 +93,7 @@ class EducationPage extends Component {
 
             {JSON.stringify(this.state.subtopics)};
 
-  
+
             <TextField
               id="addSubtopic"
               onChange={this.handleSubtopicChange}
@@ -116,9 +103,8 @@ class EducationPage extends Component {
               margin="normal" />
 
             <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Subtopic</Button>
-            <Button id="submit" variant="outlined" color="secondary" onClick={this.sendData}>Submit</Button>
             <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button>
-            
+
 
           </div>
         </div >
