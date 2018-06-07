@@ -393,6 +393,7 @@ li a:hover {
 
 #addSubtopic {
     width: 500px;
+    margin-left: 20px;
 }
 
 #listConvos {
@@ -402,9 +403,10 @@ li a:hover {
     letter-spacing: 3px;
     font-weight: bold;
     color: #000000;
-    box-shadow: 2px 2px 6px #000000;
+    box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
     border: 2px solid #000000;
+    border-radius: 3px;
 }
 
 
