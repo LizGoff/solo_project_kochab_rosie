@@ -11,18 +11,18 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
-import PoliticsPage from './components/PoliticsPage/PoliticsPage'
-import WomensHistoryPage from './components/WomensHistoryPage/WomensHistoryPage'
-import WomenLivingHerstory from './components/WomenLivingHerstory/WomenLivingHerstory'
-import OurStoryPage from './components/OurStory/OurStory'
-import TechPage from './components/Technology/Technology'
-import EducationPage from './components/Education/Education'
-import HealthPage from './components/WomensHealth/WomensHealth'
-import SciencePage from './components/Science/Science'
-import ArtsPage from './components/WomenInArts/WomenInArts'
-import LgbtqiPage from './components/LBGTQAI_Community/LBGTQAI_Community'
-import EndingViolencePage from './components/EndingViolence/EndingViolence'
-import WageGapPage from './components/WageGap/WageGap'
+import PoliticsPage from './components/Topics/PoliticsPage/PoliticsPage'
+import WomensHistoryPage from './components/Topics/WomensHistoryPage/WomensHistoryPage'
+import WomenLivingHerstory from './components/Topics/WomenLivingHerstory/WomenLivingHerstory'
+import OurStoryPage from './components/Topics/OurStory/OurStory'
+import TechPage from './components/Topics/Technology/Technology'
+import EducationPage from './components/Topics/Education/Education'
+import HealthPage from './components/Topics/WomensHealth/WomensHealth'
+import SciencePage from './components/Topics/Science/Science'
+import ArtsPage from './components/Topics/WomenInArts/WomenInArts'
+import LgbtqiPage from './components/Topics/LBGTQAI_Community/LBGTQAI_Community'
+import EndingViolencePage from './components/Topics/EndingViolence/EndingViolence'
+import WageGapPage from './components/Topics/WageGap/WageGap'
 
 
 import './styles/main.css';
