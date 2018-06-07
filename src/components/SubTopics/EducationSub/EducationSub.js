@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import Nav from '../../Nav/Nav';
 
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -25,7 +24,6 @@ class EducationSub extends Component {
   }
 
   componentDidMount() {
-    // console.log('component did mount');
     this.fetchData();
   }
 
@@ -51,17 +49,17 @@ class EducationSub extends Component {
     });
   }
 
-  // sendDataToDelete = id => {
-  //   const deletion = `/api/education/${id}`
-  //   axios.delete(deletion).then((response) => {
-  //     this.fetchData();
-  //     console.log('success!');
-  //     const action = { type: 'DELETE' }
-  //     this.props.dispatch(action);
-  //   }).catch((error) => {
-  //     alert('There was a problem with axios POST delete')
-  //   })
-  // }
+  sendDataToDelete = id => {
+    const deletion = `/api/education/${id}`
+    axios.delete(deletion).then((response) => {
+      this.fetchData();
+      console.log('success!');
+      const action = { type: 'DELETE' }
+      this.props.dispatch(action);
+    }).catch((error) => {
+      alert('There was a problem with axios POST delete Sub')
+    })
+  }
 
   sendUserToCorrespondingPage = (urlString) => {
     return () => {
@@ -91,6 +89,8 @@ class EducationSub extends Component {
                                 </div>
                             ))} */}
 
+            {/* <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button> */}
+
             {JSON.stringify(this.state.subtopics)};
 
 
@@ -103,7 +103,7 @@ class EducationSub extends Component {
               margin="normal" />
 
             <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendData}>Add Subtopic</Button>
-            {/* <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button> */}
+            <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button>
 
 
           </div>
