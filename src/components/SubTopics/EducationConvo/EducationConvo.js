@@ -55,12 +55,6 @@ class EducationConvo extends Component {
     this.props.dispatch(action);
   }
 
-  // onButtonClick = () => {
-  //   this.sendUserToRedux();
-  //   this.sendData(); {
-  //   return this.state;
-  //   }
-  // }
 
   sendDataToDelete = id => {
     const deletion = `/api/education/${id}`
