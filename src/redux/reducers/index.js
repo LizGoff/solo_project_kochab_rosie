@@ -6,7 +6,6 @@ import firstReducer from './reducers';
 const store = combineReducers({
   user,
   login,
-  firstReducer,
 });
 
 export default store;

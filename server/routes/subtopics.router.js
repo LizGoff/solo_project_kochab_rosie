@@ -49,15 +49,15 @@ router.post('/', (req, res) => {
   }
 });
 
-router.delete('/', (req, res) => {
-  const queryText = 'DELETE FROM subtopics WHERE id=$1';
-  pool.query(queryText, [req.query.id])
-    .then(() => { res.sendStatus(200); })
-    .catch((err) => {
-      console.log('Error completing DELETE query', err);
-      res.sendStatus(500);
-    });
-});
+// router.delete('/', (req, res) => {
+//   const queryText = 'DELETE FROM subtopics WHERE id=$1';
+//   pool.query(queryText, [req.query.id])
+//     .then(() => { res.sendStatus(200); })
+//     .catch((err) => {
+//       console.log('Error completing DELETE query', err);
+//       res.sendStatus(500);
+//     });
+// });
 
 // router.put('/', (req, res) => {
 //   const newPlant = req.body;

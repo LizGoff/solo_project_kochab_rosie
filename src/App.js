@@ -29,13 +29,14 @@ import WageGapPage from './components/Topics/WageGap/WageGap'
 
 // ------------- Convo Pages --------------
 
-import EducationConvo from './components/SubTopics/EducationConvo/EducationConvo'
+import EducationConvo from './components/SubTopics/EducationSub/EducationSub'
 
 import EducationConvoPage from './components/Convo/EducationConvo1/EducationConvo1'
 
 
 
 import './styles/main.css';
+import EducationSub from './components/SubTopics/EducationSub/EducationSub';
 
 const App = () => (
   <div>
@@ -148,7 +149,7 @@ const App = () => (
           component={PoliticsPage}
         />
         <Route
-          path="/politics/convo"
+          path="/politics/convo8"
           component={PoliticsPage}
         />
         <Route
@@ -250,7 +251,7 @@ const App = () => (
 
         <Route
           path="/education/convo1"
-          component={EducationPage}
+          component={EducationSub}
         />
                 <Route
           path="/education/convo2"
@@ -261,7 +262,7 @@ const App = () => (
           component={EducationPage}
         />
                 <Route
-          path="/education/convo4"
+          exact path="/education/convo4"
           component={EducationPage}
         />
                 <Route
