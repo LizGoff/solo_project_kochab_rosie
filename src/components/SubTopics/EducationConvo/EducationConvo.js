@@ -12,7 +12,7 @@ const mapReduxStateToProps = (reduxState) => (
   { reduxState }
 );
 
-class EducationPage extends Component {
+class EducationConvo extends Component {
 
   constructor(props) {
     super(props);
@@ -102,8 +102,6 @@ class EducationPage extends Component {
                                 </div>
                             ))} */}
 
-            <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button>
-
             {JSON.stringify(this.state.subtopics)};
 
   
@@ -134,4 +132,4 @@ class EducationPage extends Component {
   }
 }
 
-export default connect(mapReduxStateToProps)(EducationPage);
+export default connect(mapReduxStateToProps)(EducationConvo);

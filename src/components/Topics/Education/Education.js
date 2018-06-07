@@ -1,77 +1,36 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 import Nav from '../../Nav/Nav';
 
+import { USER_ACTIONS } from '../../../redux/actions/userActions';
+import { triggerLogout } from '../../../redux/actions/loginActions';
+
+
+
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 
 
-const mapReduxStateToProps = (reduxState) => (
-  { reduxState }
-);
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 class EducationPage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      subtopics: {
-        subtopic: []
-      },
+  componentDidMount() {
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+  }
+
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
     }
   }
 
-  componentDidMount() {
-    // console.log('component did mount');
-    this.fetchData();
-  }
-
-  fetchData() {
-    axios.get('/api/education').then((response) => {
-      console.log(response.data[0]);
-      this.setState({
-        subtopics: response.data
-      })
-    }).catch((error) => {
-      alert('error with GET in education file');
-    })
-  }
-
-  sendData = () => {
-    axios.post('/api/education', this.props.reduxState.firstReducer).then((response) => {
-      console.log('success');
-
-    }).catch((error) => {
-      alert('POST error in education file');
-      console.log(error);
-    });
-  }
-
-  sendUserToRedux = () => {
-    console.log('button clicked');
-    const action = { type: 'ADD_SUBTOPIC', payload: this.state };
-    this.props.dispatch(action);
-  }
-
-  // onButtonClick = () => {
-  //   this.sendUserToRedux();
-  //   this.sendData(); {
-  //   return this.state;
-  //   }
-  // }
-
-  sendDataToDelete = id => {
-    const deletion = `/api/education/${id}`
-    axios.delete(deletion).then((response) => {
-      this.fetchData();
-      console.log('success!');
-      const action = { type: 'DELETE' }
-      this.props.dispatch(action);
-    }).catch((error) => {
-      alert('There was a problem with axios POST delete')
-    })
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
   }
 
   sendUserToCorrespondingPage = (urlString) => {
@@ -80,48 +39,37 @@ class EducationPage extends Component {
     }
   };
 
-  handleSubtopicChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
 
   render() {
-    let content = null
-    // let contentDisplay = this.state.subtopics.map((list, i) => {
-    //   return (this.props.subtopics)
-    // });
-    
-    if (this.props) {
+    let content = null;
+
+    if (this.props.user.userName) {
       content = (
         <div>
-          {this.props.data}
+          <h1
+            id="welcome"
+          >
+            Welcome, {this.props.user.userName}
+          </h1>
+          <button id="logout"
+            onClick={this.logout}
+          >
+            Log Out
+          </button>
           <div>
-          {/* {this.state.subtopics.map((subtopic, i) => (
-                                <div key={i}>{this.props.subtopics.subtopic}<Button onClick={this.sendUserToCorrespondingPage('/education')} variant="outlined" size="small" color="primary">topics</Button>
-                                </div>
-                            ))} */}
 
-            <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button>
-
-            {JSON.stringify(this.state.subtopics)};
-
-  
-            <TextField
-              id="addSubtopic"
-              onChange={this.handleSubtopicChange}
-              name="subtopic"
-              label="Add Subtopic"
-              placeholder="Subtopic"
-              margin="normal" />
-
-            <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Subtopic</Button>
-            <Button id="submit" variant="outlined" color="secondary" onClick={this.sendData}>Submit</Button>
-            <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button>
-            
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo1')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo2')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo3')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo4')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo5')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo6')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo7')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo8')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo9')}>Education</Button>
 
           </div>
-        </div >
+        </div>
       );
     }
 
@@ -134,4 +82,6 @@ class EducationPage extends Component {
   }
 }
 
-export default connect(mapReduxStateToProps)(EducationPage);
+// this allows us to use <App /> in index.js
+export default connect(mapStateToProps)(EducationPage);
+
