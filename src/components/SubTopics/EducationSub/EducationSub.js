@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Nav from '../../Nav/Nav';
 
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 
@@ -35,17 +36,17 @@ class EducationSub extends Component {
         subtopics: response.data
       })
     }).catch((error) => {
-      alert('error with GET in education file');
+      alert('error with GET in EducationSub file');
     })
   }
 
-  sendUserToRedux = () => {
+  sendData = () => {
     console.log('button clicked');
     axios.post('/api/education', this.state).then((response) => {
       console.log('success');
 
     }).catch((error) => {
-      alert('POST error in education file');
+      alert('POST error in EducationSub file');
       console.log(error);
     });
   }
@@ -101,8 +102,8 @@ class EducationSub extends Component {
               placeholder="Subtopic"
               margin="normal" />
 
-            <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Subtopic</Button>
-            <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button>
+            <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendData}>Add Subtopic</Button>
+            {/* <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button> */}
 
 
           </div>

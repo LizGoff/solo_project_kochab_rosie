@@ -27,16 +27,13 @@ import LgbtqiPage from './components/Topics/LBGTQAI_Community/LBGTQAI_Community'
 import EndingViolencePage from './components/Topics/EndingViolence/EndingViolence'
 import WageGapPage from './components/Topics/WageGap/WageGap'
 
-// ------------- Convo Pages --------------
 
-import EducationConvo from './components/SubTopics/EducationSub/EducationSub'
-
-import EducationConvoPage from './components/Convo/EducationConvo1/EducationConvo1'
+import EducationSub from './components/SubTopics/EducationSub/EducationSub';
 
 
 
 import './styles/main.css';
-import EducationSub from './components/SubTopics/EducationSub/EducationSub';
+
 
 const App = () => (
   <div>
@@ -120,7 +117,7 @@ const App = () => (
 
         {/* ------------- Politics Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/politics/convo1"
           component={PoliticsPage}
         />
@@ -155,12 +152,12 @@ const App = () => (
         <Route
           path="/politics/convo9"
           component={PoliticsPage}
-        />
+        /> */}
 
 
         {/* ------------- Women in History Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/women_in_history/convo1"
           component={WomensHistoryPage}
         />
@@ -196,12 +193,12 @@ const App = () => (
           path="/women_in_history/convo9"
           component={WomensHistoryPage}
         />
-
+ */}
 
         {/* ------------- Women Living Herstory Convo -------------- */}
 
 
-        <Route
+        {/* <Route
           path="/women_in_herstory/convo1"
           component={WomenLivingHerstory}
         />
@@ -236,15 +233,15 @@ const App = () => (
                 <Route
           path="/women_in_herstory/convo9"
           component={WomenLivingHerstory}
-        />
+        /> */}
 
         {/* ------------- Technology Convo -------------- */}
 
 
-        <Route
+        {/* <Route
           path="/technology/convo1"
           component={TechPage}
-        />
+        /> */}
 
 
         {/* ------------- Education Convo -------------- */}
@@ -253,80 +250,80 @@ const App = () => (
           path="/education/convo1"
           component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo2"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo3"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           exact path="/education/convo4"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo5"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo6"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo7"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo8"
-          component={EducationPage}
+          component={EducationSub}
         />
-                <Route
+        <Route
           path="/education/convo9"
-          component={EducationPage}
+          component={EducationSub}
         />
 
         {/* ------------- Health Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/health/convo1"
           component={HealthPage}
-        />
+        /> */}
 
         {/* ------------- Science Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/science/convo1"
           component={SciencePage}
-        />
+        /> */}
 
         {/* ------------- The Arts Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/arts/convo1"
           component={ArtsPage}
-        />
+        /> */}
 
         {/* ------------- LBGTQI Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/lbgtqi/convo1"
           component={LgbtqiPage}
-        />
+        /> */}
 
         {/* ------------- Wage Gap Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/wage_gap/convo1"
           component={WageGapPage}
-        />
+        /> */}
 
         {/* ------------- Ending Violence Against Women Convo -------------- */}
 
-        <Route
+        {/* <Route
           path="/ending_violence/convo1"
           component={EndingViolencePage}
-        />
+        /> */}
 
 
 
