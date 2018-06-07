@@ -58,15 +58,15 @@ class EducationPage extends Component {
           </button>
           <div>
 
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo1')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo2')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo3')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo4')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo5')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo6')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo7')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo8')}>Education</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education/convo9')}>Education</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo1')}>Does anyone know anything about Prime Digital Academy?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo2')}>Are there any scholarships that help women become educators in my area?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo3')}>Who is your favorite female educator?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo4')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo5')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo6')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>Education Subtopic</Button>
 
           </div>
         </div>

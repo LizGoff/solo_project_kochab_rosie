@@ -1,27 +1,27 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// import Nav from '../../Nav/Nav';
-// // import { USER_ACTIONS } from '../../redux/actions/userActions';
+import Nav from '../../Nav/Nav';
+// import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-// const mapStateToProps = state => ({
-//     user: state.user,
-//   });
+const mapStateToProps = state => ({
+    user: state.user,
+  });
   
-//   class EndingViolencePage extends Component {
-//     render() {
-//       let content = null;
-//       return (
-//           <div>
-//           <p>Ending Violence</p>
-//           <Nav />
-//           { content }
-//         </div>
-//       );
-//     }
-//   }
+  class EndingViolencePage extends Component {
+    render() {
+      let content = null;
+      return (
+          <div>
+          <p>Ending Violence</p>
+          <Nav />
+          { content }
+        </div>
+      );
+    }
+  }
 
-// export default connect(mapStateToProps)(EndingViolencePage);
+export default connect(mapStateToProps)(EndingViolencePage);
 
 
 // import React, { Component } from 'react';

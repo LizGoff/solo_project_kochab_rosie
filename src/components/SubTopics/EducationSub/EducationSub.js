@@ -17,9 +17,7 @@ class EducationSub extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtopics: {
-        subtopic: []
-      },
+      subtopics: []
     }
   }
 
@@ -49,23 +47,23 @@ class EducationSub extends Component {
     });
   }
 
-  sendDataToDelete = id => {
-    const deletion = `/api/education/${id}`
-    axios.delete(deletion).then((response) => {
-      this.fetchData();
-      console.log('success!');
-      const action = { type: 'DELETE' }
-      this.props.dispatch(action);
-    }).catch((error) => {
-      alert('There was a problem with axios POST delete Sub')
-    })
-  }
+  // sendDataToDelete = id => {
+  //   const deletion = `/api/education/${id}`
+  //   axios.delete(deletion).then((response) => {
+  //     this.fetchData();
+  //     console.log('success!');
+  //     const action = { type: 'DELETE' }
+  //     this.props.dispatch(action);
+  //   }).catch((error) => {
+  //     alert('There was a problem with axios POST delete Sub')
+  //   })
+  // }
 
-  sendUserToCorrespondingPage = (urlString) => {
-    return () => {
-      this.props.history.push(urlString);
-    }
-  };
+  // sendUserToCorrespondingPage = (urlString) => {
+  //   return () => {
+  //     this.props.history.push(urlString);
+  //   }
+  // };
 
   handleSubtopicChange = (event) => {
     this.setState({
@@ -75,24 +73,19 @@ class EducationSub extends Component {
 
   render() {
     let content = null
-    // let contentDisplay = this.state.subtopics.map((list, i) => {
-    //   return (this.props.subtopics)
-    // });
+    const listItems = <ul>
+    {this.state.subtopics.map((taco, i) => <li key={i} id="listConvos">{taco.subtopic}</li>)}
+    </ul>
 
     if (this.props) {
       content = (
         <div>
           {this.props.data}
           <div>
-            {/* {this.state.subtopics.map((subtopic, i) => (
-                                <div key={i}>{this.props.subtopics.subtopic}<Button onClick={this.sendUserToCorrespondingPage('/education')} variant="outlined" size="small" color="primary">topics</Button>
-                                </div>
-                            ))} */}
 
-            {/* <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button> */}
-
-            {JSON.stringify(this.state.subtopics)};
-
+            <div>
+              {listItems}
+            </div>
 
             <TextField
               id="addSubtopic"
@@ -103,8 +96,7 @@ class EducationSub extends Component {
               margin="normal" />
 
             <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendData}>Add Subtopic</Button>
-            <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button>
-
+            {/* <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button> */}
 
           </div>
         </div >
