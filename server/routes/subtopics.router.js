@@ -36,14 +36,8 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
-    // const newTopic = req.body;
     const queryText = `INSERT INTO subtopics ("subtopic", "person_id")
                     VALUES ($1, $2) RETURNING "subtopic";`;
-    // const queryValues = [
-    //   newTopic.subtopic,
-    //   newTopic.user_id,
-    //   newTopic.topic_id,
-    // ];
     pool.query(queryText, [req.body.subtopic, req.user.id])
       .then(() => { res.sendStatus(201); })
       .catch((err) => {
@@ -53,6 +47,16 @@ router.post('/', (req, res) => {
   } else {
     res.sendStatus(403);
   }
+});
+
+router.delete('/', (req, res) => {
+  const queryText = 'DELETE FROM subtopics WHERE id=$1';
+  pool.query(queryText, [req.query.id])
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing DELETE query', err);
+      res.sendStatus(500);
+    });
 });
 
 // router.put('/', (req, res) => {
@@ -79,14 +83,5 @@ router.post('/', (req, res) => {
 //     });
 // });
 
-// router.delete('/', (req, res) => {
-//   const queryText = 'DELETE FROM plant WHERE id=$1';
-//   pool.query(queryText, [req.query.id])
-//     .then(() => { res.sendStatus(200); })
-//     .catch((err) => {
-//       console.log('Error completing DELETE query', err);
-//       res.sendStatus(500);
-//     });
-// });
 
 module.exports = router;
