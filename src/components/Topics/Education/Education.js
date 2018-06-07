@@ -89,7 +89,7 @@ class EducationPage extends Component {
                                 </div>
                             ))} */}
 
-            <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button>
+            {/* <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button> */}
 
             {JSON.stringify(this.state.subtopics)};
 
