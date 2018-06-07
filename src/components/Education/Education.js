@@ -17,7 +17,10 @@ class EducationPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtopics: [{ subtopic: '' }]
+      subtopics: {
+        subtopic: []
+      },
+      // newSubtopic: '',
     }
   }
 
@@ -65,15 +68,22 @@ class EducationPage extends Component {
     }
   };
 
+  // handleNewSubtopicChange = (event) => {
+  //   this.setState({
+  //     newSubtopic: event.target.value,
+  //   });
+  // }
+
   handleSubtopicChange = (event) => {
     this.setState({
-      subtopics: { ...this.state.subtopics, [event.target.subtopic]: event.target.value }
+      // subtopics: { ...this.state, [event.target.name]: event.target.value }
+      [event.target.name]: event.target.value
     })
   }
 
   sendUserToRedux = () => {
     console.log('button clicked');
-    const action = { type: 'ADD_SUBTOPIC', payload: this.state.subtopics };
+    const action = { type: 'ADD_SUBTOPIC', payload: this.state};
     this.props.dispatch(action);
   }
 
@@ -96,13 +106,14 @@ class EducationPage extends Component {
             <TextField
               id="addSubtopic"
               onChange={this.handleSubtopicChange}
-              subtopic={this.state.subtopics}
+              // subtopic={this.state.subtopics}
+              name="subtopic"
               label="Add Subtopic"
               placeholder="Subtopic"
               margin="normal" />
 
             <Button id="button" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Comment</Button>
-
+            <Button id="button" variant="outlined" color="secondary" onClick={this.sendData}>Submit</Button>
           </div>
         </div>
       );

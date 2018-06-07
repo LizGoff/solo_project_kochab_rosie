@@ -4,6 +4,8 @@ const router = express.Router();
 
 
 router.get('/', (req, res) => {
+  if (req.isAuthenticated()) {
+
   const queryText = 'SELECT "subtopic" FROM subtopics';
   pool.query(queryText)
     .then((result) => { res.send(result.rows); })
@@ -11,33 +13,46 @@ router.get('/', (req, res) => {
       console.log('Error completing GET subtopics query', err);
       res.sendStatus(500);
     });
+  } else {
+    res.sendStatus(403);
+  }
+
 });
 
 router.get('/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+
   const queryText = 'SELECT * FROM subtopics WHERE id=$1';
   pool.query(queryText, [req.params.id])
-    .then((result) => { res.send(result.rows); }) 
+    .then((result) => { res.send(result.rows); })
     .catch((err) => {
       console.log('Error completing GET subtopics query', err);
       res.sendStatus(500);
     });
+  } else {
+    res.sendStatus(403);
+  }
 });
 
 router.post('/', (req, res) => {
-  const newTopic = req.body;
-  const queryText = `INSERT INTO subtopics ("subtopic", "user_id", "topic_id")
-                    VALUES ($1, $2, $3)`;
-  const queryValues = [
-    newTopic.subtopic,
-    newTopic.user_id,
-    newTopic.topic_id,
-  ];
-  pool.query(queryText, queryValues)
-    .then(() => { res.sendStatus(201); })
-    .catch((err) => {
-      console.log('Error completing POST subtopic query', err);
-      res.sendStatus(500);
-    });
+  if (req.isAuthenticated()) {
+    // const newTopic = req.body;
+    const queryText = `INSERT INTO subtopics ("subtopic", "person_id")
+                    VALUES ($1, $2) RETURNING "subtopic";`;
+    // const queryValues = [
+    //   newTopic.subtopic,
+    //   newTopic.user_id,
+    //   newTopic.topic_id,
+    // ];
+    pool.query(queryText, [req.body.subtopic, req.user.id])
+      .then(() => { res.sendStatus(201); })
+      .catch((err) => {
+        console.log('Error completing POST subtopic query', err);
+        res.sendStatus(500);
+      })
+  } else {
+    res.sendStatus(403);
+  }
 });
 
 // router.put('/', (req, res) => {
