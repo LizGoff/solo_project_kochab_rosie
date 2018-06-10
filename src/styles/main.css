@@ -1,6 +1,6 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background: rgb(253, 252, 241);
+    background: url('./polkadots.png');
 }
 
 .instructions h1 {
@@ -38,12 +38,6 @@ form {
     border-radius: 2px;
     margin-right: 150px;
 }
-
-/* #username {
-}
-
-#password {
-} */
 
 input {
     margin: 15px;
@@ -398,14 +392,14 @@ li a:hover {
 
 #listConvos {
     width: 500px;
-    margin: 20px;
-    font-size: 21px;
+    margin: 15px;
+    font-size: 18px;
     letter-spacing: 3px;
-    font-weight: bold;
     color: #000000;
+    background:  rgb(224, 211, 169);
     box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
-    border: 2px solid #000000;
+    border: 1px solid #000000;
     border-radius: 3px;
 }
 

@@ -83,7 +83,7 @@ class EducationSub extends Component {
           {this.props.data}
           <div>
 
-            <div>
+            <div id="textOfSubtopic">
               {listItems}
             </div>
 
