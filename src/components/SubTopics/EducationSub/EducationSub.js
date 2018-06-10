@@ -6,7 +6,6 @@ import Nav from '../../Nav/Nav';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -24,7 +23,7 @@ class EducationSub extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: []
+      results: []
     }
   }
 
@@ -36,7 +35,7 @@ class EducationSub extends Component {
     axios.get('/api/education_convo1').then((response) => {
       console.log(response.data[0]);
       this.setState({
-        comments: response.data
+        results: response.data
       })
     }).catch((error) => {
       alert('error with GET in EducationSub file');
@@ -47,6 +46,7 @@ class EducationSub extends Component {
     console.log('button clicked');
     axios.post('/api/education_convo1', this.state).then((response) => {
       console.log('success');
+      this.fetchData();
 
     }).catch((error) => {
       alert('POST error in EducationSub file');
@@ -54,24 +54,16 @@ class EducationSub extends Component {
     });
   }
 
-  sendDataToDelete = id => {
+  dataDelete = id => {
+    console.log(this.state.results);
     const deletion = `/api/education_convo1/${id}`
     axios.delete(deletion).then((response) => {
       this.fetchData();
       console.log('success with delete!');
-      // const action = { type: 'DELETE' }
-      // this.props.dispatch(action);
     }).catch((error) => {
       alert('There was a problem with DELETE Convo')
     })
   }
-
-
-  // sendUserToCorrespondingPage = (urlString) => {
-  //   return () => {
-  //     this.props.history.push(urlString);
-  //   }
-  // };
 
   handleSubtopicChange = (event) => {
     this.setState({
@@ -88,20 +80,23 @@ class EducationSub extends Component {
           {this.props.data}
           <div>
             <Paper>
-              <Table>
+              <Table id="tableComments">
+
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
                     <TableCell>Delete</TableCell>
                   </TableRow>
                 </TableHead>
+
                 <TableBody>
-                  {this.state.comments.map((taco, i) => (
+                  {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
-                      <TableCell>{taco.comments}</TableCell>
-                      <TableCell><Button onClick={(() => this.sendDataToDelete(taco.id))} variant="outlined" color="secondary">Delete</Button></TableCell>
+                      <TableCell>{comments.comment}</TableCell>
+                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" color="secondary">Delete</Button></TableCell>
                     </TableRow>
                   ))}
+
                 </TableBody>
               </Table>
             </Paper>
@@ -112,7 +107,7 @@ class EducationSub extends Component {
               name="comment"
               label="Add comment"
               placeholder="comment"
-              margin="normal" />
+              margin="normal"/>
 
             <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add comment</Button>
           </div>

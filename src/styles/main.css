@@ -385,12 +385,17 @@ li a:hover {
 
 /* --------------------------- Convo Styles -------------------------------- */
 
+#tableComments {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+
+}
+
 #addSubtopic {
     width: 800px;
     color: #000000;
     box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
-    /* border: 1px solid #000000; */
     border-radius: 3px;
 }
 
@@ -400,10 +405,17 @@ li a:hover {
     color: #000000;
     box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
-    /* border: 1px solid #000000; */
     border-radius: 3px;
 }
 
+#deleteButton {
+    width: 150px;
+    margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+}
 
 #addSubtopicButton {
     width: 150px;
@@ -411,7 +423,6 @@ li a:hover {
     color: #000000;
     box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
-    /* border: 1px solid #000000; */
     border-radius: 3px;
 }
 

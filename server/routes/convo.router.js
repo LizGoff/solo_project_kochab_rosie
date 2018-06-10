@@ -2,16 +2,28 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+// POST
+router.post('/', (req, res) => {
+    if (req.isAuthenticated()) {
+      const queryText = `INSERT INTO comments ("comment", "user_id")
+                      VALUES ($1, $2) RETURNING "comment";`;
+      pool.query(queryText, [req.body.comment, req.user.id])
+        .then(() => { res.sendStatus(201); })
+        .catch((err) => {
+          console.log('Error completing POST comment query', err);
+          res.sendStatus(500);
+        })
+    } else {
+      res.sendStatus(403);
+    }
+  });
 
-
-
-// comments database
-
+// GET
 
 router.get('/', (req, res) => {
   if (req.isAuthenticated()) {
 
-  const queryText = 'SELECT "comment" FROM comments';
+  const queryText = 'SELECT * FROM comments';
   pool.query(queryText)
     .then((result) => { res.send(result.rows); })
     .catch((err) => {
@@ -39,31 +51,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-
-router.post('/', (req, res) => {
-  if (req.isAuthenticated()) {
-    const queryText = `INSERT INTO comments ("comment", "user_id")
-                    VALUES ($1, $2) RETURNING "comment";`;
-    pool.query(queryText, [req.body.comment, req.user.id])
-      .then(() => { res.sendStatus(201); })
-      .catch((err) => {
-        console.log('Error completing POST comment query', err);
-        res.sendStatus(500);
-      })
-  } else {
-    res.sendStatus(403);
-  }
-});
-
-// router.delete('/:id', (req, res) => {
-//   const queryText = 'DELETE FROM comments WHERE id=$1';
-//   pool.query(queryText, [req.query.id])
-//     .then(() => { res.sendStatus(200); })
-//     .catch((err) => {
-//       console.log('Error completing DELETE query', err);
-//       res.sendStatus(500);
-//     });
-// });
+//
 
 router.delete('/:id', (req,res) => {
     console.log('delete from SQL')
