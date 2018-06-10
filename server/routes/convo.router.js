@@ -40,7 +40,6 @@ router.get('/:id', (req, res) => {
 });
 
 
-
 router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     const queryText = `INSERT INTO comments ("comment", "user_id")
@@ -56,8 +55,8 @@ router.post('/', (req, res) => {
   }
 });
 
-// router.delete('/', (req, res) => {
-//   const queryText = 'DELETE FROM subtopics WHERE id=$1';
+// router.delete('/:id', (req, res) => {
+//   const queryText = 'DELETE FROM comments WHERE id=$1';
 //   pool.query(queryText, [req.query.id])
 //     .then(() => { res.sendStatus(200); })
 //     .catch((err) => {
@@ -65,6 +64,20 @@ router.post('/', (req, res) => {
 //       res.sendStatus(500);
 //     });
 // });
+
+router.delete('/:id', (req,res) => {
+    console.log('delete from SQL')
+
+    const deleteInfo = req.params.id;
+    pool.query('DELETE FROM "comments" WHERE "id"=$1;', [deleteInfo])
+        .then((result) => {
+            res.sendStatus(200);
+    }).catch((error) => {
+        console.log('error delete SQL INSERT', error)
+        res.sendStatus(500);
+    });
+});
+
 
 // router.put('/', (req, res) => {
 //   const newPlant = req.body;

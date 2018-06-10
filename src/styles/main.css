@@ -394,6 +394,16 @@ li a:hover {
     border-radius: 3px;
 }
 
+#delete {
+    width: 150px;
+    margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    /* border: 1px solid #000000; */
+    border-radius: 3px;
+}
+
 
 #addSubtopicButton {
     width: 150px;
