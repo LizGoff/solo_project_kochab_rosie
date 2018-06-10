@@ -92,7 +92,7 @@ class EducationSub extends Component {
               onChange={this.handleSubtopicChange}
               name="subtopic"
               label="Add comment"
-              placeholder="Subtopic"
+              placeholder="comment"
               margin="normal" />
 
             <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add comment</Button>
