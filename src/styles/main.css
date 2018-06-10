@@ -1,6 +1,6 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background: url('./polkadots.png');
+    /* background: url('./polkadots.png'); */
 }
 
 .instructions h1 {
@@ -386,8 +386,23 @@ li a:hover {
 /* --------------------------- Convo Styles -------------------------------- */
 
 #addSubtopic {
-    width: 500px;
+    width: 800px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    /* border: 1px solid #000000; */
+    border-radius: 3px;
+}
+
+
+#addSubtopicButton {
+    width: 150px;
     margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    /* border: 1px solid #000000; */
+    border-radius: 3px;
 }
 
 #listConvos {
@@ -396,10 +411,9 @@ li a:hover {
     font-size: 18px;
     letter-spacing: 3px;
     color: #000000;
-    background:  rgb(224, 211, 169);
     box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
-    border: 1px solid #000000;
+    /* border: 1px solid #000000; */
     border-radius: 3px;
 }
 

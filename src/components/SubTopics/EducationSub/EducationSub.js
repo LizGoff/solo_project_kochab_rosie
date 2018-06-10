@@ -26,7 +26,7 @@ class EducationSub extends Component {
   }
 
   fetchData() {
-    axios.get('/api/education').then((response) => {
+    axios.get('/api/education_convo1').then((response) => {
       console.log(response.data[0]);
       this.setState({
         subtopics: response.data
@@ -38,7 +38,7 @@ class EducationSub extends Component {
 
   sendData = () => {
     console.log('button clicked');
-    axios.post('/api/education', this.state).then((response) => {
+    axios.post('/api/education_convo1', this.state).then((response) => {
       console.log('success');
 
     }).catch((error) => {
@@ -91,11 +91,11 @@ class EducationSub extends Component {
               id="addSubtopic"
               onChange={this.handleSubtopicChange}
               name="subtopic"
-              label="Add Subtopic"
+              label="Add comment"
               placeholder="Subtopic"
               margin="normal" />
 
-            <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendData}>Add Subtopic</Button>
+            <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add comment</Button>
             {/* <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button> */}
 
           </div>
