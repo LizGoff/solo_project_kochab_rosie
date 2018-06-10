@@ -17,7 +17,7 @@ class EducationSub extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      subtopics: []
+      comments: []
     }
   }
 
@@ -29,7 +29,7 @@ class EducationSub extends Component {
     axios.get('/api/education_convo1').then((response) => {
       console.log(response.data[0]);
       this.setState({
-        subtopics: response.data
+        comments: response.data
       })
     }).catch((error) => {
       alert('error with GET in EducationSub file');
@@ -74,7 +74,7 @@ class EducationSub extends Component {
   render() {
     let content = null
     const listItems = <ul>
-    {this.state.subtopics.map((taco, i) => <li key={i} id="listConvos">{taco.subtopic}</li>)}
+    {this.state.comments.map((taco, i) => <li key={i} id="listConvos">{taco.comment}</li>)}
     </ul>
 
     if (this.props) {
@@ -90,7 +90,7 @@ class EducationSub extends Component {
             <TextField
               id="addSubtopic"
               onChange={this.handleSubtopicChange}
-              name="subtopic"
+              name="comment"
               label="Add comment"
               placeholder="comment"
               margin="normal" />

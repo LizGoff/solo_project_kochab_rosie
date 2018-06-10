@@ -3,6 +3,8 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 
+
+
 // comments database
 
 
@@ -43,7 +45,7 @@ router.post('/', (req, res) => {
   if (req.isAuthenticated()) {
     const queryText = `INSERT INTO comments ("comment", "user_id")
                     VALUES ($1, $2) RETURNING "comment";`;
-    pool.query(queryText, [req.body.subtopic, req.user.id])
+    pool.query(queryText, [req.body.comment, req.user.id])
       .then(() => { res.sendStatus(201); })
       .catch((err) => {
         console.log('Error completing POST comment query', err);
