@@ -65,6 +65,19 @@ class EducationSub extends Component {
     })
   }
 
+  // addEdit = (item) => {
+  //   console.log('adding edit', item);
+  //   axios.put(`/api/education_convo1/${item.id}`)
+
+  //     .then((response) => {
+  //       console.log('put response', response);
+  //       this.fetchData();
+  //     })
+  //     .catch((error) => {
+  //       console.log('put/add error in addEdit', error);
+  //     });
+  // }
+
   handleSubtopicChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
@@ -94,6 +107,7 @@ class EducationSub extends Component {
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
                       <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" color="secondary">Delete</Button></TableCell>
+                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" color="secondary">edit</Button></TableCell>
                     </TableRow>
                   ))}
 

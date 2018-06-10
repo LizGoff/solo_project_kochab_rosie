@@ -68,28 +68,31 @@ router.delete('/:id', (req,res) => {
 
 
 // router.put('/', (req, res) => {
-//   const newPlant = req.body;
+//   const newComment = req.body;
 
-//   const queryText = `UPDATE subtopics
-//   SET "subtopic" = $1, 
+//   const queryText = `UPDATE comments
+//   SET "comment" = $1, 
 //   "user_id" = $2, 
 //   "topic_id" = $3, 
-//   WHERE id=$4;`; 
+//   "subtopic_id" = $4, 
+//   WHERE id=$5;`; 
 
 //   const queryValues = [
-//     updatedTopic.subtopic,
-//     updatedTopic.user_id,
-//     updatedTopic.topic_id,
-//     updatedTopic.id,
+//     updatedComment.comment,
+//     updatedComment.user_id,
+//     updatedComment.topic_id,
+//     updatedComment.subtopic_id,
+//     updatedComment.id,
 //   ];
 
 //   pool.query(queryText, queryValues)
 //     .then(() => { res.sendStatus(200); })
 //     .catch((err) => {
-//       console.log('Error completing PUT subtopics query', err);
+//       console.log('Error completing PUT comments query', err);
 //       res.sendStatus(500);
 //     });
 // });
+
 
 
 module.exports = router;
