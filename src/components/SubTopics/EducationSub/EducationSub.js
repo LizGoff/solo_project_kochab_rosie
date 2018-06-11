@@ -30,6 +30,7 @@ class EducationSub extends Component {
 
   componentDidMount() {
     this.fetchData();
+    this.fetchResourceData();
   }
 
   fetchData() {
@@ -85,9 +86,6 @@ class EducationSub extends Component {
   //     });
   // }
 
-  componentResourceDidMount() {
-    this.fetchResourceData();
-  }
 
   fetchResourceData() {
     axios.get('/api/resource').then((response) => {
@@ -182,9 +180,9 @@ class EducationSub extends Component {
                 </TableHead>
 
                 <TableBody>
-                  {this.state.resourceHelp.map((links, i) => (
+                  {this.state.resourceHelp.map((linkToUrl, i) => (
                     <TableRow key={i}>
-                      <TableCell>{links.url}</TableCell>
+                      <TableCell>{linkToUrl.url}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
