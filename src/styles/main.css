@@ -1,9 +1,18 @@
 body {
     font-family: 'Times New Roman', Times, serif;
-    background: rgb(253, 252, 241);
+    background: url('./OtherDots.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+#react-root{
+    max-width: 80%;
+    margin: auto; 
 }
 
 .instructions h1 {
+    
     color: black;
     font-size: 30px;
     font-weight: 700;
@@ -15,10 +24,9 @@ body {
     background: rgb(252, 217, 23);
     background-image: url('./rosie.png');
     border-bottom: 12px solid #303030;
-    width: 100%;
-    height: 50;
+    width: 80% center;
+    height: 75px;
     padding: 12px;
-    border-radius: 2px;
     background-repeat: no-repeat;
 }
 
@@ -28,7 +36,7 @@ body {
 }
 
 form {
-    background-color: rgb(241, 215, 129);
+    background-color: rgb(255, 255, 255);
     border: 8px solid #303030;
     width: 175px;
     height: 175px;
@@ -38,12 +46,6 @@ form {
     border-radius: 2px;
     margin-right: 150px;
 }
-
-/* #username {
-}
-
-#password {
-} */
 
 input {
     margin: 15px;
@@ -73,8 +75,10 @@ input[type="submit"] {
 
 .navbar {
   background-color: #303030;
-  width: 100%;
+
   border-radius: 0px;
+  width: 80% center;
+
 }
 
 ul {
@@ -97,7 +101,6 @@ li a {
 
 }
 
-/* Change the link color to #111 (black) on hover */
 li a:hover {
     text-decoration: underline;
     color: #eee;
@@ -105,7 +108,7 @@ li a:hover {
 
 #welcome {
     font-size: 24px;
-    margin-left: 20px;
+    text-align: left;
 }
 
 #logout {
@@ -115,8 +118,9 @@ li a:hover {
     font-size: 12px;
     letter-spacing: 3px;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 90%;
     font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(250, 248, 242)
 }
 
 #logout:hover {
@@ -126,7 +130,7 @@ li a:hover {
     font-size: 12px;
     letter-spacing: 3px;
     font-weight: bold;
-    margin-left: 20px;
+    margin-left: 90%;
     font-family: 'Times New Roman', Times, serif;
     box-shadow: 2px 2px 4px #000000;
 }
@@ -382,4 +386,122 @@ li a:hover {
     text-shadow: 3px 3px 6px #000000;
     box-shadow: 2px 2px 6px #000000;
     color: rgb(247, 235, 69);
+}
+
+/* --------------------- Add Subtopics --------------------------------- */
+
+#educationConvo {
+
+    width: 500px;
+    text-align: center;
+    margin: 10px;
+    background:  #303030;
+    background-size: 500px 250px;
+    background-position: 50px 100px;
+    font-size: 21px;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px #000000;
+    color: rgb(243, 235, 208);
+    font-family: 'Times New Roman', Times, serif;
+    border: 1px solid #000000;
+}
+
+#educationConvo:hover {
+    text-shadow: 3px 3px 6px #000000;
+    box-shadow: 2px 2px 6px #000000;
+    color: rgb(247, 235, 69);
+}
+
+/* --------------------------- Convo Styles -------------------------------- */
+
+#tableComments {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    background: rgb(243, 235, 208);
+    width: 80% center;
+
+}
+
+#delete {
+    margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+
+}
+
+#deleteButton {
+    margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+    background: rgb(243, 235, 208);
+}
+
+#editButton {
+    margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+    background: rgb(243, 235, 208);
+}
+
+
+#listConvos {
+    width: 500px;
+    margin: 15px;
+    font-size: 18px;
+    letter-spacing: 3px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+}
+
+#addSubtopic {
+    width: 500px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+}
+
+#addSubtopicButton {
+    width: 150px;
+    margin-left: 20px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+    background: rgb(243, 235, 208);
+}
+
+#addResource {
+    width: 500px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+}
+
+#addResourceButton {
+    width: 150px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    color: #000000;
+    box-shadow: 2px 2px 4px #000000;
+    font-family: 'Times New Roman', Times, serif;
+    border-radius: 3px;
+    background: rgb(243, 235, 208);
+}
+
+#tableResources {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    background: rgb(243, 235, 208);
+    width: 80% center;
+    padding: 20px;
 }

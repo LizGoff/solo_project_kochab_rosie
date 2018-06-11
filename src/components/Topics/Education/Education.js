@@ -1,64 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
+
 
 import Nav from '../../Nav/Nav';
 
+import { USER_ACTIONS } from '../../../redux/actions/userActions';
+
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 
 
-const mapReduxStateToProps = (reduxState) => (
-  { reduxState }
-);
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 class EducationPage extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      subtopics: {
-        subtopic: []
-      },
-    }
-  }
-
   componentDidMount() {
-    this.fetchData();
+
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
-  fetchData() {
-    axios.get('/api/education').then((response) => {
-      console.log(response.data[0]);
-      this.setState({
-        subtopics: response.data
-      })
-    }).catch((error) => {
-      alert('error with GET in education file');
-    })
-  }
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
+    }
 
-  sendUserToRedux = () => {
-    console.log('button clicked');
-    axios.post('/api/education', this.state).then((response) => {
-      console.log('success');
-
-    }).catch((error) => {
-      alert('POST error in education file');
-      console.log(error);
-    });
-  }
-
-  sendDataToDelete = id => {
-    const deletion = `/api/education/${id}`
-    axios.delete(deletion).then((response) => {
-      this.fetchData();
-      console.log('success!');
-      const action = { type: 'DELETE' }
-      this.props.dispatch(action);
-    }).catch((error) => {
-      alert('There was a problem with axios POST delete')
-    })
   }
 
   sendUserToCorrespondingPage = (urlString) => {
@@ -67,47 +33,33 @@ class EducationPage extends Component {
     }
   };
 
-  handleSubtopicChange = (event) => {
-    this.setState({
-      [event.target.name]: event.target.value
-    })
-  }
 
   render() {
-    let content = null
-    // let contentDisplay = this.state.subtopics.map((list, i) => {
-    //   return (this.props.subtopics)
-    // });
 
-    if (this.props) {
+    let content = null;
+
+    if (this.props.user.userName) {
       content = (
         <div>
-          {this.props.data}
+          <h1 id="welcome">
+            Welcome, {this.props.user.userName}
+          </h1>
+
           <div>
-            {/* {this.state.subtopics.map((subtopic, i) => (
-                                <div key={i}>{this.props.subtopics.subtopic}<Button onClick={this.sendUserToCorrespondingPage('/education')} variant="outlined" size="small" color="primary">topics</Button>
-                                </div>
-                            ))} */}
 
-            {/* <Button id="education" variant="raised" onClick={this.sendUserToCorrespondingPage('/education')}>edu</Button> */}
-
-            {JSON.stringify(this.state.subtopics)};
-
-
-            <TextField
-              id="addSubtopic"
-              onChange={this.handleSubtopicChange}
-              name="subtopic"
-              label="Add Subtopic"
-              placeholder="Subtopic"
-              margin="normal" />
-
-            <Button id="addSubtopic" variant="outlined" color="secondary" onClick={this.sendUserToRedux}>Add Subtopic</Button>
-            <Button id="delete" variant="outlined" color="secondary" onClick={this.sendDataToDelete}>Delete</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo1')}>Does anyone know anything about Prime Digital Academy?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo2')}>Are there any scholarships that help women become educators in my area?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo3')}>Who is your favorite female educator?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo4')}>Why are educators paid less than other professionals?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo5')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo6')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>Education Subtopic</Button>
 
 
           </div>
-        </div >
+        </div>
       );
     }
 
@@ -120,4 +72,6 @@ class EducationPage extends Component {
   }
 }
 
-export default connect(mapReduxStateToProps)(EducationPage);
+// this allows us to use <App /> in index.js
+export default connect(mapStateToProps)(EducationPage);
+

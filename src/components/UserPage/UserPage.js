@@ -44,16 +44,11 @@ class UserPage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <h1
-            id="welcome"
-          >
+          <h1 id="welcome">
             Welcome, {this.props.user.userName}
           </h1>
           <button id="logout"
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+            onClick={this.logout}>Log Out</button>
           <div>
 
             <Button id="inHistory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_history')}>Women In Our History</Button>
