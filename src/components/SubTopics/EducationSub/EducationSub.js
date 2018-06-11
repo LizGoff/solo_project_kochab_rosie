@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
 import Nav from '../../Nav/Nav';
 
 import Button from '@material-ui/core/Button';
@@ -12,6 +11,9 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Delete from '@material-ui/icons/Delete'
+import Edit from '@material-ui/icons/Edit'
+
 
 
 const mapReduxStateToProps = (reduxState) => (
@@ -19,14 +21,18 @@ const mapReduxStateToProps = (reduxState) => (
 );
 
 class EducationSub extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       results: [],
-      resourceHelp: []
+      comment: '',
+      topic: 4,
+      subtopic: 6,
+      resourceHelp: [],
+      editOn: false
     }
   }
+
 
   componentDidMount() {
     this.fetchData();
@@ -34,10 +40,11 @@ class EducationSub extends Component {
   }
 
   fetchData() {
-    axios.get('/api/education_convo1').then((response) => {
+    axios.get(`/api/conversation/${6}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
-        results: response.data
+        results: response.data,
+        comment: '',
       })
     }).catch((error) => {
       alert('error with GET in EducationSub file');
@@ -52,10 +59,9 @@ class EducationSub extends Component {
 
   sendData = () => {
     console.log('button clicked');
-    axios.post('/api/education_convo1', this.state).then((response) => {
+    axios.post('/api/conversation', this.state).then((response) => {
       console.log('success');
       this.fetchData();
-
     }).catch((error) => {
       alert('POST error in EducationSub file');
       console.log(error);
@@ -64,7 +70,7 @@ class EducationSub extends Component {
 
   dataDelete = id => {
     console.log(this.state.results);
-    const deletion = `/api/education_convo1/${id}`
+    const deletion = `/api/conversation/${id}`
     axios.delete(deletion).then((response) => {
       this.fetchData();
       console.log('success with delete!');
@@ -73,19 +79,31 @@ class EducationSub extends Component {
     })
   }
 
-  // addEdit = (item) => {
-  //   console.log('adding edit', item);
-  //   axios.put(`/api/education_convo1/${item.id}`)
+  // PUT
 
-  //     .then((response) => {
-  //       console.log('put response', response);
-  //       this.fetchData();
-  //     })
-  //     .catch((error) => {
-  //       console.log('put/add error in addEdit', error);
-  //     });
-  // }
+  addEdit = (comment) => {
+    console.log('adding edit', comment);
+    axios.put(`/api/conversation/${this.state.editId}`, { comment: this.state.comment })
+      .then((response) => {
+        console.log('put response', response);
+        this.fetchData();
+        this.setState({
+          editOn: false
+        })
+      })
+      .catch((error) => {
+        console.log('put/add error in addEdit', error);
+      });
+  }
 
+  toggleEdit = (commentToEdit) => () =>
+    this.setState({
+      editOn: true,
+      comment: commentToEdit.comment,
+      editId: commentToEdit.id
+    });
+
+  // Resources data
 
   fetchResourceData() {
     axios.get('/api/resource').then((response) => {
@@ -103,7 +121,6 @@ class EducationSub extends Component {
     axios.post('/api/resource', this.state).then((response) => {
       console.log('success with resource');
       this.fetchResourceData();
-
     }).catch((error) => {
       alert('POST error in addResource file');
       console.log(error);
@@ -116,19 +133,20 @@ class EducationSub extends Component {
     })
   }
 
-
   render() {
     let content = null
-
+    // let editOn = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
+    let buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+    if (this.state.editOn) {
+      buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
+    }
     if (this.props) {
       content = (
         <div>
           {this.props.data}
-          
           <div>
             <Paper>
               <Table id="tableComments">
-
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
@@ -136,30 +154,32 @@ class EducationSub extends Component {
                     <TableCell>Edit</TableCell>
                   </TableRow>
                 </TableHead>
-
                 <TableBody>
                   {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small">Delete</Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small">Edit</Button></TableCell>
+                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
+                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
                     </TableRow>
                   ))}
-
                 </TableBody>
               </Table>
             </Paper>
+
+
             <div>
               <TextField
                 id="addSubtopic"
                 onChange={this.handleSubtopicChange}
                 name="comment"
+                value={this.state.comment}
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-
-              <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+              {buttonDisplayed}
             </div>
+
+
             <div>
               <TextField
                 id="addResource"
@@ -168,14 +188,12 @@ class EducationSub extends Component {
                 label="Share resources for women here"
                 placeholder="Share url here"
                 margin="normal" />
-
               <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
             </div>
           </div>
         </div >
       );
     }
-
     return (
       <div>
         <Nav />

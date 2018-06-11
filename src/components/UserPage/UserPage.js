@@ -49,7 +49,7 @@ class UserPage extends Component {
           </h1>
           <button id="logout"
             onClick={this.logout}>Log Out</button>
-          <div>
+          <div id="topicButtonsPage">
 
             <Button id="inHistory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_history')}>Women In Our History</Button>
             <Button id="ourStory" variant="raised" onClick={this.sendUserToCorrespondingPage('/our_story')}>Our History</Button>
