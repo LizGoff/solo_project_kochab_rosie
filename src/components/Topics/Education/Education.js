@@ -16,6 +16,7 @@ const mapStateToProps = state => ({
 class EducationPage extends Component {
 
   componentDidMount() {
+
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
@@ -23,6 +24,7 @@ class EducationPage extends Component {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push('home');
     }
+
   }
 
   sendUserToCorrespondingPage = (urlString) => {
@@ -33,6 +35,7 @@ class EducationPage extends Component {
 
 
   render() {
+
     let content = null;
 
     if (this.props.user.userName) {
@@ -53,6 +56,7 @@ class EducationPage extends Component {
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>Education Subtopic</Button>
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Education Subtopic</Button>
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>Education Subtopic</Button>
+
 
           </div>
         </div>
