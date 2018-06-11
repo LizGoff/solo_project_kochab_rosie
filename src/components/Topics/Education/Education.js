@@ -51,11 +51,11 @@ class EducationPage extends Component {
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo2')}>Are there any scholarships that help women become educators in my area?</Button>
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo3')}>Who is your favorite female educator?</Button>
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo4')}>Why are educators paid less than other professionals?</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo5')}>Education Subtopic</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo6')}>Education Subtopic</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>Education Subtopic</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Education Subtopic</Button>
-            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>Education Subtopic</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo5')}>What is gender mainstreaming?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo6')}>Which are the safest colleges for women?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>What STEM schools are best for my daughter?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Which colleges are the best for STEM careers?</Button>
+            <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>What female educator inspires you the most?</Button>
 
 
           </div>

@@ -30,6 +30,7 @@ import EndingViolencePage from './components/Topics/EndingViolence/EndingViolenc
 import WageGapPage from './components/Topics/WageGap/WageGap'
 
 import EducationSub from './components/SubTopics/EducationSub/EducationSub';
+import EndingViolenceSub from './components/SubTopics/EndingViolenceSub/EndingViolenceSub';
 
 
 import './styles/main.css';
@@ -518,39 +519,39 @@ const App = () => (
 
         <Route
           path="/ending_violence_convo1"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo2"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo3"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo4"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo5"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo6"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo7"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo8"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
         <Route
           path="/ending_violence_convo9"
-          component={EndingViolencePage}
+          component={EndingViolenceSub}
         />
 
         {/* OTHERWISE (no path!) */}

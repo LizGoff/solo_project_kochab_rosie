@@ -24,6 +24,9 @@ class EducationSub extends Component {
     super(props);
     this.state = {
       results: [],
+      comment: '',
+      topic: 4,
+      subtopic: 6,
       resourceHelp: []
     }
   }
@@ -34,10 +37,11 @@ class EducationSub extends Component {
   }
 
   fetchData() {
-    axios.get('/api/education_convo1').then((response) => {
+    axios.get(`/api/education_convo1/${6}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
-        results: response.data
+        results: response.data,
+        comment: '',
       })
     }).catch((error) => {
       alert('error with GET in EducationSub file');
@@ -52,7 +56,7 @@ class EducationSub extends Component {
 
   sendData = () => {
     console.log('button clicked');
-    axios.post('/api/education_convo1', this.state).then((response) => {
+    axios.post('/api/education_convo1/', this.state).then((response) => {
       console.log('success');
       this.fetchData();
 
@@ -154,6 +158,7 @@ class EducationSub extends Component {
                 id="addSubtopic"
                 onChange={this.handleSubtopicChange}
                 name="comment"
+                value={this.state.comment}
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />

@@ -5,9 +5,9 @@ const router = express.Router();
 // POST
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
-      const queryText = `INSERT INTO comments ("comment", "user_id")
-                      VALUES ($1, $2) RETURNING "comment";`;
-      pool.query(queryText, [req.body.comment, req.user.id])
+      const queryText = `INSERT INTO comments ("comment", "topic_id", "subtopic_id", "user_id")
+                      VALUES ($1, $2, $3, $4) RETURNING "comment";`;
+      pool.query(queryText, [req.body.comment, req.body.topic, req.body.subtopic, req.user.id])
         .then(() => { res.sendStatus(201); })
         .catch((err) => {
           console.log('Error completing POST comment query', err);
@@ -39,7 +39,7 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
 
-  const queryText = 'SELECT * FROM comments WHERE id=$1';
+  const queryText = 'SELECT * FROM comments WHERE "subtopic_id"=$1';
   pool.query(queryText, [req.params.id])
     .then((result) => { res.send(result.rows); })
     .catch((err) => {
