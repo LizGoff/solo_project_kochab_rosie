@@ -28,11 +28,6 @@ class EducationPage extends Component {
     }
   }
 
-  logout = () => {
-    this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
-  }
-
   sendUserToCorrespondingPage = (urlString) => {
     return () => {
       this.props.history.push(urlString);
@@ -46,16 +41,10 @@ class EducationPage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <h1
-            id="welcome"
-          >
+          <h1 id="welcome">
             Welcome, {this.props.user.userName}
           </h1>
-          <button id="logout"
-            onClick={this.logout}
-          >
-            Log Out
-          </button>
+
           <div>
 
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo1')}>Does anyone know anything about Prime Digital Academy?</Button>

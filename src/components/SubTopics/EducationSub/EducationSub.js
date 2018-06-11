@@ -99,6 +99,7 @@ class EducationSub extends Component {
                   <TableRow>
                     <TableCell>Comments</TableCell>
                     <TableCell>Delete</TableCell>
+                    <TableCell>Edit</TableCell>
                   </TableRow>
                 </TableHead>
 
@@ -106,8 +107,8 @@ class EducationSub extends Component {
                   {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" color="secondary">Delete</Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" color="secondary">edit</Button></TableCell>
+                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small">Delete</Button></TableCell>
+                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small">Edit</Button></TableCell>
                     </TableRow>
                   ))}
 
@@ -119,11 +120,11 @@ class EducationSub extends Component {
               id="addSubtopic"
               onChange={this.handleSubtopicChange}
               name="comment"
-              label="Add comment"
-              placeholder="comment"
+              label="Share your thoughts"
+              placeholder="Share here"
               margin="normal"/>
 
-            <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add comment</Button>
+            <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
           </div>
         </div >
       );
