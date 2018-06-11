@@ -11,6 +11,8 @@ import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
 import UserPage from './components/UserPage/UserPage';
 import InfoPage from './components/InfoPage/InfoPage';
+import ResourcePage from './components/Resource/Resource';
+
 
 // ------------- Topics Pages --------------
 
@@ -27,9 +29,7 @@ import LgbtqiPage from './components/Topics/LBGTQAI_Community/LBGTQAI_Community'
 import EndingViolencePage from './components/Topics/EndingViolence/EndingViolence'
 import WageGapPage from './components/Topics/WageGap/WageGap'
 
-
 import EducationSub from './components/SubTopics/EducationSub/EducationSub';
-
 
 
 import './styles/main.css';
@@ -56,6 +56,10 @@ const App = () => (
         <Route
           path="/info"
           component={InfoPage}
+        />
+        <Route
+          path="/resource"
+          component={ResourcePage}
         />
 
 

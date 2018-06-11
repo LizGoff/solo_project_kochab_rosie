@@ -15,6 +15,11 @@ const Nav = () => (
             Our Story
           </Link>
         </li>
+        <li>
+          <Link to="/resource">
+            Resource Links
+          </Link>
+        </li>
       </ul>
     </div>
   </div>
