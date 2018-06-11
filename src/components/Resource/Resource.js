@@ -65,9 +65,21 @@ class ResourcePage extends Component {
       content = (
         <div>
           <div>
-            <p>
+            <h2>
               Resources
-          </p>
+          </h2>
+          </div>
+
+          <div>
+            <TextField
+              id="addResource"
+              onChange={this.handleResourceChange}
+              name="url"
+              label="Share resources for women here"
+              placeholder="Share url here"
+              margin="normal" />
+
+            <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
           </div>
 
           <div>
@@ -91,17 +103,6 @@ class ResourcePage extends Component {
               </Table>
             </Paper>
           </div >
-          <div>
-            <TextField
-              id="addResource"
-              onChange={this.handleResourceChange}
-              name="url"
-              label="Share resources for women here"
-              placeholder="Share url here"
-              margin="normal" />
-
-            <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
-          </div>
         </div>
       );
     }
