@@ -51,7 +51,7 @@ router.get('/:id', (req, res) => {
   }
 });
 
-//
+// DELETE
 
 router.delete('/:id', (req,res) => {
     console.log('delete from SQL')
@@ -69,7 +69,6 @@ router.delete('/:id', (req,res) => {
 
 // router.put('/', (req, res) => {
 //   const newComment = req.body;
-
 //   const queryText = `UPDATE comments
 //   SET "comment" = $1, 
 //   "user_id" = $2, 

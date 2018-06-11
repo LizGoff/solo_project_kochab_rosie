@@ -1,34 +1,7 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-
-// import Nav from '../../Nav/Nav';
-// import { USER_ACTIONS } from '../../redux/actions/userActions';
-
-// const mapStateToProps = state => ({
-//     user: state.user,
-//   });
-  
-//   class EndingViolencePage extends Component {
-//     render() {
-//       let content = null;
-//       return (
-//           <div>
-//           <p>Ending Violence</p>
-//           <Nav />
-//           { content }
-//         </div>
-//       );
-//     }
-//   }
-
-// export default connect(mapStateToProps)(EndingViolencePage);
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
-
 import Nav from '../../Nav/Nav';
-
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Table from '@material-ui/core/Table';
@@ -49,6 +22,9 @@ class EndingViolenceSub extends Component {
     super(props);
     this.state = {
       results: [],
+      comment: '',
+      topic: 23,
+      subtopic: 34,
       resourceHelp: []
     }
   }
@@ -59,10 +35,11 @@ class EndingViolenceSub extends Component {
   }
 
   fetchData() {
-    axios.get('/api/education_convo1').then((response) => {
+    axios.get(`/api/conversation/${34}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
-        results: response.data
+        results: response.data,
+        comment: ''
       })
     }).catch((error) => {
       alert('error with GET in EducationSub file');
@@ -77,7 +54,7 @@ class EndingViolenceSub extends Component {
 
   sendData = () => {
     console.log('button clicked');
-    axios.post('/api/education_convo1', this.state).then((response) => {
+    axios.post('/api/conversation', this.state).then((response) => {
       console.log('success');
       this.fetchData();
 
@@ -89,7 +66,7 @@ class EndingViolenceSub extends Component {
 
   dataDelete = id => {
     console.log(this.state.results);
-    const deletion = `/api/education_convo1/${id}`
+    const deletion = `/api/conversation/${id}`
     axios.delete(deletion).then((response) => {
       this.fetchData();
       console.log('success with delete!');
@@ -100,7 +77,7 @@ class EndingViolenceSub extends Component {
 
   // addEdit = (item) => {
   //   console.log('adding edit', item);
-  //   axios.put(`/api/education_convo1/${item.id}`)
+  //   axios.put(`/api/conversation/${item.id}`)
 
   //     .then((response) => {
   //       console.log('put response', response);
@@ -128,7 +105,6 @@ class EndingViolenceSub extends Component {
     axios.post('/api/resource', this.state).then((response) => {
       console.log('success with resource');
       this.fetchResourceData();
-
     }).catch((error) => {
       alert('POST error in addResource file');
       console.log(error);
@@ -144,16 +120,14 @@ class EndingViolenceSub extends Component {
 
   render() {
     let content = null
-
     if (this.props) {
       content = (
         <div>
           {this.props.data}
-          
           <div>
+
             <Paper>
               <Table id="tableComments">
-
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
@@ -161,7 +135,6 @@ class EndingViolenceSub extends Component {
                     <TableCell>Edit</TableCell>
                   </TableRow>
                 </TableHead>
-
                 <TableBody>
                   {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
@@ -170,7 +143,6 @@ class EndingViolenceSub extends Component {
                       <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small">Edit</Button></TableCell>
                     </TableRow>
                   ))}
-
                 </TableBody>
               </Table>
             </Paper>
@@ -179,10 +151,10 @@ class EndingViolenceSub extends Component {
                 id="addSubtopic"
                 onChange={this.handleSubtopicChange}
                 name="comment"
+                value={this.state.comment}
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-
               <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
             </div>
             <div>
@@ -193,14 +165,12 @@ class EndingViolenceSub extends Component {
                 label="Share resources for women here"
                 placeholder="Share url here"
                 margin="normal" />
-
               <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
             </div>
           </div>
         </div >
       );
     }
-
     return (
       <div>
         <Nav />

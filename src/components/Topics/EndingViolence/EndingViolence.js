@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-
 import Nav from '../../Nav/Nav';
-
 import { USER_ACTIONS } from '../../../redux/actions/userActions';
-
 import Button from '@material-ui/core/Button';
-
 
 const mapStateToProps = state => ({
   user: state.user,
 });
 
 class EndingViolencePage extends Component {
-
   componentDidMount() {
-
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
@@ -24,7 +17,6 @@ class EndingViolencePage extends Component {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push('home');
     }
-
   }
 
   sendUserToCorrespondingPage = (urlString) => {
@@ -33,18 +25,15 @@ class EndingViolencePage extends Component {
     }
   };
 
-
   render() {
-
     let content = null;
-
     if (this.props.user.userName) {
       content = (
         <div>
           <h1 id="welcome">
             Welcome, {this.props.user.userName}
           </h1>
-
+          <h2>Ending Violence Against Women</h2>
           <div>
 
             <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo1')}>What can we do to end violence against women?</Button>
@@ -57,12 +46,10 @@ class EndingViolencePage extends Component {
             <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo8')}>Why do women stay with or go back to their abusive partners?</Button>
             <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo9')}>What is needed to end and prevent violence against women and girls?</Button>
 
-
           </div>
         </div>
       );
     }
-
     return (
       <div>
         <Nav />

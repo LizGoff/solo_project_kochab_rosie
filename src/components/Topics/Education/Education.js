@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-
 import Nav from '../../Nav/Nav';
-
 import { USER_ACTIONS } from '../../../redux/actions/userActions';
-
 import Button from '@material-ui/core/Button';
-
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -16,7 +11,6 @@ const mapStateToProps = state => ({
 class EducationPage extends Component {
 
   componentDidMount() {
-
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
 
@@ -24,7 +18,6 @@ class EducationPage extends Component {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push('home');
     }
-
   }
 
   sendUserToCorrespondingPage = (urlString) => {
@@ -33,18 +26,15 @@ class EducationPage extends Component {
     }
   };
 
-
   render() {
-
     let content = null;
-
     if (this.props.user.userName) {
       content = (
         <div>
           <h1 id="welcome">
             Welcome, {this.props.user.userName}
           </h1>
-
+          <h2>Education</h2>
           <div>
 
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo1')}>Does anyone know anything about Prime Digital Academy?</Button>
@@ -56,7 +46,6 @@ class EducationPage extends Component {
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>What STEM schools are best for my daughter?</Button>
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Which colleges are the best for STEM careers?</Button>
             <Button id="educationConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>What female educator inspires you the most?</Button>
-
 
           </div>
         </div>
