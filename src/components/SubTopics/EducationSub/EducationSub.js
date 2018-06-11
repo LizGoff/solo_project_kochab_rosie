@@ -124,6 +124,7 @@ class EducationSub extends Component {
       content = (
         <div>
           {this.props.data}
+          
           <div>
             <Paper>
               <Table id="tableComments">
@@ -170,24 +171,6 @@ class EducationSub extends Component {
 
               <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
             </div>
-            <Paper>
-              <Table id="tableResources">
-
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Resource Link</TableCell>
-                  </TableRow>
-                </TableHead>
-
-                <TableBody>
-                  {this.state.resourceHelp.map((linkToUrl, i) => (
-                    <TableRow key={i}>
-                      <TableCell>{linkToUrl.url}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
           </div>
         </div >
       );
