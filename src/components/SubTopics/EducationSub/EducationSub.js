@@ -100,9 +100,9 @@ class EducationSub extends Component {
   }
 
   sendResourceData = () => {
-    console.log('button clicked');
+    console.log('button for resources clicked');
     axios.post('/api/resource', this.state).then((response) => {
-      console.log('success');
+      console.log('success with resource');
       this.fetchResourceData();
 
     }).catch((error) => {

@@ -21,35 +21,35 @@ router.post('/', (req, res) => {
 
 // GET
 
-router.get('/', (req, res) => {
-    if (req.isAuthenticated()) {
+// router.get('/', (req, res) => {
+//     if (req.isAuthenticated()) {
   
-    const queryText = 'SELECT * FROM links';
-    pool.query(queryText)
-      .then((result) => { res.send(result.rows); })
-      .catch((err) => {
-        console.log('Error completing GET links query', err);
-        res.sendStatus(500);
-      });
-    } else {
-      res.sendStatus(403);
-    }
+//     const queryText = 'SELECT * FROM links';
+//     pool.query(queryText)
+//       .then((result) => { res.send(result.rows); })
+//       .catch((err) => {
+//         console.log('Error completing GET links query', err);
+//         res.sendStatus(500);
+//       });
+//     } else {
+//       res.sendStatus(403);
+//     }
   
-  });
+//   });
   
-  router.get('/:id', (req, res) => {
-    if (req.isAuthenticated()) {
+//   router.get('/:id', (req, res) => {
+//     if (req.isAuthenticated()) {
   
-    const queryText = 'SELECT * FROM links WHERE id=$1';
-    pool.query(queryText, [req.params.id])
-      .then((result) => { res.send(result.rows); })
-      .catch((err) => {
-        console.log('Error completing GET links query', err);
-        res.sendStatus(500);
-      });
-    } else {
-      res.sendStatus(403);
-    }
-  });
+//     const queryText = 'SELECT * FROM links WHERE id=$1';
+//     pool.query(queryText, [req.params.id])
+//       .then((result) => { res.send(result.rows); })
+//       .catch((err) => {
+//         console.log('Error completing GET links query', err);
+//         res.sendStatus(500);
+//       });
+//     } else {
+//       res.sendStatus(403);
+//     }
+//   });
 
   module.exports = router;
