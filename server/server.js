@@ -10,10 +10,8 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-// const education = require('./routes/subtopics.router');
 const conversation = require('./routes/convo.router');
 const resource = require('./routes/resource.router');
-// const endingViolence = require('./routes/subtopics.router');
 
 
 // Body parser middleware
@@ -29,10 +27,8 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
-// app.use('/api/education', education);
 app.use('/api/conversation', conversation); 
 app.use('/api/resource', resource); 
-// app.use('/ending_violence', endingViolence);
 
 
 // Serve static files

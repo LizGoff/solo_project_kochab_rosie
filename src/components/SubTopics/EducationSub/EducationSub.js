@@ -75,7 +75,7 @@ class EducationSub extends Component {
 
   // addEdit = (item) => {
   //   console.log('adding edit', item);
-  //   axios.put(`/api/education_convo1/${item.id}`)
+  //   axios.put(`/api/conversation/${item.id}`)
   //     .then((response) => {
   //       console.log('put response', response);
   //       this.fetchData();
