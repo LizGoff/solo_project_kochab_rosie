@@ -490,9 +490,18 @@ li a:hover {
 #addResourceButton {
     width: 150px;
     margin-left: 20px;
+    margin-bottom: 30px;
     color: #000000;
     box-shadow: 2px 2px 4px #000000;
     font-family: 'Times New Roman', Times, serif;
     border-radius: 3px;
     background: rgb(243, 235, 208);
+}
+
+#tableResources {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 24px;
+    background: rgb(243, 235, 208);
+    width: 80% center;
+    padding: 20px;
 }

@@ -23,7 +23,8 @@ class EducationSub extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      results: []
+      results: [],
+      resourceHelp: []
     }
   }
 
@@ -92,7 +93,7 @@ class EducationSub extends Component {
     axios.get('/api/resource').then((response) => {
       console.log(response.data[0]);
       this.setState({
-        results: response.data
+        resourceHelp: response.data
       })
     }).catch((error) => {
       alert('error with GET in addResource file');
@@ -171,6 +172,24 @@ class EducationSub extends Component {
 
               <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
             </div>
+            <Paper>
+              <Table id="tableResources">
+
+                <TableHead>
+                  <TableRow>
+                    <TableCell>Resource Link</TableCell>
+                  </TableRow>
+                </TableHead>
+
+                <TableBody>
+                  {this.state.resourceHelp.map((links, i) => (
+                    <TableRow key={i}>
+                      <TableCell>{links.url}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </Paper>
           </div>
         </div >
       );
