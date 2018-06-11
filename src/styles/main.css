@@ -494,21 +494,15 @@ li a:hover {
 }
 
 #deleteButton {
-    margin-left: 20px;
     color: #000000;
     box-shadow: 2px 2px 4px #000000;
-    font-family: 'Times New Roman', Times, serif;
     border-radius: 3px;
-    background: rgb(243, 235, 208);
 }
 
 #editButton {
-    margin-left: 20px;
     color: #000000;
     box-shadow: 2px 2px 4px #000000;
-    font-family: 'Times New Roman', Times, serif;
     border-radius: 3px;
-    background: rgb(243, 235, 208);
 }
 
 #listConvos {

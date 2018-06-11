@@ -33,7 +33,6 @@ router.get('/', (req, res) => {
   } else {
     res.sendStatus(403);
   }
-
 });
 
 router.get('/:id', (req, res) => {
@@ -67,30 +66,22 @@ router.delete('/:id', (req,res) => {
 });
 
 
-// router.put('/', (req, res) => {
-//   const newComment = req.body;
-//   const queryText = `UPDATE comments
-//   SET "comment" = $1, 
-//   "user_id" = $2, 
-//   "topic_id" = $3, 
-//   "subtopic_id" = $4, 
-//   WHERE id=$5;`; 
-
-//   const queryValues = [
-//     updatedComment.comment,
-//     updatedComment.user_id,
-//     updatedComment.topic_id,
-//     updatedComment.subtopic_id,
-//     updatedComment.id,
-//   ];
-
-//   pool.query(queryText, queryValues)
-//     .then(() => { res.sendStatus(200); })
-//     .catch((err) => {
-//       console.log('Error completing PUT comments query', err);
-//       res.sendStatus(500);
-//     });
-// });
+router.put('/:id', (req, res) => {
+  const newComment = req.body;
+  const queryText = `UPDATE comments
+  SET "comment" = $1 
+  WHERE id=$2;`; 
+  const queryValues = [
+    newComment.comment,
+    req.params.id,
+  ];
+  pool.query(queryText, queryValues)
+    .then(() => { res.sendStatus(200); })
+    .catch((err) => {
+      console.log('Error completing PUT comments query', err);
+      res.sendStatus(500);
+    });
+});
 
 
 module.exports = router;

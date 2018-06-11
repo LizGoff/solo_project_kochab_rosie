@@ -10,6 +10,8 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Delete from '@material-ui/icons/Delete'
+import Edit from '@material-ui/icons/Edit'
 
 
 const mapReduxStateToProps = (reduxState) => (
@@ -139,8 +141,8 @@ class EndingViolenceSub extends Component {
                   {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small">Delete</Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small">Edit</Button></TableCell>
+                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
+                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small"><Edit /></Button></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

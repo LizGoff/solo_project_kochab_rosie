@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from '../../Nav/Nav';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Table from '@material-ui/core/Table';
@@ -10,6 +11,10 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import Delete from '@material-ui/icons/Delete'
+import Edit from '@material-ui/icons/Edit'
+
+
 
 const mapReduxStateToProps = (reduxState) => (
   { reduxState }
@@ -23,9 +28,11 @@ class EducationSub extends Component {
       comment: '',
       topic: 4,
       subtopic: 6,
-      resourceHelp: []
+      resourceHelp: [],
+      editOn: false
     }
   }
+
 
   componentDidMount() {
     this.fetchData();
@@ -55,7 +62,6 @@ class EducationSub extends Component {
     axios.post('/api/conversation', this.state).then((response) => {
       console.log('success');
       this.fetchData();
-
     }).catch((error) => {
       alert('POST error in EducationSub file');
       console.log(error);
@@ -73,17 +79,31 @@ class EducationSub extends Component {
     })
   }
 
-  // addEdit = (item) => {
-  //   console.log('adding edit', item);
-  //   axios.put(`/api/conversation/${item.id}`)
-  //     .then((response) => {
-  //       console.log('put response', response);
-  //       this.fetchData();
-  //     })
-  //     .catch((error) => {
-  //       console.log('put/add error in addEdit', error);
-  //     });
-  // }
+  // PUT
+
+  addEdit = (comment) => {
+    console.log('adding edit', comment);
+    axios.put(`/api/conversation/${this.state.editId}`, { comment: this.state.comment })
+      .then((response) => {
+        console.log('put response', response);
+        this.fetchData();
+        this.setState({
+          editOn: false
+        })
+      })
+      .catch((error) => {
+        console.log('put/add error in addEdit', error);
+      });
+  }
+
+  toggleEdit = (commentToEdit) => () =>
+    this.setState({
+      editOn: true,
+      comment: commentToEdit.comment,
+      editId: commentToEdit.id
+    });
+
+  // Resources data
 
   fetchResourceData() {
     axios.get('/api/resource').then((response) => {
@@ -115,12 +135,16 @@ class EducationSub extends Component {
 
   render() {
     let content = null
+    // let editOn = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
+    let buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+    if (this.state.editOn) {
+      buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
+    }
     if (this.props) {
       content = (
         <div>
           {this.props.data}
           <div>
-
             <Paper>
               <Table id="tableComments">
                 <TableHead>
@@ -134,13 +158,15 @@ class EducationSub extends Component {
                   {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small">Delete</Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small">Edit</Button></TableCell>
+                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
+                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </Paper>
+
+
             <div>
               <TextField
                 id="addSubtopic"
@@ -150,8 +176,10 @@ class EducationSub extends Component {
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-              <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+              {buttonDisplayed}
             </div>
+
+
             <div>
               <TextField
                 id="addResource"
