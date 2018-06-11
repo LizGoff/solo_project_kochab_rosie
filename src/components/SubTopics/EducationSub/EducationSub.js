@@ -42,6 +42,12 @@ class EducationSub extends Component {
     })
   }
 
+  handleSubtopicChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
   sendData = () => {
     console.log('button clicked');
     axios.post('/api/education_convo1', this.state).then((response) => {
@@ -78,11 +84,39 @@ class EducationSub extends Component {
   //     });
   // }
 
-  handleSubtopicChange = (event) => {
+  componentResourceDidMount() {
+    this.fetchResourceData();
+  }
+
+  fetchResourceData() {
+    axios.get('/api/resource').then((response) => {
+      console.log(response.data[0]);
+      this.setState({
+        results: response.data
+      })
+    }).catch((error) => {
+      alert('error with GET in addResource file');
+    })
+  }
+
+  sendResourceData = () => {
+    console.log('button clicked');
+    axios.post('/api/resource', this.state).then((response) => {
+      console.log('success');
+      this.fetchResourceData();
+
+    }).catch((error) => {
+      alert('POST error in addResource file');
+      console.log(error);
+    });
+  }
+
+  handleResourceChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
   }
+
 
   render() {
     let content = null
@@ -115,16 +149,28 @@ class EducationSub extends Component {
                 </TableBody>
               </Table>
             </Paper>
+            <div>
+              <TextField
+                id="addSubtopic"
+                onChange={this.handleSubtopicChange}
+                name="comment"
+                label="Share your thoughts"
+                placeholder="Share here"
+                margin="normal" />
 
-            <TextField
-              id="addSubtopic"
-              onChange={this.handleSubtopicChange}
-              name="comment"
-              label="Share your thoughts"
-              placeholder="Share here"
-              margin="normal"/>
+              <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+            </div>
+            <div>
+              <TextField
+                id="addResource"
+                onChange={this.handleResourceChange}
+                name="url"
+                label="Share resources for women here"
+                placeholder="Share url here"
+                margin="normal" />
 
-            <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+              <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+            </div>
           </div>
         </div >
       );

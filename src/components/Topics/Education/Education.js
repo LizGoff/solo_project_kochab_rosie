@@ -5,9 +5,6 @@ import { connect } from 'react-redux';
 import Nav from '../../Nav/Nav';
 
 import { USER_ACTIONS } from '../../../redux/actions/userActions';
-import { triggerLogout } from '../../../redux/actions/loginActions';
-
-
 
 import Button from '@material-ui/core/Button';
 
