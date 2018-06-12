@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     user: state.user,
   });
   
-  class PoliticsPage extends Component {
+  class PoliticsSub extends Component {
     // componentDidMount() {
     //   this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
     // }
@@ -26,7 +26,7 @@ const mapStateToProps = state => ({
     //     content = (
     //       <div>
     //         <p>
-    //           Info Page
+    //           Info Sub
     //         </p>
     //       </div>
     //     );
@@ -43,4 +43,4 @@ const mapStateToProps = state => ({
     }
   }
 
-export default connect(mapStateToProps)(PoliticsPage);
+export default connect(mapStateToProps)(PoliticsSub);

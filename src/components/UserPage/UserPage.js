@@ -52,7 +52,7 @@ class UserPage extends Component {
           <div id="topicButtonsPage">
 
             <Button id="inHistory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_history')}>Women In Our History</Button>
-            <Button id="ourStory" variant="raised" onClick={this.sendUserToCorrespondingPage('/our_story')}>Our History</Button>
+            <Button id="ourStory" variant="raised" onClick={this.sendUserToCorrespondingPage('/info')}>Our History</Button>
             <Button id="inHerstory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_herstory')}>Women Living HerStory</Button>
 
             <Button id="pride" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi')}>LBGTQI Community</Button>

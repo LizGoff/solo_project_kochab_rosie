@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     user: state.user,
   });
   
-  class WageGapPage extends Component {
+  class WageGapSub extends Component {
     render() {
       let content = null;
       return (
@@ -21,4 +21,4 @@ const mapStateToProps = state => ({
     }
   }
 
-export default connect(mapStateToProps)(WageGapPage);
+export default connect(mapStateToProps)(WageGapSub);

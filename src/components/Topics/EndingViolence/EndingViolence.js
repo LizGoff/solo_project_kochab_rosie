@@ -36,15 +36,15 @@ class EndingViolencePage extends Component {
           <h2>Ending Violence Against Women</h2>
           <div>
 
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo1')}>What can we do to end violence against women?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo2')}>Does anyone know of any women's shelters in Wisconsin?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo3')}>What are the consequences of violence for women and societies?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo4')}>What's the role of social media and new technologies in mobilizing people to end violence?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo5')}>How many women and girls are victims of violence worldwide?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo6')}>How does abuse affect women of low income communities?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo7')}>Where can I get help?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo8')}>Why do women stay with or go back to their abusive partners?</Button>
-            <Button id="endingViolenceConvo" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo9')}>What is needed to end and prevent violence against women and girls?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo1')}>What can we do to end violence against women?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo2')}>Does anyone know of any women's shelters in Wisconsin?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo3')}>What are the consequences of violence for women and societies?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo4')}>What's the role of social media and new technologies in mobilizing people to end violence?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo5')}>How many women and girls are victims of violence worldwide?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo6')}>How does abuse affect women of low income communities?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo7')}>Where can I get help?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo8')}>Why do women stay with or go back to their abusive partners?</Button>
+            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence_convo9')}>What is needed to end and prevent violence against women and girls?</Button>
 
           </div>
         </div>

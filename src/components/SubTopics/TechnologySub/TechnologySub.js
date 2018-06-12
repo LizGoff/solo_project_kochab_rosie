@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     user: state.user,
   });
   
-  class TechPage extends Component {
+  class TechSub extends Component {
     render() {
       let content = null;
       return (
@@ -21,4 +21,5 @@ const mapStateToProps = state => ({
     }
   }
 
-export default connect(mapStateToProps)(TechPage);
+export default connect(mapStateToProps)(TechSub);
+

@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
     user: state.user,
   });
   
-  class SciencePage extends Component {
+  class ScienceSub extends Component {
     render() {
       let content = null;
       return (
@@ -21,4 +21,4 @@ const mapStateToProps = state => ({
     }
   }
 
-export default connect(mapStateToProps)(SciencePage);
+export default connect(mapStateToProps)(ScienceSub);
