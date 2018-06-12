@@ -162,27 +162,19 @@ class EndingViolencePage extends Component {
             <h1 id="welcome">
               Thank you for joining the conversation {this.props.user.userName}
             </h1>
-            <h2>Ending Violence Against Women</h2>
+          <h2>Ending Violence Against Women</h2>
             <div>
-              <Paper>
-                <Table id="table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Start a Conversation!</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {this.state.results.map((subtopics, i) => (
-                      <TableRow key={i}>
-                        <TableCell><Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/ending_violence_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button></TableCell>
-                        <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                        <TableCell><Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button></TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </Paper>
-
+              <ul id="shareTopicsButtons">
+                {this.state.results.map((subtopics, i) => (
+                  <li key={i}>
+                    <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
+                    <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
+                    <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/ending_violence_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
+                  </li>
+                ))}
+              </ul>
+              <div id="inputFieldsCommentAndResource">
+            <h2 id="shareTopic">Start a conversation!</h2>
               <div>
                 <TextField
                   id="addSubtopic"
@@ -194,7 +186,7 @@ class EndingViolencePage extends Component {
                   margin="normal" />
                 {buttonDisplayed}
               </div>
-
+            <h2 id="shareLink">Share a url link for women!</h2>
               <div>
                 <TextField
                   id="addResource"
@@ -206,13 +198,12 @@ class EndingViolencePage extends Component {
                   margin="normal" />
                 <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
               </div>
+              </div>
             </div>
-            </div>
-
           </div>
-          );
-        }
-    
+        </div>
+      );
+    }    
         return (
       <div>
             <Nav />

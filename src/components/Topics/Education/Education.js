@@ -1,69 +1,3 @@
-// import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import Nav from '../../Nav/Nav';
-// import { USER_ACTIONS } from '../../../redux/actions/userActions';
-// import Button from '@material-ui/core/Button';
-
-// const mapStateToProps = state => ({
-//   user: state.user, 
-// });
-
-// class EducationPage extends Component {
-
-//   componentDidMount() {
-//     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
-//   }
-
-//   componentDidUpdate() {
-//     if (!this.props.user.isLoading && this.props.user.userName === null) {
-//       this.props.history.push('home');
-//     }
-//   }
-
-//   sendUserToCorrespondingPage = (urlString) => {
-//     return () => {
-//       this.props.history.push(urlString);
-//     }
-//   };
-
-//   render() {
-//     let content = null;
-//     if (this.props.user.userName) {
-//       content = (
-//         <div>
-//           <h1 id="welcome">
-//           Thank you for joining the conversation {this.props.user.userName}.
-//           </h1>
-//           <h2>Education</h2>
-//           <div>
-
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo1')}>Does anyone know anything about Prime Digital Academy?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo2')}>Are there any scholarships that help women become educators in my area?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo3')}>Who is your favorite female educator?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo4')}>Why are educators paid less than other professionals?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo5')}>What is gender mainstreaming?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo6')}>Which are the safest colleges for women?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo7')}>What STEM schools are best for my daughter?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo8')}>Which colleges are the best for STEM careers?</Button>
-//             <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/education_convo9')}>What female educator inspires you the most?</Button>
-
-//           </div>
-//         </div>
-//       );
-//     }
-
-//     return (
-//       <div>
-//         <Nav />
-//         {content}
-//       </div>
-//     );
-//   }
-// }
-
-// // this allows us to use <App /> in index.js
-// export default connect(mapStateToProps)(EducationPage);
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
@@ -72,12 +6,6 @@ import { USER_ACTIONS } from '../../../redux/actions/userActions';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 
@@ -93,7 +21,7 @@ class EducationPage extends Component {
       results: [],
       subtopic: '',
       topic: 4,
-      
+
       resourceHelp: [],
       url: '',
       editOn: false
@@ -228,27 +156,19 @@ class EducationPage extends Component {
             <h1 id="welcome">
               Thank you for joining the conversation {this.props.user.userName}
             </h1>
-            <h2>Education</h2>
+          <h2>Education</h2>
             <div>
-              <Paper>
-                <Table id="table">
-                  <TableHead>
-                    <TableRow>
-                      <TableCell>Start a Conversation!</TableCell>
-                    </TableRow>
-                  </TableHead>
-                  <TableBody>
-                    {this.state.results.map((subtopics, i) => (
-                      <TableRow key={i}>
-                        <TableCell><Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/lbgtqi_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button></TableCell>
-                        <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                        <TableCell><Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button></TableCell>
-                      </TableRow>
-                    ))}
-                  </TableBody>
-                </Table>
-              </Paper>
-
+              <ul id="shareTopicsButtons">
+                {this.state.results.map((subtopics, i) => (
+                  <li key={i}>
+                    <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
+                    <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
+                    <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/education_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
+                  </li>
+                ))}
+              </ul>
+              <div id="inputFieldsCommentAndResource">
+            <h2 id="shareTopic">Start a conversation!</h2>
               <div>
                 <TextField
                   id="addSubtopic"
@@ -260,7 +180,7 @@ class EducationPage extends Component {
                   margin="normal" />
                 {buttonDisplayed}
               </div>
-
+            <h2 id="shareLink">Share a url link for women!</h2>
               <div>
                 <TextField
                   id="addResource"
@@ -272,21 +192,21 @@ class EducationPage extends Component {
                   margin="normal" />
                 <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
               </div>
+              </div>
             </div>
-            </div>
+          </div>
+        </div>
+      );
+    }
 
-          </div>
-          );
-        }
-    
-        return (
+    return (
       <div>
-            <Nav />
-            {content}
-          </div>
-          );
-        }
-      }
-      
-          export default connect(mapStateToProps)(EducationPage);
-          
+        <Nav />
+        {content}
+      </div>
+    );
+  }
+}
+
+export default connect(mapStateToProps)(EducationPage);
+
