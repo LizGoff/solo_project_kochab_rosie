@@ -23,7 +23,7 @@ class LgbtqiPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      
+
       results: [],
       subtopic: '',
       topic: 5,
@@ -174,7 +174,7 @@ class LgbtqiPage extends Component {
                   <TableBody>
                     {this.state.results.map((subtopics, i) => (
                       <TableRow key={i}>
-                        <TableCell>{subtopics.subtopic}</TableCell>
+                        <TableCell><Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/lbgtqi_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button></TableCell>
                         <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
                         <TableCell><Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button></TableCell>
                       </TableRow>

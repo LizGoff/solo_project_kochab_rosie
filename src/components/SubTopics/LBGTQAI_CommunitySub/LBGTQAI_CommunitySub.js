@@ -28,7 +28,7 @@ class LbgtqiSub extends Component {
       results: [],
       comment: '',
       topic: 9,
-      subtopic: 8,
+      subtopic: '',
       resourceHelp: [],
       url: '',
       editOn: false
@@ -39,6 +39,9 @@ class LbgtqiSub extends Component {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.fetchData();
     this.fetchResourceData();
+    this.setState({
+    subtopic: this.props.match.params.id
+    })
   }
 
   componentDidUpdate() {
@@ -48,7 +51,7 @@ class LbgtqiSub extends Component {
   }
 
   fetchData() {
-    axios.get(`/api/conversation/${8}`).then((response) => {
+    axios.get(`/api/conversation/${this.props.match.params.id}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
         results: response.data,

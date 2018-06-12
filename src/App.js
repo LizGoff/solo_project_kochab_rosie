@@ -444,41 +444,10 @@ const App = () => (
         {/* ------------- LBGTQI Convo -------------- */}
 
         <Route
-          path="/lbgtqi_convo1"
+          path="/lbgtqi_convo/:id"
           component={LgbtqiSub}
         />
-        <Route
-          path="/lbgtqi_convo2"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo3"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo4"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo5"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo6"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo7"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo8"
-          component={LgbtqiSub}
-        />
-        <Route
-          path="/lbgtqi_convo9"
-          component={LgbtqiSub}
-        />
+
 
         {/* ------------- Wage Gap Convo -------------- */}
 
