@@ -5,7 +5,7 @@ import { USER_ACTIONS } from '../../../redux/actions/userActions';
 import Button from '@material-ui/core/Button';
 
 const mapStateToProps = state => ({
-  user: state.user,
+  user: state.user, 
 });
 
 class EducationPage extends Component {
@@ -32,7 +32,7 @@ class EducationPage extends Component {
       content = (
         <div>
           <h1 id="welcome">
-            Welcome, {this.props.user.userName}
+          Thank you for joining the conversation {this.props.user.userName}.
           </h1>
           <h2>Education</h2>
           <div>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Nav from '../../Nav/Nav';
+import Nav from '../../Nav/Nav'; 
 import { USER_ACTIONS } from '../../../redux/actions/userActions';
 import Button from '@material-ui/core/Button';
 
@@ -31,7 +31,7 @@ class EndingViolencePage extends Component {
       content = (
         <div>
           <h1 id="welcome">
-            Welcome, {this.props.user.userName}
+          Thank you for joining the conversation {this.props.user.userName}.
           </h1>
           <h2>Ending Violence Against Women</h2>
           <div>

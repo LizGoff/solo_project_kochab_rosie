@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from '../../Nav/Nav';
+import { USER_ACTIONS } from '../../../redux/actions/userActions';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
@@ -14,11 +15,9 @@ import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 
-
-
-const mapReduxStateToProps = (reduxState) => (
-  { reduxState }
-);
+const mapStateToProps = state => ({
+  user: state.user,
+});
 
 class EducationSub extends Component {
   constructor(props) {
@@ -35,8 +34,15 @@ class EducationSub extends Component {
   }
 
   componentDidMount() {
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.fetchData();
     this.fetchResourceData();
+  }
+
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && this.props.user.userName === null) {
+      this.props.history.push('home');
+    }
   }
 
   fetchData() {
@@ -141,11 +147,14 @@ class EducationSub extends Component {
     if (this.state.editOn) {
       buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
     }
-    if (this.props) {
+    if (this.props.user.userName) {
       content = (
         <div>
           {this.props.data}
           <div>
+          <h1 id="welcome">
+          Thank you for joining the conversation {this.props.user.userName}.
+          </h1>
             <Paper>
               <Table id="tableComments">
                 <TableHead>
@@ -201,4 +210,4 @@ class EducationSub extends Component {
   }
 }
 
-export default connect(mapReduxStateToProps)(EducationSub);
+export default connect(mapStateToProps)(EducationSub);
