@@ -29,6 +29,7 @@ class EndingViolenceSub extends Component {
       topic: 23,
       subtopic: 34,
       resourceHelp: [],
+      url: '',
       editOn: false
     }
   }
@@ -109,7 +110,8 @@ class EndingViolenceSub extends Component {
     axios.get('/api/resource').then((response) => {
       console.log(response.data[0]);
       this.setState({
-        resourceHelp: response.data
+        resourceHelp: response.data,
+        url: '',
       })
     }).catch((error) => {
       alert('error with GET in addResource file');
@@ -181,6 +183,7 @@ class EndingViolenceSub extends Component {
                 id="addResource"
                 onChange={this.handleResourceChange}
                 name="url"
+                value={this.state.url} 
                 label="Share resources for women here"
                 placeholder="Share url here"
                 margin="normal" />

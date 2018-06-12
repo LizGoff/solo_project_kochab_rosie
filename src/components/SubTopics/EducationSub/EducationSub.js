@@ -29,10 +29,10 @@ class EducationSub extends Component {
       topic: 4,
       subtopic: 6,
       resourceHelp: [],
+      url: '',
       editOn: false,
     }
   }
-
 
   componentDidMount() {
     this.fetchData();
@@ -110,6 +110,7 @@ class EducationSub extends Component {
       console.log(response.data[0]);
       this.setState({
         resourceHelp: response.data,
+        url: '',
       })
     }).catch((error) => {
       alert('error with GET in addResource file');
@@ -121,6 +122,7 @@ class EducationSub extends Component {
     axios.post('/api/resource', this.state).then((response) => {
       console.log('success with resource');
       this.fetchResourceData();
+      alert("Thank you for submitting a resource link for women!")
     }).catch((error) => {
       alert('POST error in addResource file');
       console.log(error);
@@ -180,6 +182,7 @@ class EducationSub extends Component {
                 id="addResource"
                 onChange={this.handleResourceChange}
                 name="url"
+                value={this.state.url}
                 label="Share resources for women here"
                 placeholder="Share url here"
                 margin="normal" />
