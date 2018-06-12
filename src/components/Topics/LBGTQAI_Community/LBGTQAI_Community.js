@@ -60,7 +60,7 @@ class LgbtqiPage extends Component {
         subtopic: ''
       })
     }).catch((error) => {
-      alert('error with GET in LBGTQAISub file');
+      alert('error with GET in Sub file');
     })
   }
 
@@ -76,7 +76,7 @@ class LgbtqiPage extends Component {
       console.log('success');
       this.fetchData();
     }).catch((error) => {
-      alert('POST error in LBGTQAISub file');
+      alert('POST error in Sub file');
       console.log(error);
     });
   }
@@ -88,7 +88,7 @@ class LgbtqiPage extends Component {
       this.fetchData();
       console.log('success with delete!');
     }).catch((error) => {
-      alert('There was a problem with DELETE LBGTQAISub')
+      alert('There was a problem with DELETE Sub')
     })
   }
 
@@ -165,7 +165,7 @@ class LgbtqiPage extends Component {
             <h2>LBGTQI</h2>
             <div>
               <Paper>
-                <Table id="tablesubtopics">
+                <Table id="table">
                   <TableHead>
                     <TableRow>
                       <TableCell>Start a Conversation!</TableCell>
@@ -205,18 +205,6 @@ class LgbtqiPage extends Component {
                   placeholder="Share url here"
                   margin="normal" />
                 <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
-
-
-
-                {/* <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo1')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo2')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo3')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo4')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo5')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo6')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo7')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo8')}>?</Button>
-            <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi_convo9')}>?</Button> */}
               </div>
             </div>
             </div>

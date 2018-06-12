@@ -288,39 +288,7 @@ const App = () => (
         {/* ------------- Education Convo -------------- */}
 
         <Route
-          path="/education_convo1"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo2"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo3"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo4"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo5"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo6"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo7"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo8"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo9"
+          path="/education_convo/:id"
           component={EducationSub}
         />
 
@@ -491,39 +459,7 @@ const App = () => (
         {/* ------------- Ending Violence Against Women Convo -------------- */}
 
         <Route
-          path="/ending_violence_convo1"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo2"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo3"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo4"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo5"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo6"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo7"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo8"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo9"
+          path="/ending_violence_convo/:id"
           component={EndingViolenceSub}
         />
 

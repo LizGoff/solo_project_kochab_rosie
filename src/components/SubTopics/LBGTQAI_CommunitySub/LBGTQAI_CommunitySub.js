@@ -58,7 +58,7 @@ class LbgtqiSub extends Component {
         comment: ''
       })
     }).catch((error) => {
-      alert('error with GET in EducationSub file');
+      alert('error with GET in Convo file');
     })
   }
 
@@ -74,7 +74,7 @@ class LbgtqiSub extends Component {
       console.log('success');
       this.fetchData();
     }).catch((error) => {
-      alert('POST error in EndingViolenceSub file');
+      alert('POST error in Convo file');
       console.log(error);
     });
   }
@@ -162,7 +162,7 @@ class LbgtqiSub extends Component {
             Thank you for joining the conversation {this.props.user.userName}
           </h1>
             <Paper>
-              <Table id="tableComments">
+              <Table id="table">
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>

@@ -26,7 +26,7 @@ class EducationSub extends Component {
       results: [],
       comment: '',
       topic: 4,
-      subtopic: 6,
+      subtopic: '',
       resourceHelp: [],
       url: '',
       editOn: false,
@@ -37,6 +37,9 @@ class EducationSub extends Component {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.fetchData();
     this.fetchResourceData();
+    this.setState({
+      subtopic: this.props.match.params.id
+    })
   }
 
   componentDidUpdate() {
@@ -46,14 +49,14 @@ class EducationSub extends Component {
   }
 
   fetchData() {
-    axios.get(`/api/conversation/${6}`).then((response) => {
+    axios.get(`/api/conversation/${this.props.match.params.id}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
         results: response.data,
         comment: '',
       })
     }).catch((error) => {
-      alert('error with GET in EducationSub file');
+      alert('error with GET in Convo file');
     })
   }
 
@@ -69,7 +72,7 @@ class EducationSub extends Component {
       console.log('success');
       this.fetchData();
     }).catch((error) => {
-      alert('POST error in EducationSub file');
+      alert('POST error in Convo file');
       console.log(error);
     });
   }
@@ -152,11 +155,11 @@ class EducationSub extends Component {
         <div>
           {this.props.data}
           <div>
-          <h1 id="welcome">
-            Thank you for joining the conversation {this.props.user.userName}.
+            <h1 id="welcome">
+              Thank you for joining the conversation {this.props.user.userName}.
           </h1>
             <Paper>
-              <Table id="tableComments">
+              <Table id="table">
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
@@ -183,7 +186,7 @@ class EducationSub extends Component {
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-                {buttonDisplayed}
+              {buttonDisplayed}
             </div>
 
             <div>

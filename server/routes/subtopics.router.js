@@ -44,7 +44,7 @@ router.get('/:id', (req, res) => {
     pool.query(queryText, [req.params.id])
       .then((result) => { res.send(result.rows); })
       .catch((err) => {
-        console.log('Error completing GET subtopics query', err);
+        console.log('Error completing GET subtopic query', err);
         res.sendStatus(500);
       });
   } else {
@@ -61,7 +61,7 @@ router.delete('/:id', (req, res) => {
       .then((result) => {
         res.sendStatus(200);
       }).catch((error) => {
-        console.log('error delete SQL INSERT', error)
+        console.log('error DELETE SQL subtopic INSERT', error)
         res.sendStatus(500);
       });
   } else {
@@ -84,7 +84,7 @@ router.put('/:id', (req, res) => {
     pool.query(queryText, queryValues)
       .then(() => { res.sendStatus(200); })
       .catch((err) => {
-        console.log('Error completing PUT subtopics query', err);
+        console.log('Error completing PUT subtopic query', err);
         res.sendStatus(500);
       });
   } else {
