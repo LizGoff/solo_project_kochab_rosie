@@ -13,7 +13,7 @@ router.post('/', (req, res) => {
         console.log('Error completing POST comment query', err);
         res.sendStatus(500);
       })
-  } else {
+  } else { 
     res.sendStatus(403);
   }
 });

@@ -28,7 +28,7 @@ class EndingViolenceSub extends Component {
       results: [],
       comment: '',
       topic: 23,
-      subtopic: 34,
+      subtopic: '',
       resourceHelp: [],
       url: '',
       editOn: false
@@ -39,6 +39,9 @@ class EndingViolenceSub extends Component {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.fetchData();
     this.fetchResourceData();
+    this.setState({
+      subtopic: this.props.match.params.id
+    })
   }
 
   componentDidUpdate() {
@@ -48,14 +51,14 @@ class EndingViolenceSub extends Component {
   }
 
   fetchData() {
-    axios.get(`/api/conversation/${34}`).then((response) => {
+    axios.get(`/api/conversation/${this.props.match.params.id}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
         results: response.data,
         comment: ''
       })
     }).catch((error) => {
-      alert('error with GET in EducationSub file');
+      alert('error with GET in Convo file');
     })
   }
 
@@ -71,7 +74,7 @@ class EndingViolenceSub extends Component {
       console.log('success');
       this.fetchData();
     }).catch((error) => {
-      alert('POST error in EndingViolenceSub file');
+      alert('POST error in Convo file');
       console.log(error);
     });
   }
@@ -155,11 +158,11 @@ class EndingViolenceSub extends Component {
         <div>
           {this.props.data}
           <div>
-          <h1 id="welcome">
-            Thank you for joining the conversation {this.props.user.userName}.
-          </h1>
+            <h1 id="welcome">
+              Thank you for joining the conversation {this.props.user.userName}
+            </h1>
             <Paper>
-              <Table id="tableComments">
+              <Table id="table">
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
@@ -186,7 +189,7 @@ class EndingViolenceSub extends Component {
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-                {buttonDisplayed}
+              {buttonDisplayed}
             </div>
 
             <div>
@@ -194,7 +197,7 @@ class EndingViolenceSub extends Component {
                 id="addResource"
                 onChange={this.handleResourceChange}
                 name="url"
-                value={this.state.url} 
+                value={this.state.url}
                 label="Share resources for women here"
                 placeholder="Share url here"
                 margin="normal" />

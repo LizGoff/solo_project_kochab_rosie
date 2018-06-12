@@ -8,12 +8,12 @@ const mapStateToProps = state => ({
     user: state.user,
   });
   
-  class OurStoryPage extends Component {
+  class WomensHistorySub extends Component {
     render() {
       let content = null;
       return (
           <div>
-          <p>Our Story</p>
+          <p>Women in our history</p>
           <Nav />
           { content }
         </div>
@@ -21,4 +21,4 @@ const mapStateToProps = state => ({
     }
   }
 
-export default connect(mapStateToProps)(OurStoryPage);
+export default connect(mapStateToProps)(WomensHistorySub);

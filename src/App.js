@@ -19,7 +19,6 @@ import ResourcePage from './components/Resource/Resource';
 import PoliticsPage from './components/Topics/PoliticsPage/PoliticsPage'
 import WomensHistoryPage from './components/Topics/WomensHistoryPage/WomensHistoryPage'
 import WomenLivingHerstory from './components/Topics/WomenLivingHerstory/WomenLivingHerstory'
-import OurStoryPage from './components/Topics/OurStory/OurStory'
 import TechPage from './components/Topics/Technology/Technology'
 import EducationPage from './components/Topics/Education/Education'
 import HealthPage from './components/Topics/WomensHealth/WomensHealth'
@@ -31,6 +30,15 @@ import WageGapPage from './components/Topics/WageGap/WageGap'
 
 import EducationSub from './components/SubTopics/EducationSub/EducationSub';
 import EndingViolenceSub from './components/SubTopics/EndingViolenceSub/EndingViolenceSub';
+import LgbtqiSub from './components/SubTopics/LBGTQAI_CommunitySub/LBGTQAI_CommunitySub';
+import PoliticsSub from './components/SubTopics/PoliticsSub/PoliticsSub';
+import ScienceSub from './components/SubTopics/ScienceSub/ScienceSub';
+import TechSub from './components/SubTopics/TechnologySub/TechnologySub';
+import WageGapSub from './components/SubTopics/WageGapSub/WageGapSub';
+import ArtsSub from './components/SubTopics/WomenInArtsSub/WomenInArtsSub';
+import WomenLivingHerstorySub from './components/SubTopics/WomenLivingHerstorySub/WomenLivingHerstorySub';
+import WomensHistorySub from './components/SubTopics/WomensHistorySub/WomensHistorySub';
+import HealthSub from './components/SubTopics/WomensHealthSub/WomensHealthSub';
 
 
 import './styles/main.css';
@@ -38,7 +46,9 @@ import './styles/main.css';
 
 const App = () => (
   <div>
-    <Header title="Rosie's Resistance" />
+    <div id="header">
+      <Header title="Rosie's Resistance" id="header" />
+    </div>
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
@@ -78,10 +88,6 @@ const App = () => (
         <Route
           path="/women_in_herstory"
           component={WomenLivingHerstory}
-        />
-        <Route
-          path="/our_story"
-          component={OurStoryPage}
         />
         <Route
           path="/technology"
@@ -124,39 +130,39 @@ const App = () => (
 
         <Route
           path="/politics_convo1"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo2"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo3"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo4"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo5"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo6"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo7"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo8"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
         <Route
           path="/politics_convo9"
-          component={PoliticsPage}
+          component={PoliticsSub}
         />
 
 
@@ -164,39 +170,39 @@ const App = () => (
 
         <Route
           path="/women_in_history_convo1"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo2"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo3"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo4"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo5"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo6"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo7"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo8"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
         <Route
           path="/women_in_history_convo9"
-          component={WomensHistoryPage}
+          component={WomensHistorySub}
         />
 
 
@@ -205,39 +211,39 @@ const App = () => (
 
         <Route
           path="/herstory_convo1"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo2"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo3"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo4"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo5"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo6"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo7"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo8"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
         <Route
           path="/herstory_convo9"
-          component={WomenLivingHerstory}
+          component={WomenLivingHerstorySub}
         />
 
 
@@ -246,77 +252,45 @@ const App = () => (
 
         <Route
           path="/technology_convo1"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo2"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo3"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo4"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo5"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo6"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo7"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo8"
-          component={TechPage}
+          component={TechSub}
         />
         <Route
           path="/technology_convo9"
-          component={TechPage}
+          component={TechSub}
         />
 
         {/* ------------- Education Convo -------------- */}
 
         <Route
-          path="/education_convo1"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo2"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo3"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo4"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo5"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo6"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo7"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo8"
-          component={EducationSub}
-        />
-        <Route
-          path="/education_convo9"
+          path="/education_convo/:id"
           component={EducationSub}
         />
 
@@ -324,233 +298,170 @@ const App = () => (
 
         <Route
           path="/health_convo1"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo2"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo3"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo4"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo5"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo6"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo7"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo8"
-          component={HealthPage}
+          component={HealthSub}
         />
         <Route
           path="/health_convo9"
-          component={HealthPage}
+          component={HealthSub}
         />
 
         {/* ------------- Science Convo -------------- */}
 
         <Route
           path="/science_convo1"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo2"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo3"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo4"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo5"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo6"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo7"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo8"
-          component={SciencePage}
+          component={ScienceSub}
         />
         <Route
           path="/science_convo9"
-          component={SciencePage}
+          component={ScienceSub}
         />
 
         {/* ------------- The Arts Convo -------------- */}
 
         <Route
           path="/arts_convo1"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo2"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo3"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo4"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo5"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo6"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo7"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo8"
-          component={ArtsPage}
+          component={ArtsSub}
         />
         <Route
           path="/arts_convo9"
-          component={ArtsPage}
+          component={ArtsSub}
         />
 
         {/* ------------- LBGTQI Convo -------------- */}
 
         <Route
-          path="/lbgtqi_convo1"
-          component={LgbtqiPage}
+          path="/lbgtqi_convo/:id"
+          component={LgbtqiSub}
         />
-        <Route
-          path="/lbgtqi_convo2"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo3"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo4"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo5"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo6"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo7"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo8"
-          component={LgbtqiPage}
-        />
-        <Route
-          path="/lbgtqi_convo9"
-          component={LgbtqiPage}
-        />
+
 
         {/* ------------- Wage Gap Convo -------------- */}
 
         <Route
           path="/wage_gap_convo1"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo2"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo3"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo4"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo5"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo6"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo7"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo8"
-          component={WageGapPage}
+          component={WageGapSub}
         />
         <Route
           path="/wage_gap_convo9"
-          component={WageGapPage}
+          component={WageGapSub}
         />
 
         {/* ------------- Ending Violence Against Women Convo -------------- */}
 
         <Route
-          path="/ending_violence_convo1"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo2"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo3"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo4"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo5"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo6"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo7"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo8"
-          component={EndingViolenceSub}
-        />
-        <Route
-          path="/ending_violence_convo9"
+          path="/ending_violence_convo/:id"
           component={EndingViolenceSub}
         />
 
