@@ -142,7 +142,7 @@ class LbgtqiSub extends Component {
       [event.target.name]: event.target.value
     })
   }
-
+ 
 
   render() {
     let content = null
