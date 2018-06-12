@@ -6,9 +6,9 @@ const router = express.Router();
 
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
-      const queryText = `INSERT INTO links ("url", "user_id")
-                      VALUES ($1, $2) RETURNING "url";`;
-      pool.query(queryText, [req.body.url, req.user.id])
+      const queryText = `INSERT INTO links ("url", "topic_id", "user_id")
+                      VALUES ($1, $2, $3) RETURNING "url";`;
+      pool.query(queryText, [req.body.url, req.body.topic, req.user.id])
         .then(() => { res.sendStatus(201); })
         .catch((err) => {
           console.log('Error completing POST link query', err);

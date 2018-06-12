@@ -29,7 +29,7 @@ class EducationSub extends Component {
       topic: 4,
       subtopic: 6,
       resourceHelp: [],
-      editOn: false
+      editOn: false,
     }
   }
 
@@ -109,7 +109,7 @@ class EducationSub extends Component {
     axios.get('/api/resource').then((response) => {
       console.log(response.data[0]);
       this.setState({
-        resourceHelp: response.data
+        resourceHelp: response.data,
       })
     }).catch((error) => {
       alert('error with GET in addResource file');
@@ -135,7 +135,6 @@ class EducationSub extends Component {
 
   render() {
     let content = null
-    // let editOn = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
     let buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
     if (this.state.editOn) {
       buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
@@ -150,8 +149,6 @@ class EducationSub extends Component {
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
-                    <TableCell>Delete</TableCell>
-                    <TableCell>Edit</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -166,7 +163,6 @@ class EducationSub extends Component {
               </Table>
             </Paper>
 
-
             <div>
               <TextField
                 id="addSubtopic"
@@ -176,9 +172,8 @@ class EducationSub extends Component {
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-              {buttonDisplayed}
+                {buttonDisplayed}
             </div>
-
 
             <div>
               <TextField

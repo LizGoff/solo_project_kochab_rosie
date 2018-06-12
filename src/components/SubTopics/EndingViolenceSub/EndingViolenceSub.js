@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from '../../Nav/Nav';
+
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Table from '@material-ui/core/Table';
@@ -27,7 +28,8 @@ class EndingViolenceSub extends Component {
       comment: '',
       topic: 23,
       subtopic: 34,
-      resourceHelp: []
+      resourceHelp: [],
+      editOn: false
     }
   }
 
@@ -61,7 +63,7 @@ class EndingViolenceSub extends Component {
       this.fetchData();
 
     }).catch((error) => {
-      alert('POST error in EducationSub file');
+      alert('POST error in EndingViolenceSub file');
       console.log(error);
     });
   }
@@ -77,19 +79,31 @@ class EndingViolenceSub extends Component {
     })
   }
 
-  // addEdit = (item) => {
-  //   console.log('adding edit', item);
-  //   axios.put(`/api/conversation/${item.id}`)
+  // PUT
 
-  //     .then((response) => {
-  //       console.log('put response', response);
-  //       this.fetchData();
-  //     })
-  //     .catch((error) => {
-  //       console.log('put/add error in addEdit', error);
-  //     });
-  // }
+  addEdit = (comment) => {
+    console.log('adding edit', comment);
+    axios.put(`/api/conversation/${this.state.editId}`, { comment: this.state.comment })
+      .then((response) => {
+        console.log('put response', response);
+        this.fetchData();
+        this.setState({
+          editOn: false
+        })
+      })
+      .catch((error) => {
+        console.log('put/add error in addEdit', error);
+      });
+  }
 
+  toggleEdit = (commentToEdit) => () =>
+    this.setState({
+      editOn: true,
+      comment: commentToEdit.comment,
+      editId: commentToEdit.id
+    });
+
+  // Resources data
 
   fetchResourceData() {
     axios.get('/api/resource').then((response) => {
@@ -122,19 +136,20 @@ class EndingViolenceSub extends Component {
 
   render() {
     let content = null
+    let buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+    if (this.state.editOn) {
+      buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.addEdit}>Submit Edit</Button>
+    }
     if (this.props) {
       content = (
         <div>
           {this.props.data}
           <div>
-
             <Paper>
               <Table id="tableComments">
                 <TableHead>
                   <TableRow>
                     <TableCell>Comments</TableCell>
-                    <TableCell>Delete</TableCell>
-                    <TableCell>Edit</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -142,12 +157,13 @@ class EndingViolenceSub extends Component {
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
                       <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.addEdit} variant="outlined" size="small"><Edit /></Button></TableCell>
+                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
               </Table>
             </Paper>
+
             <div>
               <TextField
                 id="addSubtopic"
@@ -157,8 +173,9 @@ class EndingViolenceSub extends Component {
                 label="Share your thoughts"
                 placeholder="Share here"
                 margin="normal" />
-              <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add Comment</Button>
+                {buttonDisplayed}
             </div>
+
             <div>
               <TextField
                 id="addResource"
