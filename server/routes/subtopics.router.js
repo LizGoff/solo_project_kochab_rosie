@@ -57,7 +57,7 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   if (req.isAuthenticated()) {
     const deleteInfo = req.params.id;
-    pool.query('DELETE FROM "subtopics" WHERE "id"=$1;', [deleteInfo])
+    pool.query('DELETE FROM "subtopics" WHERE "id"=$1 AND "person_id" = $2;', [deleteInfo, req.user.id])
       .then((result) => {
         res.sendStatus(200);
       }).catch((error) => {
@@ -76,10 +76,12 @@ router.put('/:id', (req, res) => {
     const newSubtopic = req.body;
     const queryText = `UPDATE subtopics
                       SET "subtopic" = $1 
-                      WHERE id=$2;`;
+                      WHERE id=$2
+                      AND "user_id" = $3;`;
     const queryValues = [
       newSubtopic.subtopic,
       req.params.id,
+      req.user.id,
     ];
     pool.query(queryText, queryValues)
       .then(() => { res.sendStatus(200); })
