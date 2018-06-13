@@ -156,41 +156,47 @@ class LgbtqiSub extends Component {
               Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
             <h2>Comments</h2>
+            <div>
+              <ul id="shareTopicsButtons">
+                {this.state.results.map((comments, i) => (
+                  <li key={i} >
+                    {this.props.user.userId === comments.user_id ?
+                      <span>
+                        <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                        <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                      </span>
+                      : ''}
 
-            <ul id="shareTopicsButtons">
-              {this.state.results.map((comments, i) => (
-                <li key={i} >
-                  <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
-                  <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
-                  <Button id="convoTopic" variant="raised">{comments.comment}</Button>
-                </li>
-              ))}
-            </ul>
-            <div id="inputFieldsCommentAndResource">
-              <div>
-                <TextField
-                  id="addSubtopic"
-                  onChange={this.handleSubtopicChange}
-                  name="comment"
-                  value={this.state.comment}
-                  label="Share your thoughts"
-                  placeholder="Share here"
-                  margin="normal" />
-                {buttonDisplayed}
+                    <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+                  </li>
+                ))}
+              </ul>
+              <div id="inputFieldsCommentAndResource">
+                <div>
+                  <TextField
+                    id="addSubtopic"
+                    onChange={this.handleSubtopicChange}
+                    name="comment"
+                    value={this.state.comment}
+                    label="Share your thoughts"
+                    placeholder="Share here"
+                    margin="normal" />
+                  {buttonDisplayed}
+                </div>
+                <div>
+                  <TextField
+                    id="addResource"
+                    onChange={this.handleResourceChange}
+                    name="url"
+                    value={this.state.url}
+                    label="Share resources for women here"
+                    placeholder="Share url here"
+                    margin="normal" />
+                  <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+                </div>
               </div>
-              <div>
-                <TextField
-                  id="addResource"
-                  onChange={this.handleResourceChange}
-                  name="url"
-                  value={this.state.url}
-                  label="Share resources for women here"
-                  placeholder="Share url here"
-                  margin="normal" />
-                <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
-              </div>
-            </div>
-          </div >
+            </div >
+          </div>
         </div >
       );
     }

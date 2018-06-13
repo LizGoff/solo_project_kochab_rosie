@@ -153,7 +153,6 @@ class EducationSub extends Component {
               Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
             <h2>Comments</h2>
-            
             <div>
               <ul id="shareTopicsButtons">
                 {this.state.results.map((comments, i) => (
@@ -164,6 +163,7 @@ class EducationSub extends Component {
                         <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
                       </span>
                       : ''}
+
                     <Button id="convoTopic" variant="raised">{comments.comment}</Button>
                   </li>
                 ))}

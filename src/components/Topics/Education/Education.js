@@ -170,6 +170,7 @@ class EducationPage extends Component {
                   </li>
                 ))}
               </ul>
+              
               <div id="inputFieldsCommentAndResource">
             <h2 id="shareTopic">Start a conversation!</h2>
               <div>

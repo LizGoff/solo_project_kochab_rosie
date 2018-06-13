@@ -20,7 +20,7 @@ class TechSub extends Component {
     super(props);
     this.state = {
       results: [],
-      comment: '',
+      comment: '', 
       topic: 9,
       subtopic: '',
       resourceHelp: [],
@@ -156,16 +156,22 @@ class TechSub extends Component {
               Thank you for joining the conversation {this.props.user.userName}
             </h1>
             <h2>Comments</h2>
+            <div>
+              <ul id="shareTopicsButtons">
+                {this.state.results.map((comments, i) => (
+                  <li key={i} >
+                    {this.props.user.userId === comments.user_id ?
+                    <span>
+                    <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                    <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                    </span>
+                    : ''}
 
-            <ul id="shareTopicsButtons">
-              {this.state.results.map((comments, i) => (
-                <li key={i} >
-                  <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
-                  <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
-                  <Button id="convoTopic" variant="raised">{comments.comment}</Button>
-                </li>
-              ))}
-            </ul>
+                    <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+                  </li>
+                ))}
+              </ul>
+
             <div id="inputFieldsCommentAndResource">
               <div>
                 <TextField
@@ -191,6 +197,7 @@ class TechSub extends Component {
               </div>
             </div>
           </div >
+          </div>
         </div >
       );
     }
