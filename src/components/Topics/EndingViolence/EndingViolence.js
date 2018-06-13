@@ -17,7 +17,6 @@ class EndingViolencePage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       results: [],
       subtopic: '',
       topic: 23,
@@ -156,7 +155,7 @@ class EndingViolencePage extends Component {
               Thank you for joining the conversation, {this.props.user.userName}!
             </h1>
           <h2>Ending Violence Against Women</h2>
-            <div>
+            <div> 
               <ul id="shareTopicsButtons">
                 {this.state.results.map((subtopics, i) => (
                   <li key={i}>
