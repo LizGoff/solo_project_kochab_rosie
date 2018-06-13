@@ -156,27 +156,18 @@ class EducationSub extends Component {
           {this.props.data}
           <div>
             <h1 id="welcome">
-              Thank you for joining the conversation {this.props.user.userName}.
+              Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
-            <Paper>
-              <Table id="table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Comments</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {this.state.results.map((comments, i) => (
-                    <TableRow key={i}>
-                      <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
-
+            <h2>Comments</h2>
+            <ul id="shareTopicsButtons">
+              {this.state.results.map((comments, i) => (
+                <li key= { i } >
+                <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+            </li>
+            ))}
+        </ul>
             <div>
               <TextField
                 id="addSubtopic"
@@ -200,7 +191,7 @@ class EducationSub extends Component {
                 margin="normal" />
               <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
             </div>
-          </div>
+          </div >
         </div >
       );
     }

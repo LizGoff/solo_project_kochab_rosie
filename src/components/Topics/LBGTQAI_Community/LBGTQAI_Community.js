@@ -160,7 +160,7 @@ class LgbtqiPage extends Component {
           {this.props.data}
           <div>
             <h1 id="welcome">
-              Thank you for joining the conversation {this.props.user.userName}
+              Thank you for joining the conversation, {this.props.user.userName}!
             </h1>
           <h2>LBGTQI</h2>
             <div>

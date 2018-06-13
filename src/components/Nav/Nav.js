@@ -20,6 +20,9 @@ const Nav = () => (
             Resource Links
           </Link>
         </li>
+        <li id="neverStandAlone">
+          No woman should stand alone.
+        </li>
       </ul>
     </div>
   </div>
