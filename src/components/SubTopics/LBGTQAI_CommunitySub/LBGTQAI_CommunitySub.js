@@ -172,8 +172,15 @@ class LbgtqiSub extends Component {
                   {this.state.results.map((comments, i) => (
                     <TableRow key={i}>
                       <TableCell>{comments.comment}</TableCell>
+                      { false ? 'Ternary True' : 'Liar!' }
+
+                                            {/* { this.props.user.id ?  */}
+
                       <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
                       <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
+
+                       {/* : 'Liar!' } */}
+
                     </TableRow>
                   ))}
                 </TableBody>

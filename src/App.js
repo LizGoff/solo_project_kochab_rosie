@@ -24,7 +24,7 @@ import EducationPage from './components/Topics/Education/Education'
 import HealthPage from './components/Topics/WomensHealth/WomensHealth'
 import SciencePage from './components/Topics/Science/Science'
 import ArtsPage from './components/Topics/WomenInArts/WomenInArts'
-import LgbtqiPage from './components/Topics/LBGTQAI_Community/LBGTQAI_Community'
+import LgbtqiPage from './components/Topics/LGBTQAI_Community/LGBTQAI_Community'
 import EndingViolencePage from './components/Topics/EndingViolence/EndingViolence'
 import WageGapPage from './components/Topics/WageGap/WageGap'
 
@@ -110,7 +110,7 @@ const App = () => (
           component={ArtsPage}
         />
         <Route
-          path="/lbgtqi"
+          path="/lgbtqi"
           component={LgbtqiPage}
         />
         <Route
@@ -129,42 +129,9 @@ const App = () => (
         {/* ------------- Politics Convo -------------- */}
 
         <Route
-          path="/politics_convo1"
+          path="/politics_convo/:id"
           component={PoliticsSub}
         />
-        <Route
-          path="/politics_convo2"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo3"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo4"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo5"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo6"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo7"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo8"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo9"
-          component={PoliticsSub}
-        />
-
 
         {/* ------------- Women in History Convo -------------- */}
 
@@ -414,7 +381,7 @@ const App = () => (
         {/* ------------- LBGTQI Convo -------------- */}
 
         <Route
-          path="/lbgtqi_convo/:id"
+          path="/lgbtqi_convo/:id"
           component={LgbtqiSub}
         />
 

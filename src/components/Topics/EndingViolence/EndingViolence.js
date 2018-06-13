@@ -27,7 +27,6 @@ class EndingViolencePage extends Component {
       results: [],
       subtopic: '',
       topic: 23,
-      
       resourceHelp: [],
       url: '',
       editOn: false
@@ -167,8 +166,12 @@ class EndingViolencePage extends Component {
               <ul id="shareTopicsButtons">
                 {this.state.results.map((subtopics, i) => (
                   <li key={i}>
-                    <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
-                    <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
+
+                    {this.props.user.userId === subtopics.person_id ?
+                    <span><Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
+                    <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button></span>
+                    : ''}
+                    
                     <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/ending_violence_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
                   </li>
                 ))}

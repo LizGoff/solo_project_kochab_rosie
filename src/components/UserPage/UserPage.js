@@ -55,7 +55,7 @@ class UserPage extends Component {
             <Button id="ourStory" variant="raised" onClick={this.sendUserToCorrespondingPage('/info')}>Our History</Button>
             <Button id="inHerstory" variant="raised" onClick={this.sendUserToCorrespondingPage('/women_in_herstory')}>Women Living HerStory</Button>
 
-            <Button id="pride" variant="raised" onClick={this.sendUserToCorrespondingPage('/lbgtqi')}>LBGTQI Community</Button>
+            <Button id="pride" variant="raised" onClick={this.sendUserToCorrespondingPage('/lgbtqi')}>LGBTQI Community</Button>
             <Button id="wage" variant="raised" onClick={this.sendUserToCorrespondingPage('/wage_gap')}>The Wage Gap</Button>
             <Button id="endingViolence" variant="raised" onClick={this.sendUserToCorrespondingPage('/ending_violence')}>Ending Violence</Button>
 

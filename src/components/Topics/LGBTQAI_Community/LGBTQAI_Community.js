@@ -23,11 +23,9 @@ class LgbtqiPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       results: [],
       subtopic: '',
       topic: 5,
-      
       resourceHelp: [],
       url: '',
       editOn: false
@@ -162,57 +160,62 @@ class LgbtqiPage extends Component {
             <h1 id="welcome">
               Thank you for joining the conversation, {this.props.user.userName}!
             </h1>
-          <h2>LBGTQI</h2>
+            <h2>LGBTQI</h2>
             <div>
               <ul id="shareTopicsButtons">
                 {this.state.results.map((subtopics, i) => (
                   <li key={i}>
-                    <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
-                    <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
-                    <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/lbgtqi_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
+
+                    {this.props.user.userId === subtopics.person_id ?
+                      <span><Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
+                      <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button></span>
+                       : ''}
+
+
+                    <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/lgbtqi_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
                   </li>
                 ))}
               </ul>
               <div id="inputFieldsCommentAndResource">
-            <h2 id="shareTopic">Start a conversation!</h2>
-              <div>
-                <TextField
-                  id="addSubtopic"
-                  onChange={this.handleSubtopicChange}
-                  name="subtopic"
-                  value={this.state.subtopic}
-                  label="Share your thoughts"
-                  placeholder="Share here"
-                  margin="normal" />
-                {buttonDisplayed}
-              </div>
-            <h2 id="shareLink">Share a url link for women!</h2>
-              <div>
-                <TextField
-                  id="addResource"
-                  onChange={this.handleResourceChange}
-                  name="url"
-                  value={this.state.url}
-                  label="Share resources for women here"
-                  placeholder="Share url here"
-                  margin="normal" />
-                <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
-              </div>
+                <h2 id="shareTopic">Start a conversation!</h2>
+                <div>
+                  <TextField
+                    id="addSubtopic"
+                    onChange={this.handleSubtopicChange}
+                    name="subtopic"
+                    value={this.state.subtopic}
+                    label="Share your thoughts"
+                    placeholder="Share here"
+                    margin="normal" />
+                  {buttonDisplayed}
+                </div>
+                <h2 id="shareLink">Share a url link for women!</h2>
+                <div>
+                  <TextField
+                    id="addResource"
+                    onChange={this.handleResourceChange}
+                    name="url"
+                    value={this.state.url}
+                    label="Share resources for women here"
+                    placeholder="Share url here"
+                    margin="normal" />
+                  <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       );
     }
-    
-        return (
+
+    return (
       <div>
-            <Nav />
-            {content}
-          </div>
-          );
-        }
-      }
-      
-          export default connect(mapStateToProps)(LgbtqiPage);
-          
+        <Nav />
+        {content}
+      </div>
+    );
+  }
+}
+
+export default connect(mapStateToProps)(LgbtqiPage);
+
