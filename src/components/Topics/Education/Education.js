@@ -159,7 +159,7 @@ class EducationPage extends Component {
               <ul id="shareTopicsButtons">
                 {this.state.results.map((subtopics, i) => (
                   <li key={i}> 
-                    {this.props.user.userId == subtopics.person_id ?
+                    {this.props.user.userId === subtopics.person_id ?
                     <span>
                     <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
                     <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>

@@ -6,12 +6,6 @@ import { USER_ACTIONS } from '../../../redux/actions/userActions';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 
@@ -20,14 +14,14 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
-class LbgtqiSub extends Component {
+class LgbtqiSub extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
       results: [],
       comment: '',
-      topic: 9,
+      topic: 5,
       subtopic: '',
       resourceHelp: [],
       url: '',
@@ -40,7 +34,7 @@ class LbgtqiSub extends Component {
     this.fetchData();
     this.fetchResourceData();
     this.setState({
-    subtopic: this.props.match.params.id
+      subtopic: this.props.match.params.id
     })
   }
 
@@ -145,7 +139,7 @@ class LbgtqiSub extends Component {
       [event.target.name]: event.target.value
     })
   }
- 
+
 
   render() {
     let content = null
@@ -158,59 +152,45 @@ class LbgtqiSub extends Component {
         <div>
           {this.props.data}
           <div>
-          <h1 id="welcome">
-            Thank you for joining the conversation, {this.props.user.userName}!
+            <h1 id="welcome">
+              Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
-            <Paper>
-              <Table id="table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Comments</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {this.state.results.map((comments, i) => (
-                    <TableRow key={i}>
-                      <TableCell>{comments.comment}</TableCell>
-                      { false ? 'Ternary True' : 'Liar!' }
+            <h2>Comments</h2>
 
-                                            {/* { this.props.user.id ?  */}
-
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
-
-                       {/* : 'Liar!' } */}
-
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
-
-            <div>
-              <TextField
-                id="addSubtopic"
-                onChange={this.handleSubtopicChange}
-                name="comment"
-                value={this.state.comment}
-                label="Share your thoughts"
-                placeholder="Share here"
-                margin="normal" />
+            <ul id="shareTopicsButtons">
+              {this.state.results.map((comments, i) => (
+                <li key={i} >
+                  <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                  <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                  <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+                </li>
+              ))}
+            </ul>
+            <div id="inputFieldsCommentAndResource">
+              <div>
+                <TextField
+                  id="addSubtopic"
+                  onChange={this.handleSubtopicChange}
+                  name="comment"
+                  value={this.state.comment}
+                  label="Share your thoughts"
+                  placeholder="Share here"
+                  margin="normal" />
                 {buttonDisplayed}
+              </div>
+              <div>
+                <TextField
+                  id="addResource"
+                  onChange={this.handleResourceChange}
+                  name="url"
+                  value={this.state.url}
+                  label="Share resources for women here"
+                  placeholder="Share url here"
+                  margin="normal" />
+                <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+              </div>
             </div>
-
-            <div>
-              <TextField
-                id="addResource"
-                onChange={this.handleResourceChange}
-                name="url"
-                value={this.state.url} 
-                label="Share resources for women here"
-                placeholder="Share url here"
-                margin="normal" />
-              <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
-            </div>
-          </div>
+          </div >
         </div >
       );
     }
@@ -223,4 +203,4 @@ class LbgtqiSub extends Component {
   }
 }
 
-export default connect(mapStateToProps)(LbgtqiSub);
+export default connect(mapStateToProps)(LgbtqiSub);
