@@ -24,7 +24,7 @@ import EducationPage from './components/Topics/Education/Education'
 import HealthPage from './components/Topics/WomensHealth/WomensHealth'
 import SciencePage from './components/Topics/Science/Science'
 import ArtsPage from './components/Topics/WomenInArts/WomenInArts'
-import LgbtqiPage from './components/Topics/LBGTQAI_Community/LBGTQAI_Community'
+import LgbtqiPage from './components/Topics/LGBTQAI_Community/LGBTQAI_Community'
 import EndingViolencePage from './components/Topics/EndingViolence/EndingViolence'
 import WageGapPage from './components/Topics/WageGap/WageGap'
 
@@ -73,9 +73,7 @@ const App = () => (
           component={ResourcePage}
         />
 
-
         {/* ------------- Topics Pages -------------- */}
-
 
         <Route
           path="/politics"
@@ -110,7 +108,7 @@ const App = () => (
           component={ArtsPage}
         />
         <Route
-          path="/lbgtqi"
+          path="/lgbtqi"
           component={LgbtqiPage}
         />
         <Route
@@ -122,343 +120,57 @@ const App = () => (
           component={EndingViolencePage}
         />
 
-
         {/* ------------- Convo Pages -------------- */}
 
-
-        {/* ------------- Politics Convo -------------- */}
-
         <Route
-          path="/politics_convo1"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo2"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo3"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo4"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo5"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo6"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo7"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo8"
-          component={PoliticsSub}
-        />
-        <Route
-          path="/politics_convo9"
+          path="/politics_convo/:id"
           component={PoliticsSub}
         />
 
-
-        {/* ------------- Women in History Convo -------------- */}
-
         <Route
-          path="/women_in_history_convo1"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo2"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo3"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo4"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo5"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo6"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo7"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo8"
-          component={WomensHistorySub}
-        />
-        <Route
-          path="/women_in_history_convo9"
+          path="/women_in_history_convo/:id"
           component={WomensHistorySub}
         />
 
-
-        {/* ------------- Women Living Herstory Convo -------------- */}
-
-
         <Route
-          path="/herstory_convo1"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo2"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo3"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo4"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo5"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo6"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo7"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo8"
-          component={WomenLivingHerstorySub}
-        />
-        <Route
-          path="/herstory_convo9"
+          path="/herstory_convo/:id"
           component={WomenLivingHerstorySub}
         />
 
-
-        {/* ------------- Technology Convo -------------- */}
-
-
         <Route
-          path="/technology_convo1"
+          path="/technology_convo/:id"
           component={TechSub}
         />
-        <Route
-          path="/technology_convo2"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo3"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo4"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo5"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo6"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo7"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo8"
-          component={TechSub}
-        />
-        <Route
-          path="/technology_convo9"
-          component={TechSub}
-        />
-
-        {/* ------------- Education Convo -------------- */}
 
         <Route
           path="/education_convo/:id"
           component={EducationSub}
         />
 
-        {/* ------------- Health Convo -------------- */}
-
         <Route
-          path="/health_convo1"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo2"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo3"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo4"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo5"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo6"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo7"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo8"
-          component={HealthSub}
-        />
-        <Route
-          path="/health_convo9"
+          path="/health_convo/:id"
           component={HealthSub}
         />
 
-        {/* ------------- Science Convo -------------- */}
-
         <Route
-          path="/science_convo1"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo2"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo3"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo4"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo5"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo6"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo7"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo8"
-          component={ScienceSub}
-        />
-        <Route
-          path="/science_convo9"
+          path="/science_convo/:id"
           component={ScienceSub}
         />
 
-        {/* ------------- The Arts Convo -------------- */}
-
         <Route
-          path="/arts_convo1"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo2"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo3"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo4"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo5"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo6"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo7"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo8"
-          component={ArtsSub}
-        />
-        <Route
-          path="/arts_convo9"
+          path="/arts_convo/:id"
           component={ArtsSub}
         />
 
-        {/* ------------- LBGTQI Convo -------------- */}
-
         <Route
-          path="/lbgtqi_convo/:id"
+          path="/lgbtqi_convo/:id"
           component={LgbtqiSub}
         />
 
-
-        {/* ------------- Wage Gap Convo -------------- */}
-
         <Route
-          path="/wage_gap_convo1"
+          path="/wage_gap_convo/:id"
           component={WageGapSub}
         />
-        <Route
-          path="/wage_gap_convo2"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo3"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo4"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo5"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo6"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo7"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo8"
-          component={WageGapSub}
-        />
-        <Route
-          path="/wage_gap_convo9"
-          component={WageGapSub}
-        />
-
-        {/* ------------- Ending Violence Against Women Convo -------------- */}
 
         <Route
           path="/ending_violence_convo/:id"

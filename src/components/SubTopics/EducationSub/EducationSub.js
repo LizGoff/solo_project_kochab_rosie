@@ -6,12 +6,6 @@ import { USER_ACTIONS } from '../../../redux/actions/userActions';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 
@@ -156,39 +150,31 @@ class EducationSub extends Component {
           {this.props.data}
           <div>
             <h1 id="welcome">
-              Thank you for joining the conversation {this.props.user.userName}.
+              Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
-            <Paper>
-              <Table id="table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Comments</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {this.state.results.map((comments, i) => (
-                    <TableRow key={i}>
-                      <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
+            <h2>Comments</h2>
 
-            <div>
-              <TextField
-                id="addSubtopic"
-                onChange={this.handleSubtopicChange}
-                name="comment"
-                value={this.state.comment}
-                label="Share your thoughts"
-                placeholder="Share here"
-                margin="normal" />
-              {buttonDisplayed}
-            </div>
-
+            <ul id="shareTopicsButtons">
+              {this.state.results.map((comments, i) => (
+                <li key={i} >
+                  <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                  <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                  <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+                </li>
+              ))}
+            </ul>
+            <div id="inputFieldsCommentAndResource">
+              <div>
+                <TextField
+                  id="addSubtopic"
+                  onChange={this.handleSubtopicChange}
+                  name="comment"
+                  value={this.state.comment}
+                  label="Share your thoughts"
+                  placeholder="Share here"
+                  margin="normal" />
+                {buttonDisplayed}
+              </div>
             <div>
               <TextField
                 id="addResource"
@@ -199,8 +185,9 @@ class EducationSub extends Component {
                 placeholder="Share url here"
                 margin="normal" />
               <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+              </div>
             </div>
-          </div>
+          </div >
         </div >
       );
     }

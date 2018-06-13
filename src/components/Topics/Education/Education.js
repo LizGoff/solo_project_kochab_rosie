@@ -17,11 +17,9 @@ class EducationPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-
       results: [],
-      subtopic: '',
       topic: 4,
-
+      subtopic: '',
       resourceHelp: [],
       url: '',
       editOn: false
@@ -154,15 +152,20 @@ class EducationPage extends Component {
           {this.props.data}
           <div>
             <h1 id="welcome">
-              Thank you for joining the conversation {this.props.user.userName}
+              Thank you for joining the conversation, {this.props.user.userName}!
             </h1>
           <h2>Education</h2>
             <div>
               <ul id="shareTopicsButtons">
                 {this.state.results.map((subtopics, i) => (
-                  <li key={i}>
+                  <li key={i}> 
+                    {this.props.user.userId === subtopics.person_id ?
+                    <span>
                     <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
                     <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
+                    </span>
+                    : ''}
+                    
                     <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/education_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
                   </li>
                 ))}

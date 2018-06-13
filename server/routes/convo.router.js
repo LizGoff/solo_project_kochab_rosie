@@ -70,7 +70,7 @@ router.delete('/:id', (req, res) => {
 
 router.put('/:id', (req, res) => {
   if (req.isAuthenticated()) {
-    const newComment = req.body;
+    const newComment = req.body; 
     const queryText = `UPDATE comments
                       SET "comment" = $1 
                       WHERE id=$2;`;

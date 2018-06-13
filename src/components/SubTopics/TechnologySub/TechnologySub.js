@@ -6,12 +6,6 @@ import { USER_ACTIONS } from '../../../redux/actions/userActions';
 
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
 import Delete from '@material-ui/icons/Delete'
 import Edit from '@material-ui/icons/Edit'
 
@@ -28,7 +22,7 @@ class TechSub extends Component {
       results: [],
       comment: '',
       topic: 9,
-      subtopic: 8,
+      subtopic: '',
       resourceHelp: [],
       url: '',
       editOn: false
@@ -39,6 +33,9 @@ class TechSub extends Component {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.fetchData();
     this.fetchResourceData();
+    this.setState({
+      subtopic: this.props.match.params.id
+    })
   }
 
   componentDidUpdate() {
@@ -48,14 +45,14 @@ class TechSub extends Component {
   }
 
   fetchData() {
-    axios.get(`/api/conversation/${8}`).then((response) => {
+    axios.get(`/api/conversation/${this.props.match.params.id}`).then((response) => {
       console.log(response.data[0]);
       this.setState({
         results: response.data,
         comment: ''
       })
     }).catch((error) => {
-      alert('error with GET in EducationSub file');
+      alert('error with GET in Convo file');
     })
   }
 
@@ -71,7 +68,7 @@ class TechSub extends Component {
       console.log('success');
       this.fetchData();
     }).catch((error) => {
-      alert('POST error in EndingViolenceSub file');
+      alert('POST error in Convo file');
       console.log(error);
     });
   }
@@ -155,52 +152,45 @@ class TechSub extends Component {
         <div>
           {this.props.data}
           <div>
-          <h1 id="welcome">
-            Thank you for joining the conversation {this.props.user.userName}
-          </h1>
-            <Paper>
-              <Table id="tableComments">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Comments</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {this.state.results.map((comments, i) => (
-                    <TableRow key={i}>
-                      <TableCell>{comments.comment}</TableCell>
-                      <TableCell><Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button></TableCell>
-                      <TableCell><Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button></TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
+            <h1 id="welcome">
+              Thank you for joining the conversation {this.props.user.userName}
+            </h1>
+            <h2>Comments</h2>
 
-            <div>
-              <TextField
-                id="addSubtopic"
-                onChange={this.handleSubtopicChange}
-                name="comment"
-                value={this.state.comment}
-                label="Share your thoughts"
-                placeholder="Share here"
-                margin="normal" />
+            <ul id="shareTopicsButtons">
+              {this.state.results.map((comments, i) => (
+                <li key={i} >
+                  <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                  <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                  <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+                </li>
+              ))}
+            </ul>
+            <div id="inputFieldsCommentAndResource">
+              <div>
+                <TextField
+                  id="addSubtopic"
+                  onChange={this.handleSubtopicChange}
+                  name="comment"
+                  value={this.state.comment}
+                  label="Share your thoughts"
+                  placeholder="Share here"
+                  margin="normal" />
                 {buttonDisplayed}
+              </div>
+              <div>
+                <TextField
+                  id="addResource"
+                  onChange={this.handleResourceChange}
+                  name="url"
+                  value={this.state.url}
+                  label="Share resources for women here"
+                  placeholder="Share url here"
+                  margin="normal" />
+                <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+              </div>
             </div>
-
-            <div>
-              <TextField
-                id="addResource"
-                onChange={this.handleResourceChange}
-                name="url"
-                value={this.state.url} 
-                label="Share resources for women here"
-                placeholder="Share url here"
-                margin="normal" />
-              <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
-            </div>
-          </div>
+          </div >
         </div >
       );
     }
