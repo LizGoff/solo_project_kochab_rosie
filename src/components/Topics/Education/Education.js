@@ -164,7 +164,7 @@ class EducationPage extends Component {
                     <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
                     <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
                     </span>
-                    : ''}
+                    : ''} 
                     
                     <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/education_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
                   </li>

@@ -167,20 +167,20 @@ class EndingViolenceSub extends Component {
                       </span>
                       : ''}
 
-                    <Button id="convoTopic" variant="raised">{comments.comment}</Button>
+                    <Button id="convoTopic">{comments.comment}</Button>
                   </li>
                 ))}
               </ul>
               <div id="inputFieldsCommentAndResource">
-                <div>
-                  <TextField
+              <div>
+                <textarea rows="2" cols="20" wrap="hard"
                     id="addSubtopic"
                     onChange={this.handleSubtopicChange}
                     name="comment"
                     value={this.state.comment}
                     label="Share your thoughts"
                     placeholder="Share here"
-                    margin="normal" />
+                    margin="normal" ></textarea>
                   {buttonDisplayed}
                 </div>
                 <div>

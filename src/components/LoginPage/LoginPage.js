@@ -23,7 +23,7 @@ class LoginPage extends Component {
     this.props.dispatch(clearError());
   }
 
-  
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.userName) {
       this.props.history.push('/user');
@@ -53,7 +53,7 @@ class LoginPage extends Component {
           className="alert"
           role="alert"
         >
-          { this.props.login.message }
+          {this.props.login.message}
         </h2>
       );
     }
@@ -63,7 +63,7 @@ class LoginPage extends Component {
   render() {
     return (
       <div>
-        { this.renderAlert() }
+        {this.renderAlert()}
         <form onSubmit={this.login}>
           <h1 id='login'>Login</h1>
           <div>
@@ -97,6 +97,15 @@ class LoginPage extends Component {
             <Link to="/register">Register</Link>
           </div>
         </form>
+        <div>
+          <p id="textLoginPage">Rosie's Resistance is a women’s platform for solidarity, to help bring change in our community.
+            Rosie’s Resistance helps women connect, reach out, turn to each other for support,
+             gives a place to share links, discuss vital issues, share information to support the community,
+             learn about our current leaders living Herstory, as well as heroes of our history.
+             </p>
+          <p id="textLoginPage"> No woman should stand alone.</p>
+          <div id="rosie2"></div>
+        </div>
       </div>
     );
   }

@@ -77,7 +77,7 @@ router.put('/:id', (req, res) => {
     const queryText = `UPDATE subtopics
                       SET "subtopic" = $1 
                       WHERE id=$2
-                      AND "user_id" = $3;`;
+                      AND "person_id" = $3;`;
     const queryValues = [
       newSubtopic.subtopic,
       req.params.id,
