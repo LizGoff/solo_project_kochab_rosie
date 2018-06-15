@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
       });
   } else {
     res.sendStatus(403);
-  }
+  } 
 });
 
 router.get('/:id', (req, res) => {
