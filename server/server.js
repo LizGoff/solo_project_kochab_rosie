@@ -13,6 +13,8 @@ const userRouter = require('./routes/user.router');
 const conversation = require('./routes/convo.router');
 const resource = require('./routes/resource.router');
 const subtopic = require('./routes/subtopics.router');
+var gallery = require('./routes/gallery.router.js');
+
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -30,6 +32,8 @@ app.use('/api/user', userRouter);
 app.use('/api/conversation', conversation); 
 app.use('/api/resource', resource); 
 app.use('/api/subtopics', subtopic); 
+app.use('/gallery', gallery);
+
 
 
 // Serve static files

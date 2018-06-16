@@ -1,0 +1,17 @@
+const galleryItems = [
+    { id: 1, path: 'images/ZoraNealeHurston.png', title: 'Zora Neale Hurston', description: '"Sometimes, I feel discriminated against, but it does not make me angry. It merely astonishes me. How can any deny themselves the pleasure of my company? It\'s beyond me." - Zora Neale Hurston', likes: 0 },
+    { id: 2, path: 'images/BillieHoliday.png', title: 'Billie Holiday', description: '"Sometimes it is worse to win a fight than to lose." - Billie Holiday', likes: 0 },
+    { id: 3, path: 'images/EleanorRoosevelt.png', title: 'Eleanor Roosevelt', description: '"You must do the things you think you cannot do" - Eleanor Roosevelt', likes: 0 },
+    { id: 4, path: 'images/SojournerTruth.png', title: 'Sojourner Truth', description: '"Those are the same stars, and that is the same moon, that look down upon your brothers and sisters, and which they see as they look up to them, though they are ever so far away from us, and each other." - Sojourner Truth', likes: 0 },
+    { id: 5, path: 'images/EmilyDavison.png', title: 'Emily Davison', description: '"Rebellion against tyrants is obedience to God." - Emily Davison', likes: 0 },
+    { id: 6, path: 'images/RosaParks.png', title: 'Rosa Parks', description: '"Memories of our lives, of our works and our deeds will continue in others." - Rosa Parks', likes: 0 },
+    { id: 7, path: 'images/HarrietBeecherStowe.png', title: 'Harriet Beecher Stowe', description: '"When you get into a tight place and everything goes against you, till it seems as though you could not hang on a minute longer, never give up then, for that is just the place and time that the tide will turn." - Harriet Beecher Stowe', likes: 0 },
+    { id: 8, path: 'images/MalalaYousafzai.png', title: 'Malala Yousafzai', description: '"I speak not for myself but for those without voice... those who have fought for their rights... their right to live in peace, their right to be treated with dignity, their right to equality of opportunity, their right to be educated." - Malala Yousafzai', likes: 0 },
+    { id: 9, path: 'images/MargaretFuller.png', title: 'Margaret Fuller', description: '"Today a reader, tomorrow a leader." - Margaret Fuller', likes: 0 },
+    { id: 10, path: 'images/MaryWollstonecraft.png', title: 'Mary Wollstonecraft', description: '"Virtue can only flourish among equals." - Mary Wollstonecraft', likes: 0 },
+    { id: 11, path: 'images/YuriKochiyama.png', title: 'Yuri Kochiyama', description: '"Life is not what you alone make it. Life is the input of everyone who touched your life and every experience that entered it. We are all part of one another." - Yuri Kochiyama', likes: 0 },
+    { id: 12, path: 'images/RachelCarson.png', title: 'Rachel Carson', description: '"One way to open your eyes is to ask yourself, "What if I had never seen this before? What if I knew i would never see it again?" - Rachel Carson', likes: 0 },
+    { id: 13, path: 'images/CharlottePerkinsGilman.png', title: 'Charlotte Perkins Gilman', description: '"The first duty of a human being is to assume the right functional relationship to society - more briefly, to find your real job, and do it." - Charlotte Perkins Gilman', likes: 0 },
+];
+
+module.exports = galleryItems;
