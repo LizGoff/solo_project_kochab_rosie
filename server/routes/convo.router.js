@@ -22,7 +22,6 @@ router.post('/', (req, res) => {
 
 router.get('/', (req, res) => {
   if (req.isAuthenticated()) {
-
     const queryText = 'SELECT * FROM comments';
     pool.query(queryText)
       .then((result) => { res.send(result.rows); })

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Button from '@material-ui/core/Button';
 
-
 class GalleryItem extends Component {
     constructor() {
         super();
@@ -29,10 +28,10 @@ class GalleryItem extends Component {
             let detailsToShow;
             if (this.state.listDescription) {
                 // true
-                detailsToShow = <p id="info">{this.props.itemInfo.description}</p>;
+                detailsToShow = <p id="infoGallery">{this.props.itemInfo.description}</p>;
             } else {
                 //false
-                detailsToShow = <img id="photos" src={this.props.itemInfo.path}
+                detailsToShow = <img id="photosGallery" src={this.props.itemInfo.path}
                     alt={this.props.itemInfo.description} />;
             }
             return (

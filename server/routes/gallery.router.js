@@ -6,7 +6,6 @@ var galleryItems = require('../modules/gallery.data');
 
 // PUT Route
 router.put('/like/:id', function (req, res) {
-    console.log(req.params);
     const galleryId = req.params.id;
     for(const galleryItem of galleryItems) {
         if(galleryItem.id == galleryId) {
@@ -18,9 +17,7 @@ router.put('/like/:id', function (req, res) {
 
 // GET Route
 router.get('/', function (req, res) {
-    console.log('hello');
     res.send(galleryItems);
-    
 }); // END GET Route
 
 module.exports = router;

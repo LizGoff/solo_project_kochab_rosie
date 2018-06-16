@@ -1,7 +1,7 @@
 const galleryItems = [
-    { id: 1, path: 'images/ZoraNealeHurston.png', title: 'Zora Neale Hurston', description: '"Sometimes, I feel discriminated against, but it does not make me angry. It merely astonishes me. How can any deny themselves the pleasure of my company? It\'s beyond me." - Zora Neale Hurston', likes: 0 },
-    { id: 2, path: 'images/BillieHoliday.png', title: 'Billie Holiday', description: '"Sometimes it is worse to win a fight than to lose." - Billie Holiday', likes: 0 },
-    { id: 3, path: 'images/EleanorRoosevelt.png', title: 'Eleanor Roosevelt', description: '"You must do the things you think you cannot do" - Eleanor Roosevelt', likes: 0 },
+    { id: 1, path: 'images/EleanorRoosevelt.png', title: 'Eleanor Roosevelt', description: '"You must do the things you think you cannot do" - Eleanor Roosevelt', likes: 0 },
+    { id: 2, path: 'images/ZoraNealeHurston.png', title: 'Zora Neale Hurston', description: '"Sometimes, I feel discriminated against, but it does not make me angry. It merely astonishes me. How can any deny themselves the pleasure of my company? It\'s beyond me." - Zora Neale Hurston', likes: 0 },
+    { id: 3, path: 'images/BillieHoliday.png', title: 'Billie Holiday', description: '"Sometimes it is worse to win a fight than to lose." - Billie Holiday', likes: 0 },
     { id: 4, path: 'images/SojournerTruth.png', title: 'Sojourner Truth', description: '"Those are the same stars, and that is the same moon, that look down upon your brothers and sisters, and which they see as they look up to them, though they are ever so far away from us, and each other." - Sojourner Truth', likes: 0 },
     { id: 5, path: 'images/EmilyDavison.png', title: 'Emily Davison', description: '"Rebellion against tyrants is obedience to God." - Emily Davison', likes: 0 },
     { id: 6, path: 'images/RosaParks.png', title: 'Rosa Parks', description: '"Memories of our lives, of our works and our deeds will continue in others." - Rosa Parks', likes: 0 },
