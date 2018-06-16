@@ -2,18 +2,17 @@ var express = require('express');
 var router = express.Router();
 var galleryItems = require('../modules/gallery.data');
 
-// DO NOT MODIFY THIS FILE FOR BASE MODE
-
-// PUT Route
-router.put('/like/:id', function (req, res) {
-    const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
-}); // END PUT Route
+// TO DO
+// // PUT Route
+// router.put('/like/:id', function (req, res) {
+//     const galleryId = req.params.id;
+//     for(const galleryItem of galleryItems) {
+//         if(galleryItem.id == galleryId) {
+//             galleryItem.likes += 1;
+//         }
+//     }
+//     res.sendStatus(200);
+// }); 
 
 // GET Route
 router.get('/', function (req, res) {

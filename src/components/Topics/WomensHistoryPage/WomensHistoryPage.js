@@ -35,18 +35,20 @@ class WomensHistoryPage extends Component {
       })
   }
 
-  addLike = (item) => {
-    console.log('adding likes', item);
-    axios.put(`/gallery/like/${item.id}`)
+  // TO DO
 
-      .then((response) => {
-        console.log('put response', response);
-        this.getFromGalleryItems();
-      })
-      .catch((error) => {
-        console.log('put/add error in addLike', error);
-      });
-  }
+  // addLike = (item) => {
+  //   console.log('adding likes', item);
+  //   axios.put(`/gallery/like/${item.id}`)
+
+  //     .then((response) => {
+  //       console.log('put response', response);
+  //       this.getFromGalleryItems();
+  //     })
+  //     .catch((error) => {
+  //       console.log('put/add error in addLike', error);
+  //     });
+  // }
 
   render() {
     let content = null
@@ -58,8 +60,9 @@ class WomensHistoryPage extends Component {
             <h1 id="welcome">Thank you for joining the conversation, {this.props.user.userName}!</h1>
             <h2>Women in our history</h2>
             <div>
-              <GalleryList galleryItems={this.state.galleryItems}
-                addLike={this.addLike} />
+              <GalleryList galleryItems={this.state.galleryItems} />
+              {/* To Do */}
+              {/* addLike={this.addLike} */}
             </div>
           </div>
         </div>

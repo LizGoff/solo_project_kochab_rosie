@@ -12,6 +12,7 @@ body {
 
 .gallery-item {
     margin-left: 30%; 
+    margin-bottom: 20px;
 }
 
 #photosGallery {
@@ -21,7 +22,7 @@ body {
     border: 8px solid #000000;
   }
 
-  #photosGallery:hover {
+#photosGallery:hover {
     box-shadow: 2px 2px 6px #000000;
 }
   
@@ -34,10 +35,10 @@ body {
     font-weight: bold;
     font-family: 'Times New Roman', Times, serif;
     letter-spacing: 2px;
-
   }
   
-  #favoriteButton {
+  /* TO DO for Gallery */
+  /* #favoriteButton {
     width: 40px;
     height: 10px;
     margin-bottom: 40px;
@@ -48,11 +49,10 @@ body {
 
   #favoriteButton:hover {
     box-shadow: 2px 2px 6px #000000;
-}
+} */
 
 .instructions h1 {
     max-width: 80%;
-    /* margin: auto;  */
     color: black;
     font-size: 30px;
     text-align: center;
@@ -222,7 +222,7 @@ li a:hover {
     font-size: 12px;
     letter-spacing: 3px;
     font-weight: bold;
-    margin-left: 93%;
+    margin-left: 90%;
     font-family: 'Times New Roman', Times, serif;
     background-color: rgb(250, 248, 242)
 }
@@ -234,7 +234,7 @@ li a:hover {
     font-size: 12px;
     letter-spacing: 3px;
     font-weight: bold;
-    margin-left: 93%;
+    margin-left: 90%;
     font-family: 'Times New Roman', Times, serif;
     box-shadow: 2px 2px 4px #000000;
 }
