@@ -165,7 +165,7 @@ class EducationSub extends Component {
                       : ''}
 
                     <Button id="convoTopic">{comments.comment}</Button>
-                    <Button id="userNameInConvos">{this.props.user.userName}</Button>
+                    {/* <Button id="userNameInConvos">{this.props.user.userName}</Button> */}
                   </li>
                 ))}
               </ul>
