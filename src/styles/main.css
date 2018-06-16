@@ -10,6 +10,24 @@ body {
     margin: auto; 
 }
 
+img {
+    background: black;
+    width: 300px;
+    padding: 10px;
+    margin: 30px;
+  }
+  
+  #info {
+    width: 300px;
+    margin: 20%;
+  }
+  
+  #favoriteButton {
+    width: 30px;
+    height: 10px;
+    margin-bottom: 40px;
+  }
+
 .instructions h1 {
     max-width: 80%;
     /* margin: auto;  */
