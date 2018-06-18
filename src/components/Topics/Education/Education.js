@@ -154,12 +154,12 @@ class EducationPage extends Component {
             <h1 id="welcome">
               Thank you for joining the conversation, {this.props.user.userName}!
             </h1>
-            <p>   This is a space to help each other, to share thoughts, and to pose questions.
+            <p>Code of Conduct - This is a space to help each other, to share thoughts, and to pose questions.
               Please set the tone for the online conversations by being polite, open, and respectful.
               Make sure you respect the confidentiality of others and do not disclose any non-public
               information or personal information to protect privacy and safety.
-              Share url links for resources, help each other, support one another, and find strength in others.
-              No woman should stand alone.</p>
+              Share url links for resources, help each other, support one another, and find strength in others.</p>
+            <p>No woman should stand alone.</p>
             <h2>Education</h2>
             <div id="inputFieldsCommentAndResource">
               <h2 id="shareTopic">Start a conversation!</h2>
@@ -187,22 +187,22 @@ class EducationPage extends Component {
                 <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
               </div>
             </div>
-              <ul id="shareTopicsButtons">
-                {this.state.results.map((subtopics, i) => (
-                  <li key={i}>
-                    {this.props.user.userId === subtopics.person_id ?
-                      <span>
-                        <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
-                        <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
-                      </span>
-                      : ''}
+            <ul id="shareTopicsButtons">
+              {this.state.results.map((subtopics, i) => (
+                <li key={i}>
+                  {this.props.user.userId === subtopics.person_id ?
+                    <span>
+                      <Button id="deleteButton" onClick={(() => this.dataDelete(subtopics.id))} variant="outlined" size="small"><Delete /></Button>
+                      <Button id="editButton" onClick={this.toggleEdit(subtopics)} variant="outlined" size="small"><Edit /></Button>
+                    </span>
+                    : ''}
 
-                    <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/education_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  <Button id="convoTopic" variant="raised" onClick={this.sendUserToCorrespondingPage(`/education_convo/${subtopics.id}`)}>{subtopics.subtopic}</Button>
+                </li>
+              ))}
+            </ul>
           </div>
+        </div>
       );
     }
 

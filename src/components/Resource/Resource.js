@@ -78,57 +78,34 @@ class ResourcePage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
+
           <h1 id="welcome">
             Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
+
           <div>
-            <h2>
-              Resources
-          </h2>
+            <h2>Resources</h2>
           </div>
 
           <div>
-            <TextField
-              id="addResource"
-              onChange={this.handleResourceChange}
-              name="url"
-              label="Share resources for women here"
-              placeholder="Share url here"
-              margin="normal" />
-
-            <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+            <ul id="tableResources">
+              {this.state.resourceHelp.map((linkToUrl, i) => (
+                <li key={i}>
+                  <span><strong>{linkToUrl.name}</strong>; {linkToUrl.url}</span>
+                  </li>))}
+            </ul>
           </div>
 
-          <div>
-            <Paper>
-              <Table id="tableResources">
-
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Resource Link</TableCell>
-                  </TableRow>
-                </TableHead>
- 
-                <TableBody>
-                  {this.state.resourceHelp.map((linkToUrl, i) => (
-                    <TableRow key={i}>
-                      <TableCell><strong>{linkToUrl.name}</strong>; {linkToUrl.url}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
-          </div >
         </div>
-      );
-    }
-    return (
-      <div>
-        <Nav />
-        {content}
-      </div>
-    );
-  }
-}
-
-export default connect(mapStateToProps)(ResourcePage);
+          );
+        }
+        return (
+          <div>
+            <Nav />
+            {content}
+          </div>
+          );
+        }
+      }
+      
+      export default connect(mapStateToProps)(ResourcePage);

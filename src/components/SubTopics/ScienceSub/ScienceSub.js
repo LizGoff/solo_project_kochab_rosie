@@ -156,12 +156,12 @@ class ScienceSub extends Component {
             <h1 id="welcome">
               Thank you for joining the conversation {this.props.user.userName}
             </h1>
-            <p>   This is a space to help each other, to share thoughts, and to pose questions.
-                  Please set the tone for the online conversations by being polite, open, and respectful.
-                  Make sure you respect the confidentiality of others and do not disclose any non-public
-                  information or personal information to protect privacy and safety.
-                  Share url links for resources, help each other, support one another, and find strength in others.
-              No woman should stand alone.</p>
+            <p>Code of Conduct - This is a space to help each other, to share thoughts, and to pose questions.
+              Please set the tone for the online conversations by being polite, open, and respectful.
+              Make sure you respect the confidentiality of others and do not disclose any non-public
+              information or personal information to protect privacy and safety.
+              Share url links for resources, help each other, support one another, and find strength in others.</p>
+            <p>No woman should stand alone.</p>
             <h2>Comments</h2>
             <div id="inputFieldsCommentAndResource">
               <div>
