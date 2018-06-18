@@ -6,15 +6,6 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 import Nav from '../../components/Nav/Nav';
 
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
-
 const mapStateToProps = state => ({
   user: state.user,
 });
