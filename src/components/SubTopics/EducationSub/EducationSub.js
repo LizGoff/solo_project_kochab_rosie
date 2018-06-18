@@ -152,60 +152,65 @@ class EducationSub extends Component {
             <h1 id="welcome">
               Thank you for joining the conversation, {this.props.user.userName}!
           </h1>
+            <p>   This is a space to help each other, to share thoughts, and to pose questions.
+                  Please set the tone for the online conversations by being polite, open, and respectful.
+                  Make sure you respect the confidentiality of others and do not disclose any non-public
+                  information or personal information to protect privacy and safety.
+                  Share url links for resources, help each other, support one another, and find strength in others.
+              No woman should stand alone.</p>
             <h2>Comments</h2>
-            <div>
-              <ul id="shareTopicsButtons">
-                {this.state.results.map((comments, i) => (
-                  <li key={i} >
-                    {this.props.user.userId === comments.user_id ?
-                      <span>
-                        <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
-                        <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
-                      </span>
-                      : ''}
-
-                    <Button id="convoTopic">{comments.comment}</Button>
-                    {/* <Button id="userNameInConvos">{this.props.user.userName}</Button> */}
-                  </li>
-                ))}
-              </ul>
-
-              <div id="inputFieldsCommentAndResource">
-                <div>
-                  <textarea rows="2" cols="15" wrap="hard"
-                    id="addSubtopic"
-                    onChange={this.handleSubtopicChange}
-                    name="comment"
-                    value={this.state.comment}
-                    label="Share your thoughts"
-                    placeholder="Share here"
-                    margin="normal" ></textarea>
-                  {buttonDisplayed}
+            <div id="inputFieldsCommentAndResource">
+              <div>
+                <textarea rows="2" cols="15" wrap="hard"
+                  id="addSubtopic"
+                  onChange={this.handleSubtopicChange}
+                  name="comment"
+                  value={this.state.comment}
+                  label="Share your thoughts"
+                  placeholder="Share here"
+                  margin="normal" ></textarea>
+                {buttonDisplayed}
+              </div>
+              <div>
+                <TextField
+                  id="addResource"
+                  onChange={this.handleResourceChange}
+                  name="url"
+                  value={this.state.url}
+                  label="Share resources for women here"
+                  placeholder="Share url here"
+                  margin="normal" />
+                <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+                </div>
                 </div>
                 <div>
-                  <TextField
-                    id="addResource"
-                    onChange={this.handleResourceChange}
-                    name="url"
-                    value={this.state.url}
-                    label="Share resources for women here"
-                    placeholder="Share url here"
-                    margin="normal" />
-                  <Button id="addResourceButton" variant="outlined" color="secondary" onClick={this.sendResourceData}>Add Resource</Button>
+                  <ul id="shareTopicsButtons">
+                    {this.state.results.map((comments, i) => (
+                      <li key={i} >
+                        {this.props.user.userId === comments.user_id ?
+                          <span>
+                            <Button id="deleteButton" onClick={(() => this.dataDelete(comments.id))} variant="outlined" size="small"><Delete /></Button>
+                            <Button id="editButton" onClick={this.toggleEdit(comments)} variant="outlined" size="small"><Edit /></Button>
+                          </span>
+                          : ''}
+
+                        <Button id="convoTopic">{comments.comment}</Button>
+                        {/* <Button id="userNameInConvos">{this.props.user.userName}</Button> */}
+                      </li>
+                    ))}
+                  </ul>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div >
-        </div >
-      );
-    }
-    return (
-      <div>
-        <Nav />
-        {content}
-      </div>
-    );
-  }
-}
-
+              );
+            }
+            return (
+              <div>
+                <Nav />
+                {content}
+              </div>
+              );
+            }
+          }
+          
 export default connect(mapStateToProps)(EducationSub);
