@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import Nav from '../../Nav/Nav';
-// import { USER_ACTIONS } from '../../redux/actions/userActions';
-
+// TO DO
+// Add articles and stories
 const mapStateToProps = state => ({
     user: state.user,
   });

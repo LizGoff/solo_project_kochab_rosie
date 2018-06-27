@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { connect } from 'react-redux'
+
+const mapStateToProps = state => ({ user: state.user });
 
 class RegisterPage extends Component {
   constructor(props) {
@@ -11,6 +15,16 @@ class RegisterPage extends Component {
       password: '',
       message: '',
     };
+  }
+
+  componentDidMount() {
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+  }
+
+  componentDidUpdate() {
+    if (!this.props.user.isLoading && (this.props.user.userName === null || this.props.user.userRole !== 'admin' )) { 
+      this.props.history.push('login');
+    }
   }
 
   registerUser = (event) => {
@@ -26,7 +40,6 @@ class RegisterPage extends Component {
         password: this.state.password,
       };
 
-      // making the request to the server to post the new user's registration
       axios.post('/api/user/register/', body)
         .then((response) => {
           if (response.status === 201) {
@@ -107,5 +120,5 @@ class RegisterPage extends Component {
   }
 }
 
-export default RegisterPage;
+export default connect(mapStateToProps)(RegisterPage);
 

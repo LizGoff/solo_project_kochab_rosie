@@ -13,6 +13,8 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
+// TO DO
+// Add Reducers and Sagas
 class ArtsPage extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class ArtsPage extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
+    if (!this.props.user.isLoading && (this.props.user.userName === null || this.props.user.userRole !== 'admin' )) { 
       this.props.history.push('home');
     }
   }
@@ -139,6 +141,9 @@ class ArtsPage extends Component {
       [event.target.name]: event.target.value
     })
   }
+
+  // TO DO 
+  // Add form for all repeat pages to reduce code n files
 
   render() {
     let content = null

@@ -9,14 +9,11 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser((id, done) => {
   pool.query('SELECT id, username FROM person WHERE id = $1', [id]).then((result) => {
-    // Handle Errors
     const user = result && result.rows && result.rows[0];
 
     if (!user) {
-      // user not found
       done(null, false, { message: 'Incorrect credentials.' });
     } else {
-      // user found
       done(null, user);
     }
   }).catch((err) => {
@@ -25,7 +22,6 @@ passport.deserializeUser((id, done) => {
   });
 });
 
-// Does actual work of logging in
 passport.use('local', new LocalStrategy({
   passReqToCallback: true,
   usernameField: 'username',
@@ -34,13 +30,10 @@ passport.use('local', new LocalStrategy({
       .then((result) => {
         const user = result && result.rows && result.rows[0];
         if (user && encryptLib.comparePassword(password, user.password)) {
-          // all good! Passwords match!
           done(null, user);
         } else if (user) {
-          // not good! Passwords don't match!
           done(null, false, { message: 'Incorrect credentials.' });
         } else {
-          // not good! No user with that name
           done(null, false);
         }
       }).catch((err) => {

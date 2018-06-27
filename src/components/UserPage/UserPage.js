@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-
 import Nav from '../../components/Nav/Nav';
 
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import Button from '@material-ui/core/Button';
-
 
 const mapStateToProps = state => ({
   user: state.user,
@@ -21,14 +19,14 @@ class UserPage extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
+    if (!this.props.user.isLoading && (this.props.user.userName === null || this.props.user.userRole !== 'admin' )) { 
       this.props.history.push('home');
     }
   }
 
   logout = () => {
     this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
+    this.props.history.push('home');
   }
 
   sendUserToCorrespondingPage = (urlString) => {
@@ -36,7 +34,6 @@ class UserPage extends Component {
       this.props.history.push(urlString);
     }
   };
-
 
   render() {
     let content = null;
@@ -67,7 +64,6 @@ class UserPage extends Component {
             <Button id="politics" variant="raised" onClick={this.sendUserToCorrespondingPage('/politics')}>Politics</Button>
             <Button id="tech" variant="raised" onClick={this.sendUserToCorrespondingPage('/technology')}>Technology</Button>
 
-
           </div>
         </div>
       );
@@ -82,6 +78,4 @@ class UserPage extends Component {
   }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(UserPage);
-

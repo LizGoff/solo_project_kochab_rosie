@@ -10,7 +10,6 @@ class GalleryItem extends Component {
     }
 
     clickHandleClick = (event) => {
-        // click on photo 
         console.log('clicked', this.state);
         this.setState(
             { listDescription: !this.state.listDescription }
@@ -39,9 +38,6 @@ class GalleryItem extends Component {
                 <Button variant="raised" onClick={this.clickHandleClick}>
                     {detailsToShow}
                 </Button>
-                {/* TO DO */}
-                {/* <p className="likes-count">{this.props.itemInfo.likes}</p>
-                    <Button id="favoriteButton" variant="raised" onClick={this.handleLikesClick}>Favorite</Button> */}
             </div>
         );
     }
