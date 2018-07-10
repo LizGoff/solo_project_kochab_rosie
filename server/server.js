@@ -14,7 +14,7 @@ const conversation = require('./routes/convo.router');
 const resource = require('./routes/resource.router');
 const subtopic = require('./routes/subtopics.router');
 var gallery = require('./routes/gallery.router.js');
-
+const admin = require('./routes/admin.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,8 +33,7 @@ app.use('/api/conversation', conversation);
 app.use('/api/resource', resource); 
 app.use('/api/subtopics', subtopic); 
 app.use('/gallery', gallery);
-
-
+app.use('/api/admin', admin); 
 
 // Serve static files
 app.use(express.static('build'));

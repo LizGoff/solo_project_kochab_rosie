@@ -39,6 +39,7 @@ import ArtsSub from './components/SubTopics/WomenInArtsSub/WomenInArtsSub';
 import WomenLivingHerstorySub from './components/SubTopics/WomenLivingHerstorySub/WomenLivingHerstorySub';
 import WomensHistorySub from './components/SubTopics/WomensHistorySub/WomensHistorySub';
 import HealthSub from './components/SubTopics/WomensHealthSub/WomensHealthSub';
+import AdminPage from './components/AdminPage/AdminPage';
 
 
 import './styles/main.css';
@@ -52,6 +53,10 @@ const App = () => (
     <Router>
       <Switch>
         <Redirect exact from="/" to="/home" />
+        <Route
+          path="/admin"
+          component={AdminPage}
+        />
         <Route
           path="/home"
           component={LoginPage}
