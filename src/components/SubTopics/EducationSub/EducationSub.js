@@ -37,7 +37,7 @@ class EducationSub extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
+    if (!this.props.user.isLoading && (this.props.user.userName === null || this.props.user.userRole !== 'admin' )) { 
       this.props.history.push('home');
     }
   }
@@ -195,7 +195,6 @@ class EducationSub extends Component {
                           : ''}
 
                         <Button id="convoTopic">{comments.comment}</Button>
-                        {/* <Button id="userNameInConvos">{this.props.user.userName}</Button> */}
                       </li>
                     ))}
                   </ul>

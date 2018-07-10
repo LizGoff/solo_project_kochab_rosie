@@ -12,7 +12,6 @@ const mapStateToProps = state => ({
 class LoginPage extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       username: '',
       password: '',
@@ -22,7 +21,6 @@ class LoginPage extends Component {
   componentDidMount() {
     this.props.dispatch(clearError());
   }
-
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.userName) {

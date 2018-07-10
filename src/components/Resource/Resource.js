@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-
 import Nav from '../../components/Nav/Nav';
 
 const mapStateToProps = state => ({
@@ -15,7 +14,6 @@ class ResourcePage extends Component {
     super(props);
     this.state = {
       resourceHelp: [],
-
     }
   }
 
@@ -29,7 +27,7 @@ class ResourcePage extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
+    if (!this.props.user.isLoading && (this.props.user.userName === null || this.props.user.userRole !== 'admin' )) { 
       this.props.history.push('home');
     }
   }

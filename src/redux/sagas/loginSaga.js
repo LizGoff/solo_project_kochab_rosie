@@ -3,7 +3,6 @@ import { LOGIN_ACTIONS } from '../actions/loginActions';
 import { USER_ACTIONS } from '../actions/userActions';
 import { callLogin, callLogout } from '../requests/loginRequests';
 
-// worker Saga: will be fired on "LOGIN" actions
 function* loginUser(action) {
   try {
     yield put({ type: LOGIN_ACTIONS.CLEAR_LOGIN_ERROR });
@@ -14,6 +13,9 @@ function* loginUser(action) {
     });
     yield put({
       type: USER_ACTIONS.FETCH_USER,
+    });
+    yield put({
+      type: USER_ACTIONS.REQUEST_DONE,
     });
   } catch (error) {
     yield put({

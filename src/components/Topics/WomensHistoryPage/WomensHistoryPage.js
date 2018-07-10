@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import Nav from '../../Nav/Nav';
-import { USER_ACTIONS } from '../../../redux/actions/userActions';
 import GalleryList from '../GalleryList/GalleryList';
 
 
@@ -35,21 +34,6 @@ class WomensHistoryPage extends Component {
       })
   }
 
-  // TO DO
-
-  // addLike = (item) => {
-  //   console.log('adding likes', item);
-  //   axios.put(`/gallery/like/${item.id}`)
-
-  //     .then((response) => {
-  //       console.log('put response', response);
-  //       this.getFromGalleryItems();
-  //     })
-  //     .catch((error) => {
-  //       console.log('put/add error in addLike', error);
-  //     });
-  // }
-
   render() {
     let content = null
     if (this.props.user.userName) {
@@ -61,8 +45,6 @@ class WomensHistoryPage extends Component {
             <h2>Women in our history</h2>
             <div>
               <GalleryList galleryItems={this.state.galleryItems} />
-              {/* To Do */}
-              {/* addLike={this.addLike} */}
             </div>
           </div>
         </div>

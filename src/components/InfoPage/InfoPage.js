@@ -13,7 +13,7 @@ class InfoPage extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
+    if (!this.props.user.isLoading && this.props.user.userName === null || this.props.user.userRole !== 'admin') {
       this.props.history.push('home');
     }
   }
@@ -48,5 +48,4 @@ class InfoPage extends Component {
   }
 }
 
-// this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(InfoPage);

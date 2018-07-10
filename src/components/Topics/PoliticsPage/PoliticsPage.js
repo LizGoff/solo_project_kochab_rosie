@@ -13,6 +13,8 @@ const mapStateToProps = state => ({
   user: state.user,
 });
 
+// TO DO
+// Add Reducers and Sagas
 class PoliticsPage extends Component {
   constructor(props) {
     super(props);
@@ -33,7 +35,7 @@ class PoliticsPage extends Component {
   }
 
   componentDidUpdate() {
-    if (!this.props.user.isLoading && this.props.user.userName === null) {
+    if (!this.props.user.isLoading && (this.props.user.userName === null || this.props.user.userRole !== 'admin' )) { 
       this.props.history.push('home');
     }
   }
@@ -140,6 +142,9 @@ class PoliticsPage extends Component {
     })
   }
 
+  // TO DO 
+  // Add form for all repeat pages to reduce code n files
+
   render() {
     let content = null
     let buttonDisplayed = <Button id="addSubtopicButton" variant="outlined" color="secondary" onClick={this.sendData}>Add subtopic</Button>
@@ -215,4 +220,3 @@ class PoliticsPage extends Component {
 }
 
 export default connect(mapStateToProps)(PoliticsPage);
-
