@@ -8,15 +8,15 @@ function* fetchUser() {
     yield put({ type: USER_ACTIONS.REQUEST_START });
     const user = yield callUser();
     yield put({
+      type: USER_ACTIONS.SET_USER_ROLE,
+      user,
+    });
+    yield put({
       type: USER_ACTIONS.SET_USER,
       user,
     });
     yield put({
       type: USER_ACTIONS.SET_USER_ID,
-      user,
-    });
-    yield put({
-      type: USER_ACTIONS.SET_USER_ROLE,
       user,
     });
     yield put({

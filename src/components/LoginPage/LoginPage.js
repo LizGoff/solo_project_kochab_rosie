@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { triggerLogin, formError, clearError } from '../../redux/actions/loginActions';
+import { USER_ACTIONS } from '../../redux/actions/userActions';
 
 
 const mapStateToProps = state => ({
@@ -20,13 +21,20 @@ class LoginPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch(clearError());
+    this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
+    // this.props.dispatch(clearError());
   }
 
-
+  // This happens after the user logs in
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.userName) {
-      this.props.history.push('home');
+      // if admin vs not
+      console.log(nextProps.user);
+      if(nextProps.user.userRole === 'admin' ) {
+        this.props.history.push('admin');
+      } else {
+        this.props.history.push('user');
+      }
     }
   }
 
